@@ -112,97 +112,143 @@ function Index() {
   return (
     <div className="min-h-screen bg-surface font-sans text-slate-900 overflow-x-hidden">
       {/* Nav */}
-      <nav className="sticky top-0 z-50 px-6 md:px-10 py-5 flex justify-between items-center bg-surface/85 backdrop-blur-md border-b border-slate-900/5">
-        <a href="#top" className="flex items-center gap-2.5">
-          <div className="size-9 rounded-full bg-gradient-to-tr from-lumen-purple via-lumen-pink to-lumen-orange shadow-md shadow-lumen-purple/30" />
-          <span className="font-display text-xl font-extrabold tracking-tight">LUMEN</span>
-          <span className="hidden sm:inline text-xs font-semibold tracking-[0.2em] uppercase text-slate-400 ml-1">Telepsych</span>
+      <nav className="sticky top-0 z-50 px-6 md:px-10 py-4 flex justify-between items-center bg-gradient-to-r from-lumen-purple/95 via-lumen-pink/90 to-lumen-orange/95 backdrop-blur-md text-white">
+        <a href="#top" className="flex items-center gap-3">
+          <div className="size-9 rounded-full bg-white/25 ring-2 ring-white/60 backdrop-blur flex items-center justify-center">
+            <Sparkle className="size-4 text-white" />
+          </div>
+          <span className="font-display text-xl md:text-2xl font-extrabold tracking-[0.18em]">LUMEN</span>
         </a>
-        <div className="hidden md:flex gap-9 font-medium text-sm">
-          <a href="#vibe" className="hover:text-lumen-orange transition-colors">The Vibe</a>
-          <a href="#treatments" className="hover:text-lumen-purple transition-colors">What We Treat</a>
-          <a href="#chelsea" className="hover:text-lumen-teal transition-colors">About Chelsea</a>
-          <a href="#reviews" className="hover:text-lumen-pink transition-colors">Reviews</a>
-          <a href="#faq" className="hover:text-lumen-orange transition-colors">FAQ</a>
+        <div className="hidden md:flex gap-8 font-semibold text-sm tracking-wide uppercase">
+          <a href="#about" className="hover:text-lumen-yellow transition-colors">About</a>
+          <a href="#approach" className="hover:text-lumen-yellow transition-colors">Approach</a>
+          <a href="#treatments" className="hover:text-lumen-yellow transition-colors">Services</a>
+          <a href="#chelsea" className="hover:text-lumen-yellow transition-colors">Provider</a>
+          <a href="#reviews" className="hover:text-lumen-yellow transition-colors">Reviews</a>
+          <a href="#faq" className="hover:text-lumen-yellow transition-colors">FAQ</a>
         </div>
         <a
           href="sms:+16155884249"
-          className="px-5 py-2.5 bg-slate-900 text-white rounded-full text-sm font-semibold hover:scale-[1.03] transition-transform"
+          className="px-5 py-2.5 bg-white text-lumen-pink rounded-full text-xs md:text-sm font-extrabold uppercase tracking-wider hover:bg-lumen-yellow hover:text-slate-900 transition-colors shadow-lg"
         >
-          Text to book
+          Get Started
         </a>
       </nav>
 
-      {/* Hero */}
-      <header id="top" className="relative px-6 md:px-10 pt-12 md:pt-16 pb-24 overflow-hidden">
-        <div className="absolute -top-20 -left-20 size-[500px] bg-lumen-purple/25 blur-[120px] rounded-full -z-10" />
-        <div className="absolute top-40 -right-20 size-[400px] bg-lumen-orange/25 blur-[120px] rounded-full -z-10" />
-        <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center gap-16">
-            <div className="flex-1 relative z-10">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-lumen-yellow rounded-full text-xs font-bold tracking-wider mb-6 uppercase">
-                <span className="relative flex size-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-500 opacity-75" />
-                  <span className="relative inline-flex rounded-full size-2 bg-orange-500" />
-                </span>
-                Now serving WA + TN
-              </span>
-              <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-extrabold leading-[0.92] mb-8 tracking-tight">
-                Bring back{" "}
-                <span className="italic">your</span>{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-lumen-purple via-lumen-pink to-lumen-orange">
-                  sparkle.
-                </span>
-              </h1>
-              <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-xl">
-                Virtual telepsychiatry that feels like a real conversation.
-                Collaborative, intuitive, lifespan-wide care from a PMHNP who actually listens —
-                and isn't afraid to say what needs to be said.
-              </p>
-              <div className="flex flex-wrap gap-4 items-center">
-                <a
-                  href="sms:+16155884249"
-                  className="px-7 py-4 bg-gradient-to-r from-lumen-purple to-lumen-orange text-white rounded-2xl font-bold text-base md:text-lg shadow-xl shadow-lumen-purple/30 hover:shadow-2xl hover:-translate-y-0.5 transition-all"
-                >
-                  Text 615-588-4249
-                </a>
-                <div className="flex items-center gap-3 px-5 py-3.5 bg-white border-2 border-slate-100 rounded-2xl">
-                  <div className="flex -space-x-2">
-                    <div className="size-8 rounded-full bg-lumen-teal border-2 border-white" />
-                    <div className="size-8 rounded-full bg-lumen-yellow border-2 border-white" />
-                    <div className="size-8 rounded-full bg-lumen-pink border-2 border-white" />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-sm font-bold leading-tight">5.0 · 47 reviews</p>
-                    <p className="text-xs text-slate-500 leading-tight">Verified patients</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex-1 relative w-full max-w-md">
-              <div className="absolute -top-10 -right-10 size-64 bg-lumen-purple/30 blur-3xl rounded-full" />
-              <div className="absolute -bottom-10 -left-10 size-64 bg-lumen-orange/30 blur-3xl rounded-full" />
-              <div className="relative rounded-[2rem] overflow-hidden border-8 border-white shadow-2xl rotate-2">
-                <img
-                  src={chelseaImg}
-                  alt="Chelsea Johnson, PMHNP-BC, founder of Lumen Telepsych"
-                  width={1024}
-                  height={1280}
-                  className="w-full aspect-[4/5] object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-4 -right-4 bg-white px-4 py-3 rounded-2xl shadow-xl rotate-3 border border-slate-100 flex items-center gap-2">
-                <Sparkle className="size-4 text-lumen-orange" />
-                <p className="text-xs font-bold">PMHNP-BC · ANCC</p>
-              </div>
-            </div>
+      {/* Hero — wide rounded banner with overlay text */}
+      <header id="top" className="px-4 md:px-6 pt-4 md:pt-6">
+        <div className="relative w-full h-[420px] md:h-[560px] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden shadow-xl">
+          {/* Vivid mesh background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-lumen-purple via-lumen-pink to-lumen-orange" />
+          <div className="absolute -top-20 -left-20 size-[480px] bg-lumen-yellow/50 blur-[110px] rounded-full" />
+          <div className="absolute -bottom-20 -right-10 size-[460px] bg-lumen-teal/45 blur-[120px] rounded-full" />
+          <div className="absolute top-1/3 left-1/2 size-[380px] bg-fuchsia-400/40 blur-[120px] rounded-full -translate-x-1/2" />
+          {/* Sparkles */}
+          <Sparkle className="absolute top-10 left-10 size-6 text-white/70" />
+          <Sparkle className="absolute top-20 right-16 size-4 text-lumen-yellow" />
+          <Sparkle className="absolute bottom-16 left-1/4 size-5 text-white/60" />
+          <Sparkle className="absolute bottom-24 right-1/3 size-7 text-lumen-yellow/80" />
+          {/* Content */}
+          <div className="relative h-full flex flex-col items-center justify-center text-center text-white px-6">
+            <p className="font-display text-sm md:text-base tracking-[0.35em] uppercase mb-5 text-white/90">
+              Lumen Telepsych
+            </p>
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-extrabold leading-[0.95] max-w-4xl drop-shadow-md">
+              Virtual Psychiatry for{" "}
+              <span className="italic font-bold">Washington</span> &{" "}
+              <span className="italic font-bold">Tennessee</span>
+            </h1>
+            <p className="font-display italic text-2xl md:text-4xl mt-6 text-lumen-yellow drop-shadow">
+              Bring back your sparkle.
+            </p>
           </div>
         </div>
       </header>
 
-      {/* The Vibe / Patient as Main Character */}
-      <section id="vibe" className="py-24 px-6 md:px-10 bg-slate-900 text-white relative overflow-hidden">
+      {/* Intro paragraph — She Blooms style */}
+      <section id="about" className="py-20 md:py-24 px-6 md:px-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="font-display text-3xl md:text-5xl font-extrabold mb-3 text-lumen-pink">
+            Psychiatric Care That Actually Feels Human.
+          </h2>
+          <h3 className="font-display text-xl md:text-2xl text-slate-700 italic mb-8">
+            You're living through a season most people can't understand. Here, you don't have to explain yourself.
+          </h3>
+          <p className="text-lg text-slate-700 leading-relaxed">
+            Lumen Telepsych is a virtual psychiatric practice founded by Chelsea Johnson, PMHNP-BC,
+            serving patients across Washington and Tennessee. We offer thoughtful medication
+            management and lifestyle planning across the full lifespan — adolescent through
+            geriatric — in a setting that feels less like a clinic and more like a real
+            conversation. Care is collaborative, intuitive, and grounded in years of clinical
+            experience across detox, forensic, mood disorder, adolescent, and geriatric settings.
+          </p>
+        </div>
+      </section>
+
+      {/* Why Choose Lumen — 3 column cards */}
+      <section id="approach" className="pb-20 md:pb-28 px-6 md:px-10">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-14">
+            <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-orange font-bold">
+              Why patients choose Lumen
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl font-extrabold mt-4">
+              Care that <span className="italic text-lumen-purple">meets you where you are.</span>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                title: "Lifespan Psychiatry",
+                body: "From adolescence through geriatric care, we treat the full spectrum — anxiety, depression, ADHD, bipolar, postpartum, sleep, and more. Years of inpatient, outpatient, and high-acuity experience inform every visit.",
+                link: "Services",
+                href: "#treatments",
+                bg: "bg-lumen-purple/15",
+                text: "text-lumen-purple",
+                btn: "bg-lumen-purple",
+              },
+              {
+                title: "Collaborative Medication Management",
+                body: "Treatment plans aren't handed down from a mountain — they're built side-by-side. Your goals lead. Brilliant clinical instinct fills in the map. Every decision is made with you, not for you.",
+                link: "Med Management",
+                href: "#chelsea",
+                bg: "bg-lumen-pink/20",
+                text: "text-pink-700",
+                btn: "bg-lumen-pink",
+              },
+              {
+                title: "Flexible Support for Real Life",
+                body: "Life is already demanding — mental health care shouldn't add to it. Meet from your couch, your car, or your closet floor. Direct provider access between visits. Same Chelsea, every time.",
+                link: "Get Started",
+                href: "sms:+16155884249",
+                bg: "bg-lumen-orange/25",
+                text: "text-orange-700",
+                btn: "bg-lumen-orange",
+              },
+            ].map((c) => (
+              <div
+                key={c.title}
+                className={`p-8 rounded-[2rem] ${c.bg} flex flex-col`}
+              >
+                <Sparkle className={`size-7 ${c.text} mb-5`} />
+                <h3 className="font-display text-2xl font-extrabold mb-4 leading-tight">
+                  {c.title}
+                </h3>
+                <p className="text-slate-700 leading-relaxed mb-7 flex-1">{c.body}</p>
+                <a
+                  href={c.href}
+                  className={`inline-block self-start px-6 py-2.5 ${c.btn} text-white rounded-full text-sm font-bold uppercase tracking-wider hover:opacity-90 transition-opacity`}
+                >
+                  {c.link}
+                </a>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Approach / Patient as Main Character */}
+      <section className="py-24 px-6 md:px-10 bg-slate-900 text-white relative overflow-hidden">
         <Sparkle className="absolute top-12 left-12 size-6 text-lumen-yellow opacity-60" />
         <Sparkle className="absolute bottom-20 right-20 size-8 text-lumen-pink opacity-50" />
         <Sparkle className="absolute top-1/2 right-10 size-4 text-lumen-teal opacity-60" />
