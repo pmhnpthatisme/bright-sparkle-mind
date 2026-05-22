@@ -1,7 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import chelseaImg from "@/assets/chelsea.jpg";
-import waImg from "@/assets/wa-landscape.jpg";
-import tnImg from "@/assets/tn-landscape.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -17,7 +15,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Virtual psychiatric care that feels like texting your smartest friend. WA + TN. Aetna + self-pay.",
+          "Virtual psychiatric care that meets you where you are. WA + TN.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -90,15 +88,11 @@ const FAQS = [
   },
   {
     q: "Do you accept insurance?",
-    a: "Yes — we're in-network with Aetna. Self-pay is also available, and sliding scale options are offered for qualifying clients.",
+    a: "Please contact the office to verify whether you are in network. We are currently undergoing the credentialing process to be in network with major insurance plans.",
   },
   {
     q: "How fast can I be seen?",
     a: "Same-day and next-week appointments are usually available. Text 615-588-4249 and we'll find you a time that works.",
-  },
-  {
-    q: "What does membership include?",
-    a: "Direct 24/7 text access to your PMHNP, one monthly wellness follow-up, medication management and refills, and consistent care with the same provider every visit.",
   },
   {
     q: "What ages do you treat?",
@@ -161,7 +155,7 @@ function Index() {
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-xl">
-                Virtual telepsychiatry that feels like texting your smartest friend.
+                Virtual telepsychiatry that feels like a real conversation.
                 Collaborative, intuitive, lifespan-wide care from a PMHNP who actually listens —
                 and isn't afraid to say what needs to be said.
               </p>
@@ -198,16 +192,6 @@ function Index() {
                   className="w-full aspect-[4/5] object-cover"
                 />
               </div>
-              <div className="absolute -top-3 -left-4 bg-white px-4 py-3 rounded-2xl shadow-xl -rotate-6 border border-slate-100">
-                <p className="text-[10px] font-bold text-lumen-purple uppercase tracking-widest">
-                  Mood Bloom
-                </p>
-                <div className="flex gap-1 mt-1.5">
-                  <div className="h-1.5 w-6 bg-lumen-teal rounded-full" />
-                  <div className="h-1.5 w-3 bg-lumen-pink rounded-full" />
-                  <div className="h-1.5 w-4 bg-lumen-yellow rounded-full" />
-                </div>
-              </div>
               <div className="absolute -bottom-4 -right-4 bg-white px-4 py-3 rounded-2xl shadow-xl rotate-3 border border-slate-100 flex items-center gap-2">
                 <Sparkle className="size-4 text-lumen-orange" />
                 <p className="text-xs font-bold">PMHNP-BC · ANCC</p>
@@ -233,10 +217,10 @@ function Index() {
             </span>
           </h2>
           <p className="text-lg md:text-xl text-slate-300 leading-relaxed mb-14 max-w-3xl mx-auto">
-            Treatment plans shouldn't be handed down from a mountain. They're built side-by-side, while
-            you drive. Chelsea brings a toolkit forged in detox units, forensic settings, mood disorder
-            clinics, adolescent wards, and geriatric care — you bring the expertise on your own life.
-            Together you make the plan.
+            Treatment plans shouldn't be handed down from a mountain — they're built side-by-side.
+            Chelsea brings deep clinical experience, expertise, and diagnostic accuracy from years of
+            practice across the full lifespan. You bring the expertise on your own life. Together you
+            make the plan.
           </p>
 
           <div className="grid md:grid-cols-3 gap-5 text-left">
@@ -256,8 +240,8 @@ function Index() {
               </div>
               <h3 className="font-display text-xl font-bold mb-2">Collaborative, not handed down</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
-                Your goals lead. Brilliant clinical instinct fills in the map. No black-box prescribing,
-                no being left in the dark about your own care.
+                Your goals lead. Brilliant clinical instinct fills in the map. You'll never be left
+                in the dark about your own care — every decision is made with you, not for you.
               </p>
             </div>
             <div className="p-7 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-colors">
@@ -309,41 +293,25 @@ function Index() {
           <div className="grid md:grid-cols-2 gap-16 lg:gap-20 items-center">
             <div className="order-2 md:order-1">
               <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-4">
-                  <img
-                    src={waImg}
-                    alt="Washington state sunset"
-                    loading="lazy"
-                    width={768}
-                    height={960}
-                    className="w-full aspect-[4/5] object-cover rounded-3xl shadow-md"
-                  />
-                  <div className="p-5 bg-lumen-yellow/40 rounded-3xl">
-                    <p className="font-bold text-base">Forensic & Competency</p>
-                    <p className="text-xs opacity-70 mt-1">High-acuity clinical experience</p>
-                  </div>
-                  <div className="p-5 bg-lumen-teal/20 rounded-3xl">
-                    <p className="font-bold text-base">Detox & Inpatient</p>
-                    <p className="text-xs opacity-70 mt-1">Every level of care</p>
-                  </div>
+                <div className="p-6 bg-lumen-yellow/40 rounded-3xl">
+                  <p className="font-bold text-base">Forensic & Competency</p>
+                  <p className="text-xs opacity-70 mt-1">High-acuity clinical experience</p>
                 </div>
-                <div className="space-y-4 pt-12">
-                  <div className="p-5 bg-lumen-purple/25 rounded-3xl">
-                    <p className="font-bold text-base">Adolescent Care</p>
-                    <p className="text-xs opacity-70 mt-1">Compassionate youth guidance</p>
-                  </div>
-                  <img
-                    src={tnImg}
-                    alt="Tennessee skyline at golden hour"
-                    loading="lazy"
-                    width={768}
-                    height={960}
-                    className="w-full aspect-[4/5] object-cover rounded-3xl shadow-md"
-                  />
-                  <div className="p-5 bg-lumen-orange/25 rounded-3xl">
-                    <p className="font-bold text-base">Geriatric Psych</p>
-                    <p className="text-xs opacity-70 mt-1">Across the full lifespan</p>
-                  </div>
+                <div className="p-6 bg-lumen-purple/25 rounded-3xl">
+                  <p className="font-bold text-base">Adolescent Care</p>
+                  <p className="text-xs opacity-70 mt-1">Compassionate youth guidance</p>
+                </div>
+                <div className="p-6 bg-lumen-teal/20 rounded-3xl">
+                  <p className="font-bold text-base">Detox & Inpatient</p>
+                  <p className="text-xs opacity-70 mt-1">Every level of care</p>
+                </div>
+                <div className="p-6 bg-lumen-orange/25 rounded-3xl">
+                  <p className="font-bold text-base">Geriatric Psych</p>
+                  <p className="text-xs opacity-70 mt-1">Across the full lifespan</p>
+                </div>
+                <div className="p-6 bg-lumen-pink/20 rounded-3xl col-span-2">
+                  <p className="font-bold text-base">Mood Disorder Clinics</p>
+                  <p className="text-xs opacity-70 mt-1">Inpatient & outpatient experience nationwide</p>
                 </div>
               </div>
             </div>
@@ -365,11 +333,12 @@ function Index() {
                 adolescent and geriatric units, and inpatient and outpatient programs nationwide.
               </p>
               <p className="text-lg text-slate-700 mb-8 leading-relaxed">
-                The slogan isn't just for patients — it's her story too. Nobody believed in her, and
-                here she is. Nobody dimmed her light. She's here to help you protect yours.
+                Bringing back your sparkle is what gets her out of bed in the morning. Watching
+                patients reconnect with the version of themselves they were starting to miss — that's
+                the whole point. Your light is worth protecting, and she's honored to help you do it.
               </p>
 
-              <div className="grid grid-cols-2 gap-4 mb-8">
+              <div className="grid grid-cols-2 gap-4">
                 <div className="p-4 bg-white rounded-2xl border border-slate-100">
                   <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">Certification</p>
                   <p className="font-bold mt-1">ANCC PMHNP-BC</p>
@@ -378,23 +347,7 @@ function Index() {
                   <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">Education</p>
                   <p className="font-bold mt-1">Univ. of South Alabama</p>
                 </div>
-                <div className="p-4 bg-white rounded-2xl border border-slate-100">
-                  <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">Member</p>
-                  <p className="font-bold mt-1">American Psychiatric Assn.</p>
-                </div>
-                <div className="p-4 bg-white rounded-2xl border border-slate-100">
-                  <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">NPI</p>
-                  <p className="font-bold mt-1">1194572719</p>
-                </div>
               </div>
-
-              <blockquote className="p-6 bg-gradient-to-br from-lumen-purple/15 to-lumen-orange/15 rounded-3xl border-l-4 border-lumen-pink">
-                <p className="font-display italic text-xl text-slate-800 leading-snug">
-                  "Patients tell me all the time they didn't plan to share something — but they did,
-                  because they finally felt safe. That info is usually the key to a plan that actually works."
-                </p>
-                <p className="text-sm font-bold mt-3 text-slate-600">— Chelsea, PMHNP</p>
-              </blockquote>
             </div>
           </div>
         </div>
@@ -408,31 +361,38 @@ function Index() {
               How it works
             </span>
             <h2 className="font-display text-5xl md:text-6xl font-extrabold mt-4 leading-tight">
-              Three steps. No phone trees.
+              Simple from day one.
             </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 n: "01",
                 bg: "bg-lumen-purple/15",
                 t: "text-lumen-purple",
-                title: "Text to start",
-                body: "Send a text to 615-588-4249. A human writes back. No 14-tab intake form to fight through.",
+                title: "Reach out & book",
+                body: "Text, call, or book directly on our platforms. A human writes back — we'll find a time that works.",
               },
               {
                 n: "02",
                 bg: "bg-lumen-orange/20",
                 t: "text-orange-700",
-                title: "Meet on video",
-                body: "HIPAA-secure visit from anywhere in WA or TN. We build your plan together — no surprises.",
+                title: "Complete your packet",
+                body: "Fill out a short informative intake packet so we can prepare to give you the best possible care.",
               },
               {
                 n: "03",
                 bg: "bg-lumen-teal/20",
                 t: "text-teal-700",
-                title: "Stay in touch 24/7",
-                body: "Direct text access to your provider between visits. Same Chelsea, every time.",
+                title: "Have your session",
+                body: "Meet on a HIPAA-secure video visit where you feel comfortable, prioritized, and actually heard.",
+              },
+              {
+                n: "04",
+                bg: "bg-lumen-pink/20",
+                t: "text-pink-700",
+                title: "Stay in touch",
+                body: "Direct provider access between visits. If you need us, we're here — same Chelsea, every time.",
               },
             ].map((s) => (
               <div
@@ -465,7 +425,7 @@ function Index() {
               5.0 across <span className="italic text-lumen-pink">47</span> verified reviews.
             </h2>
             <p className="text-slate-700 mt-4 max-w-2xl mx-auto">
-              Bedside manner: 5.00 · Wait time: 4.97. Providers can't pay to alter or remove reviews.
+              Bedside manner: 5.00 · Wait time: 4.97.
             </p>
           </div>
 
@@ -504,22 +464,8 @@ function Index() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-9 bg-white rounded-[2rem] border border-slate-100 shadow-sm">
-              <p className="text-xs uppercase tracking-widest text-slate-500 font-bold mb-3">Pay-as-you-go</p>
-              <h3 className="font-display text-3xl font-bold mb-5">Standard visits</h3>
-              <ul className="space-y-3 text-slate-700 mb-8">
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-orange shrink-0 mt-1.5" /> Initial psychiatric consultation</li>
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-orange shrink-0 mt-1.5" /> Medication management & refills</li>
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-orange shrink-0 mt-1.5" /> Aetna in-network or self-pay</li>
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-orange shrink-0 mt-1.5" /> Sliding scale for qualifying clients</li>
-              </ul>
-              <a href="sms:+16155884249" className="block w-full text-center py-3.5 bg-slate-100 rounded-2xl font-bold hover:bg-slate-200 transition-colors">
-                Ask about rates
-              </a>
-            </div>
-
-            <div className="p-9 rounded-[2rem] bg-gradient-to-br from-lumen-purple via-lumen-pink to-lumen-orange text-white shadow-2xl shadow-lumen-purple/30 relative overflow-hidden">
+          <div className="max-w-2xl mx-auto">
+            <div className="p-9 md:p-12 rounded-[2rem] bg-gradient-to-br from-lumen-purple via-lumen-pink to-lumen-orange text-white shadow-2xl shadow-lumen-purple/30 relative overflow-hidden">
               <span className="absolute top-5 right-5 bg-lumen-yellow text-slate-900 text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full">
                 Most popular
               </span>
