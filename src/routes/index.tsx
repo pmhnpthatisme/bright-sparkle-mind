@@ -157,7 +157,7 @@ function Index() {
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-xl">
-                Virtual telepsychiatry that feels like texting your smartest friend.
+                Virtual telepsychiatry that feels like a real conversation.
                 Collaborative, intuitive, lifespan-wide care from a PMHNP who actually listens —
                 and isn't afraid to say what needs to be said.
               </p>
@@ -193,16 +193,6 @@ function Index() {
                   height={1280}
                   className="w-full aspect-[4/5] object-cover"
                 />
-              </div>
-              <div className="absolute -top-3 -left-4 bg-white px-4 py-3 rounded-2xl shadow-xl -rotate-6 border border-slate-100">
-                <p className="text-[10px] font-bold text-lumen-purple uppercase tracking-widest">
-                  Mood Bloom
-                </p>
-                <div className="flex gap-1 mt-1.5">
-                  <div className="h-1.5 w-6 bg-lumen-teal rounded-full" />
-                  <div className="h-1.5 w-3 bg-lumen-pink rounded-full" />
-                  <div className="h-1.5 w-4 bg-lumen-yellow rounded-full" />
-                </div>
               </div>
               <div className="absolute -bottom-4 -right-4 bg-white px-4 py-3 rounded-2xl shadow-xl rotate-3 border border-slate-100 flex items-center gap-2">
                 <Sparkle className="size-4 text-lumen-orange" />
