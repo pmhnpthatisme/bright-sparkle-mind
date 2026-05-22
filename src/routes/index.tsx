@@ -219,10 +219,10 @@ function Index() {
             </span>
           </h2>
           <p className="text-lg md:text-xl text-slate-300 leading-relaxed mb-14 max-w-3xl mx-auto">
-            Treatment plans shouldn't be handed down from a mountain. They're built side-by-side, while
-            you drive. Chelsea brings a toolkit forged in detox units, forensic settings, mood disorder
-            clinics, adolescent wards, and geriatric care — you bring the expertise on your own life.
-            Together you make the plan.
+            Treatment plans shouldn't be handed down from a mountain — they're built side-by-side.
+            Chelsea brings deep clinical experience, expertise, and diagnostic accuracy from years of
+            practice across the full lifespan. You bring the expertise on your own life. Together you
+            make the plan.
           </p>
 
           <div className="grid md:grid-cols-3 gap-5 text-left">
@@ -242,8 +242,8 @@ function Index() {
               </div>
               <h3 className="font-display text-xl font-bold mb-2">Collaborative, not handed down</h3>
               <p className="text-slate-400 text-sm leading-relaxed">
-                Your goals lead. Brilliant clinical instinct fills in the map. No black-box prescribing,
-                no being left in the dark about your own care.
+                Your goals lead. Brilliant clinical instinct fills in the map. You'll never be left
+                in the dark about your own care — every decision is made with you, not for you.
               </p>
             </div>
             <div className="p-7 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-colors">
