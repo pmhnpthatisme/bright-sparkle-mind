@@ -361,31 +361,38 @@ function Index() {
               How it works
             </span>
             <h2 className="font-display text-5xl md:text-6xl font-extrabold mt-4 leading-tight">
-              Three steps. No phone trees.
+              Simple from day one.
             </h2>
           </div>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
                 n: "01",
                 bg: "bg-lumen-purple/15",
                 t: "text-lumen-purple",
-                title: "Text to start",
-                body: "Send a text to 615-588-4249. A human writes back. No 14-tab intake form to fight through.",
+                title: "Reach out & book",
+                body: "Text, call, or book directly on our platforms. A human writes back — we'll find a time that works.",
               },
               {
                 n: "02",
                 bg: "bg-lumen-orange/20",
                 t: "text-orange-700",
-                title: "Meet on video",
-                body: "HIPAA-secure visit from anywhere in WA or TN. We build your plan together — no surprises.",
+                title: "Complete your packet",
+                body: "Fill out a short informative intake packet so we can prepare to give you the best possible care.",
               },
               {
                 n: "03",
                 bg: "bg-lumen-teal/20",
                 t: "text-teal-700",
-                title: "Stay in touch 24/7",
-                body: "Direct text access to your provider between visits. Same Chelsea, every time.",
+                title: "Have your session",
+                body: "Meet on a HIPAA-secure video visit where you feel comfortable, prioritized, and actually heard.",
+              },
+              {
+                n: "04",
+                bg: "bg-lumen-pink/20",
+                t: "text-pink-700",
+                title: "Stay in touch",
+                body: "Direct provider access between visits. If you need us, we're here — same Chelsea, every time.",
               },
             ].map((s) => (
               <div
@@ -418,7 +425,7 @@ function Index() {
               5.0 across <span className="italic text-lumen-pink">47</span> verified reviews.
             </h2>
             <p className="text-slate-700 mt-4 max-w-2xl mx-auto">
-              Bedside manner: 5.00 · Wait time: 4.97. Providers can't pay to alter or remove reviews.
+              Bedside manner: 5.00 · Wait time: 4.97.
             </p>
           </div>
 
@@ -457,22 +464,8 @@ function Index() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-9 bg-white rounded-[2rem] border border-slate-100 shadow-sm">
-              <p className="text-xs uppercase tracking-widest text-slate-500 font-bold mb-3">Pay-as-you-go</p>
-              <h3 className="font-display text-3xl font-bold mb-5">Standard visits</h3>
-              <ul className="space-y-3 text-slate-700 mb-8">
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-orange shrink-0 mt-1.5" /> Initial psychiatric consultation</li>
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-orange shrink-0 mt-1.5" /> Medication management & refills</li>
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-orange shrink-0 mt-1.5" /> Aetna in-network or self-pay</li>
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-orange shrink-0 mt-1.5" /> Sliding scale for qualifying clients</li>
-              </ul>
-              <a href="sms:+16155884249" className="block w-full text-center py-3.5 bg-slate-100 rounded-2xl font-bold hover:bg-slate-200 transition-colors">
-                Ask about rates
-              </a>
-            </div>
-
-            <div className="p-9 rounded-[2rem] bg-gradient-to-br from-lumen-purple via-lumen-pink to-lumen-orange text-white shadow-2xl shadow-lumen-purple/30 relative overflow-hidden">
+          <div className="max-w-2xl mx-auto">
+            <div className="p-9 md:p-12 rounded-[2rem] bg-gradient-to-br from-lumen-purple via-lumen-pink to-lumen-orange text-white shadow-2xl shadow-lumen-purple/30 relative overflow-hidden">
               <span className="absolute top-5 right-5 bg-lumen-yellow text-slate-900 text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full">
                 Most popular
               </span>
