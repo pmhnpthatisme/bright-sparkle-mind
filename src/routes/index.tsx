@@ -333,58 +333,50 @@ function Index() {
         </div>
       </section>
 
-      {/* Meet Chelsea */}
+      {/* Meet Your Provider — She Blooms-style team section */}
       <section id="chelsea" className="py-24 px-6 md:px-10 bg-gradient-to-b from-surface to-lumen-purple/10">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-16 lg:gap-20 items-center">
-            <div className="order-2 md:order-1">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="p-6 bg-lumen-yellow/40 rounded-3xl">
-                  <p className="font-bold text-base">Forensic & Competency</p>
-                  <p className="text-xs opacity-70 mt-1">High-acuity clinical experience</p>
-                </div>
-                <div className="p-6 bg-lumen-purple/25 rounded-3xl">
-                  <p className="font-bold text-base">Adolescent Care</p>
-                  <p className="text-xs opacity-70 mt-1">Compassionate youth guidance</p>
-                </div>
-                <div className="p-6 bg-lumen-teal/20 rounded-3xl">
-                  <p className="font-bold text-base">Detox & Inpatient</p>
-                  <p className="text-xs opacity-70 mt-1">Every level of care</p>
-                </div>
-                <div className="p-6 bg-lumen-orange/25 rounded-3xl">
-                  <p className="font-bold text-base">Geriatric Psych</p>
-                  <p className="text-xs opacity-70 mt-1">Across the full lifespan</p>
-                </div>
-                <div className="p-6 bg-lumen-pink/20 rounded-3xl col-span-2">
-                  <p className="font-bold text-base">Mood Disorder Clinics</p>
-                  <p className="text-xs opacity-70 mt-1">Inpatient & outpatient experience nationwide</p>
-                </div>
+          <div className="text-center mb-14">
+            <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-orange font-bold">
+              Meet your provider
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl font-extrabold mt-4 leading-tight">
+              The brilliant clinician your friends keep <span className="italic text-lumen-pink">talking about.</span>
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center max-w-5xl mx-auto">
+            <div className="relative">
+              <div className="absolute -top-6 -left-6 size-40 bg-lumen-yellow/60 rounded-full blur-2xl" />
+              <div className="absolute -bottom-6 -right-6 size-40 bg-lumen-teal/40 rounded-full blur-2xl" />
+              <div className="relative aspect-square rounded-full overflow-hidden border-[10px] border-white shadow-xl ring-4 ring-lumen-purple/30 max-w-sm mx-auto">
+                <img
+                  src={chelseaImg}
+                  alt="Chelsea Johnson, PMHNP-BC, founder of Lumen Telepsych"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="text-center mt-6">
+                <p className="font-display text-2xl font-extrabold">Chelsea Johnson, PMHNP-BC</p>
+                <p className="text-slate-600 mt-1">Founder · Psychiatric Medication Management</p>
               </div>
             </div>
 
-            <div className="order-1 md:order-2">
-              <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-orange font-bold">
-                Meet your guide
-              </span>
-              <h2 className="font-display text-5xl font-extrabold mt-4 mb-7 leading-tight">
-                She traveled the country so she could{" "}
-                <span className="italic underline decoration-lumen-pink decoration-4 underline-offset-8">
-                  see the full picture.
-                </span>
-              </h2>
+            <div>
               <p className="text-lg text-slate-700 mb-6 leading-relaxed">
-                Chelsea Johnson, PMHNP-BC, is the founder of Lumen Telepsych. She didn't just study
-                psychiatry — she lived it in every corner of the field. As a travel psych nurse she
-                worked across detox, forensic and criminal competency settings, mood disorder clinics,
-                adolescent and geriatric units, and inpatient and outpatient programs nationwide.
+                Chelsea didn't just study psychiatry — she lived it in every corner of the field.
+                As a travel psych nurse she worked across detox, forensic and criminal competency
+                settings, mood disorder clinics, adolescent and geriatric units, and inpatient and
+                outpatient programs nationwide.
               </p>
               <p className="text-lg text-slate-700 mb-8 leading-relaxed">
                 Bringing back your sparkle is what gets her out of bed in the morning. Watching
-                patients reconnect with the version of themselves they were starting to miss — that's
-                the whole point. Your light is worth protecting, and she's honored to help you do it.
+                patients reconnect with the version of themselves they were starting to miss —
+                that's the whole point. Your light is worth protecting, and she's honored to help
+                you do it.
               </p>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3 mb-6">
                 <div className="p-4 bg-white rounded-2xl border border-slate-100">
                   <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">Certification</p>
                   <p className="font-bold mt-1">ANCC PMHNP-BC</p>
@@ -394,6 +386,13 @@ function Index() {
                   <p className="font-bold mt-1">Univ. of South Alabama</p>
                 </div>
               </div>
+
+              <a
+                href="sms:+16155884249"
+                className="inline-block px-7 py-3.5 bg-lumen-pink text-white rounded-full font-extrabold text-sm uppercase tracking-wider hover:bg-lumen-purple transition-colors shadow-lg"
+              >
+                Get to know Chelsea
+              </a>
             </div>
           </div>
         </div>
