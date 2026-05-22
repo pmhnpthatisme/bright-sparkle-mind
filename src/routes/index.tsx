@@ -293,41 +293,25 @@ function Index() {
           <div className="grid md:grid-cols-2 gap-16 lg:gap-20 items-center">
             <div className="order-2 md:order-1">
               <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-4">
-                  <img
-                    src={waImg}
-                    alt="Washington state sunset"
-                    loading="lazy"
-                    width={768}
-                    height={960}
-                    className="w-full aspect-[4/5] object-cover rounded-3xl shadow-md"
-                  />
-                  <div className="p-5 bg-lumen-yellow/40 rounded-3xl">
-                    <p className="font-bold text-base">Forensic & Competency</p>
-                    <p className="text-xs opacity-70 mt-1">High-acuity clinical experience</p>
-                  </div>
-                  <div className="p-5 bg-lumen-teal/20 rounded-3xl">
-                    <p className="font-bold text-base">Detox & Inpatient</p>
-                    <p className="text-xs opacity-70 mt-1">Every level of care</p>
-                  </div>
+                <div className="p-6 bg-lumen-yellow/40 rounded-3xl">
+                  <p className="font-bold text-base">Forensic & Competency</p>
+                  <p className="text-xs opacity-70 mt-1">High-acuity clinical experience</p>
                 </div>
-                <div className="space-y-4 pt-12">
-                  <div className="p-5 bg-lumen-purple/25 rounded-3xl">
-                    <p className="font-bold text-base">Adolescent Care</p>
-                    <p className="text-xs opacity-70 mt-1">Compassionate youth guidance</p>
-                  </div>
-                  <img
-                    src={tnImg}
-                    alt="Tennessee skyline at golden hour"
-                    loading="lazy"
-                    width={768}
-                    height={960}
-                    className="w-full aspect-[4/5] object-cover rounded-3xl shadow-md"
-                  />
-                  <div className="p-5 bg-lumen-orange/25 rounded-3xl">
-                    <p className="font-bold text-base">Geriatric Psych</p>
-                    <p className="text-xs opacity-70 mt-1">Across the full lifespan</p>
-                  </div>
+                <div className="p-6 bg-lumen-purple/25 rounded-3xl">
+                  <p className="font-bold text-base">Adolescent Care</p>
+                  <p className="text-xs opacity-70 mt-1">Compassionate youth guidance</p>
+                </div>
+                <div className="p-6 bg-lumen-teal/20 rounded-3xl">
+                  <p className="font-bold text-base">Detox & Inpatient</p>
+                  <p className="text-xs opacity-70 mt-1">Every level of care</p>
+                </div>
+                <div className="p-6 bg-lumen-orange/25 rounded-3xl">
+                  <p className="font-bold text-base">Geriatric Psych</p>
+                  <p className="text-xs opacity-70 mt-1">Across the full lifespan</p>
+                </div>
+                <div className="p-6 bg-lumen-pink/20 rounded-3xl col-span-2">
+                  <p className="font-bold text-base">Mood Disorder Clinics</p>
+                  <p className="text-xs opacity-70 mt-1">Inpatient & outpatient experience nationwide</p>
                 </div>
               </div>
             </div>
@@ -349,11 +333,12 @@ function Index() {
                 adolescent and geriatric units, and inpatient and outpatient programs nationwide.
               </p>
               <p className="text-lg text-slate-700 mb-8 leading-relaxed">
-                The slogan isn't just for patients — it's her story too. Nobody believed in her, and
-                here she is. Nobody dimmed her light. She's here to help you protect yours.
+                Bringing back your sparkle is what gets her out of bed in the morning. Watching
+                patients reconnect with the version of themselves they were starting to miss — that's
+                the whole point. Your light is worth protecting, and she's honored to help you do it.
               </p>
 
-              <div className="grid grid-cols-2 gap-4 mb-8">
+              <div className="grid grid-cols-2 gap-4">
                 <div className="p-4 bg-white rounded-2xl border border-slate-100">
                   <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">Certification</p>
                   <p className="font-bold mt-1">ANCC PMHNP-BC</p>
@@ -362,23 +347,7 @@ function Index() {
                   <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">Education</p>
                   <p className="font-bold mt-1">Univ. of South Alabama</p>
                 </div>
-                <div className="p-4 bg-white rounded-2xl border border-slate-100">
-                  <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">Member</p>
-                  <p className="font-bold mt-1">American Psychiatric Assn.</p>
-                </div>
-                <div className="p-4 bg-white rounded-2xl border border-slate-100">
-                  <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">NPI</p>
-                  <p className="font-bold mt-1">1194572719</p>
-                </div>
               </div>
-
-              <blockquote className="p-6 bg-gradient-to-br from-lumen-purple/15 to-lumen-orange/15 rounded-3xl border-l-4 border-lumen-pink">
-                <p className="font-display italic text-xl text-slate-800 leading-snug">
-                  "Patients tell me all the time they didn't plan to share something — but they did,
-                  because they finally felt safe. That info is usually the key to a plan that actually works."
-                </p>
-                <p className="text-sm font-bold mt-3 text-slate-600">— Chelsea, PMHNP</p>
-              </blockquote>
             </div>
           </div>
         </div>
