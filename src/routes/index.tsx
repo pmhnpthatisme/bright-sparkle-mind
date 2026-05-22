@@ -1,7 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
 import chelseaImg from "@/assets/chelsea.jpg";
-import waImg from "@/assets/wa-landscape.jpg";
-import tnImg from "@/assets/tn-landscape.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
