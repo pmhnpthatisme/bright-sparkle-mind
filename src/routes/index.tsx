@@ -17,7 +17,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Virtual psychiatric care that feels like texting your smartest friend. WA + TN. Aetna + self-pay.",
+          "Virtual psychiatric care that meets you where you are. WA + TN.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -90,15 +90,11 @@ const FAQS = [
   },
   {
     q: "Do you accept insurance?",
-    a: "Yes — we're in-network with Aetna. Self-pay is also available, and sliding scale options are offered for qualifying clients.",
+    a: "Please contact the office to verify whether you are in network. We are currently undergoing the credentialing process to be in network with major insurance plans.",
   },
   {
     q: "How fast can I be seen?",
     a: "Same-day and next-week appointments are usually available. Text 615-588-4249 and we'll find you a time that works.",
-  },
-  {
-    q: "What does membership include?",
-    a: "Direct 24/7 text access to your PMHNP, one monthly wellness follow-up, medication management and refills, and consistent care with the same provider every visit.",
   },
   {
     q: "What ages do you treat?",
