@@ -232,55 +232,22 @@ function Index() {
         <Sparkle className="absolute top-12 left-12 size-6 text-lumen-yellow opacity-60" />
         <Sparkle className="absolute bottom-20 right-20 size-8 text-lumen-pink opacity-50" />
         <Sparkle className="absolute top-1/2 right-10 size-4 text-lumen-teal opacity-60" />
-        <div className="max-w-5xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-yellow font-bold">
             The Approach
           </span>
-          <h2 className="font-display text-5xl md:text-6xl font-extrabold mt-4 mb-8 leading-tight">
+          <h2 className="font-display text-5xl md:text-6xl font-extrabold mt-4 mb-10 leading-tight">
             You are the{" "}
             <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-lumen-pink to-lumen-orange">
               main character.
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-slate-300 leading-relaxed mb-14 max-w-3xl mx-auto">
-            Treatment plans shouldn't be handed down from a mountain — they're built side-by-side.
-            Chelsea brings deep clinical experience, expertise, and diagnostic accuracy from years of
-            practice across the full lifespan. You bring the expertise on your own life. Together you
-            make the plan.
+          <p className="text-lg md:text-2xl text-slate-200 leading-relaxed font-light">
+            Casual on the surface, serious about the work underneath. Patients regularly share
+            things they hadn't planned to disclose — because for the first time it feels safe
+            enough to put it down. That's where the real treatment begins: warmth, humor, and
+            the willingness to say the hard thing when it'll actually move you forward.
           </p>
-
-          <div className="grid md:grid-cols-3 gap-5 text-left">
-            <div className="p-7 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-colors">
-              <div className="size-11 bg-lumen-teal/20 rounded-xl flex items-center justify-center text-lumen-teal mb-5">
-                <Sparkle className="size-5" />
-              </div>
-              <h3 className="font-display text-xl font-bold mb-2">Casual safety</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Patients often share things they hadn't planned to — because for the first time it feels
-                safe enough to put it down. That's where real treatment begins.
-              </p>
-            </div>
-            <div className="p-7 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-colors">
-              <div className="size-11 bg-lumen-purple/30 rounded-xl flex items-center justify-center text-lumen-purple mb-5">
-                <Sparkle className="size-5" />
-              </div>
-              <h3 className="font-display text-xl font-bold mb-2">Collaborative, not handed down</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Your goals lead. Brilliant clinical instinct fills in the map. You'll never be left
-                in the dark about your own care — every decision is made with you, not for you.
-              </p>
-            </div>
-            <div className="p-7 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-colors">
-              <div className="size-11 bg-lumen-orange/20 rounded-xl flex items-center justify-center text-lumen-orange mb-5">
-                <Sparkle className="size-5" />
-              </div>
-              <h3 className="font-display text-xl font-bold mb-2">Real talk, real accountability</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                A friend who happens to be a brilliant clinician. Warmth, humor, and the willingness
-                to say the hard thing when it'll actually move you forward.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
