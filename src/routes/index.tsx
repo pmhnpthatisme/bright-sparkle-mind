@@ -156,10 +156,11 @@ function Index() {
           <p className="text-lg text-slate-700 leading-relaxed">
             Lumen Telepsych is a virtual psychiatric practice founded by Chelsea Johnson, PMHNP-BC,
             serving patients across Washington and Tennessee. We offer thoughtful medication
-            management and lifestyle planning across the full lifespan — adolescent through
-            geriatric — in a setting that feels less like a clinic and more like a real
-            conversation. Care is collaborative, intuitive, and grounded in years of clinical
-            experience across detox, forensic, mood disorder, adolescent, and geriatric settings.
+            management and lifestyle planning for ages 6 to 106 — in a space that feels less like
+            an appointment and more like a real conversation. Care is collaborative, intuitive,
+            and grounded in years of clinical experience across the lifespan and acuity spectrum,
+            including inpatient, outpatient, crisis intervention, emergency room, forensic, detox,
+            mood disorder, co-occurring disorder, adolescent, and geriatric care settings, and more.
           </p>
         </div>
       </section>
@@ -179,7 +180,7 @@ function Index() {
             {[
               {
                 title: "Lifespan Psychiatry",
-                body: "From adolescence through geriatric care, we treat the full spectrum — anxiety, depression, ADHD, bipolar, postpartum, sleep, and more. Years of inpatient, outpatient, and high-acuity experience inform every visit.",
+                body: "A deep desire to care for patients through every stage, concern, and need at every juncture of life — from a first hard season as a young person to the wisdom and weight of later years.",
                 link: "Services",
                 href: "#treatments",
                 bg: "bg-lumen-purple/15",
@@ -188,7 +189,7 @@ function Index() {
               },
               {
                 title: "Collaborative Medication Management",
-                body: "Treatment plans aren't handed down from a mountain — they're built side-by-side. Your goals lead. Brilliant clinical instinct fills in the map. Every decision is made with you, not for you.",
+                body: "Treatment plans aren't ordered for you — they're built side-by-side. Your goals lead. Brilliant clinical instinct fills in the map. Every decision is made with you, not for you.",
                 link: "Med Management",
                 href: "#chelsea",
                 bg: "bg-lumen-pink/20",
