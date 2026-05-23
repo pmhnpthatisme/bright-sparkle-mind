@@ -288,7 +288,7 @@ function Index() {
               Meet your provider
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-extrabold mt-4 leading-tight">
-              The brilliant clinician your friends keep <span className="italic text-lumen-pink">talking about.</span>
+              The clinician your friends keep <span className="italic text-lumen-pink">talking about.</span>
             </h2>
           </div>
 
@@ -311,10 +311,19 @@ function Index() {
 
             <div>
               <p className="text-lg text-slate-700 mb-6 leading-relaxed">
-                Chelsea didn't just study psychiatry — she lived it in every corner of the field.
-                As a travel psych nurse she worked across detox, forensic and criminal competency
-                settings, mood disorder clinics, adolescent and geriatric units, and inpatient and
-                outpatient programs nationwide.
+                Chelsea brings over a decade of experience across ER and psychiatric settings, and
+                has cared for patients professionally since age 15 — starting as a nursing assistant,
+                becoming a registered nurse at 20, and ultimately fulfilling her dream of becoming a
+                psychiatric mental health nurse practitioner to offer the kind of care she
+                consistently observed to be missing. Bring your problem to the table and we will
+                improve it. She is here for anyone willing to try.
+              </p>
+              <p className="text-lg text-slate-700 mb-6 leading-relaxed">
+                Outside of caring for patients, Chelsea has an equally long history of animal
+                rescue — fostering stray, abandoned, abused, and neglected animals and helping
+                coordinate feral cat trap/neuter/release programs with local animal super-heroes.
+                She also loves houseplants, thunderstorms, anything coffee flavored, all things
+                pink, and loud 2000s hip hop for every occasion.
               </p>
               <p className="text-lg text-slate-700 mb-8 leading-relaxed">
                 Bringing back your sparkle is what gets her out of bed in the morning. Watching
@@ -322,24 +331,6 @@ function Index() {
                 that's the whole point. Your light is worth protecting, and she's honored to help
                 you do it.
               </p>
-
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                <div className="p-4 bg-white rounded-2xl border border-slate-100">
-                  <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">Certification</p>
-                  <p className="font-bold mt-1">ANCC PMHNP-BC</p>
-                </div>
-                <div className="p-4 bg-white rounded-2xl border border-slate-100">
-                  <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">Education</p>
-                  <p className="font-bold mt-1">Univ. of South Alabama</p>
-                </div>
-              </div>
-
-              <a
-                href="sms:+16155884249"
-                className="inline-block px-7 py-3.5 bg-lumen-pink text-white rounded-full font-extrabold text-sm uppercase tracking-wider hover:bg-lumen-purple transition-colors shadow-lg"
-              >
-                Get to know Chelsea
-              </a>
             </div>
           </div>
         </div>
