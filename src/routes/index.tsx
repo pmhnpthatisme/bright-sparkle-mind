@@ -405,11 +405,8 @@ function Index() {
               ))}
             </div>
             <h2 className="font-display text-5xl md:text-6xl font-extrabold leading-tight">
-              5.0 across <span className="italic text-lumen-pink">47</span> verified reviews.
+              Kind words from <span className="italic text-lumen-pink">real patients.</span>
             </h2>
-            <p className="text-slate-700 mt-4 max-w-2xl mx-auto">
-              Bedside manner: 5.00 · Wait time: 4.97.
-            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -430,68 +427,6 @@ function Index() {
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Membership */}
-      <section className="py-24 px-6 md:px-10">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
-            <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-pink font-bold">
-              Care plans
-            </span>
-            <h2 className="font-display text-5xl md:text-6xl font-extrabold mt-4 leading-tight">
-              Care that <span className="italic">fits your life.</span>
-            </h2>
-          </div>
-
-          <div className="max-w-2xl mx-auto">
-            <div className="p-9 md:p-12 rounded-[2rem] bg-gradient-to-br from-lumen-purple via-lumen-pink to-lumen-orange text-white shadow-2xl shadow-lumen-purple/30 relative overflow-hidden">
-              <span className="absolute top-5 right-5 bg-lumen-yellow text-slate-900 text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full">
-                Most popular
-              </span>
-              <p className="text-xs uppercase tracking-widest text-white/80 font-bold mb-3">Membership</p>
-              <h3 className="font-display text-3xl font-bold mb-5">The Sparkle Plan</h3>
-              <ul className="space-y-3 mb-8">
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-yellow shrink-0 mt-1.5" /> Direct 24/7 text access to your PMHNP</li>
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-yellow shrink-0 mt-1.5" /> One monthly wellness follow-up</li>
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-yellow shrink-0 mt-1.5" /> Medication management & refills</li>
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-yellow shrink-0 mt-1.5" /> Personalized lifestyle & treatment planning</li>
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-yellow shrink-0 mt-1.5" /> Same provider every time</li>
-              </ul>
-              <a href="sms:+16155884249" className="block w-full text-center py-3.5 bg-white text-slate-900 rounded-2xl font-bold hover:bg-slate-50 transition-colors">
-                Start your membership
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section id="faq" className="py-24 px-6 md:px-10 bg-surface">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-purple font-bold">FAQ</span>
-            <h2 className="font-display text-5xl md:text-6xl font-extrabold mt-4 leading-tight">
-              Good questions, <span className="italic">honest answers.</span>
-            </h2>
-          </div>
-          <div className="space-y-3">
-            {FAQS.map((f, i) => (
-              <details
-                key={i}
-                className="group bg-white p-6 rounded-2xl border border-slate-100 open:shadow-md transition-shadow"
-              >
-                <summary className="flex justify-between items-center cursor-pointer font-display font-bold text-lg list-none">
-                  {f.q}
-                  <span className="size-8 rounded-full bg-lumen-yellow/60 flex items-center justify-center text-slate-900 group-open:rotate-45 transition-transform shrink-0 ml-4">
-                    +
-                  </span>
-                </summary>
-                <p className="mt-4 text-slate-700 leading-relaxed">{f.a}</p>
-              </details>
             ))}
           </div>
         </div>
