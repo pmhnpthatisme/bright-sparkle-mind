@@ -35,7 +35,6 @@ const TREATMENTS = [
   { label: "Psychiatry Consultation", color: "bg-fuchsia-100 text-fuchsia-700" },
   { label: "Adolescent Mood", color: "bg-cyan-100 text-cyan-700" },
   { label: "Geriatric Care", color: "bg-amber-100 text-amber-800" },
-  { label: "ADHD Management", color: "bg-violet-100 text-violet-700" },
   { label: "Bipolar Disorder", color: "bg-lime-100 text-lime-800" },
   { label: "Medication Management", color: "bg-sky-100 text-sky-700" },
   { label: "Postpartum Support", color: "bg-pink-100 text-pink-700" },
@@ -81,25 +80,6 @@ const REVIEWS = [
   },
 ];
 
-const FAQS = [
-  {
-    q: "Where do you practice?",
-    a: "100% virtually across Washington state and Tennessee. Sessions are HIPAA-secure video visits — meet from your couch, your car, or your closet floor. No judgment.",
-  },
-  {
-    q: "Do you accept insurance?",
-    a: "Please contact the office to verify whether you are in network. We are currently undergoing the credentialing process to be in network with major insurance plans.",
-  },
-  {
-    q: "How fast can I be seen?",
-    a: "Same-day and next-week appointments are usually available. Text 615-588-4249 and we'll find you a time that works.",
-  },
-  {
-    q: "What ages do you treat?",
-    a: "Care across the lifespan — adolescents through geriatric. Chelsea has practiced in adolescent, adult, and geriatric settings (inpatient and outpatient) across the country.",
-  },
-];
-
 function Sparkle({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
@@ -125,7 +105,6 @@ function Index() {
           <a href="#treatments" className="hover:text-lumen-yellow transition-colors">Services</a>
           <a href="#chelsea" className="hover:text-lumen-yellow transition-colors">Provider</a>
           <a href="#reviews" className="hover:text-lumen-yellow transition-colors">Reviews</a>
-          <a href="#faq" className="hover:text-lumen-yellow transition-colors">FAQ</a>
         </div>
         <a
           href="sms:+16155884249"
