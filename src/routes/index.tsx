@@ -35,7 +35,6 @@ const TREATMENTS = [
   { label: "Psychiatry Consultation", color: "bg-fuchsia-100 text-fuchsia-700" },
   { label: "Adolescent Mood", color: "bg-cyan-100 text-cyan-700" },
   { label: "Geriatric Care", color: "bg-amber-100 text-amber-800" },
-  { label: "ADHD Management", color: "bg-violet-100 text-violet-700" },
   { label: "Bipolar Disorder", color: "bg-lime-100 text-lime-800" },
   { label: "Medication Management", color: "bg-sky-100 text-sky-700" },
   { label: "Postpartum Support", color: "bg-pink-100 text-pink-700" },
@@ -81,25 +80,6 @@ const REVIEWS = [
   },
 ];
 
-const FAQS = [
-  {
-    q: "Where do you practice?",
-    a: "100% virtually across Washington state and Tennessee. Sessions are HIPAA-secure video visits — meet from your couch, your car, or your closet floor. No judgment.",
-  },
-  {
-    q: "Do you accept insurance?",
-    a: "Please contact the office to verify whether you are in network. We are currently undergoing the credentialing process to be in network with major insurance plans.",
-  },
-  {
-    q: "How fast can I be seen?",
-    a: "Same-day and next-week appointments are usually available. Text 615-588-4249 and we'll find you a time that works.",
-  },
-  {
-    q: "What ages do you treat?",
-    a: "Care across the lifespan — adolescents through geriatric. Chelsea has practiced in adolescent, adult, and geriatric settings (inpatient and outpatient) across the country.",
-  },
-];
-
 function Sparkle({ className = "" }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
@@ -125,7 +105,6 @@ function Index() {
           <a href="#treatments" className="hover:text-lumen-yellow transition-colors">Services</a>
           <a href="#chelsea" className="hover:text-lumen-yellow transition-colors">Provider</a>
           <a href="#reviews" className="hover:text-lumen-yellow transition-colors">Reviews</a>
-          <a href="#faq" className="hover:text-lumen-yellow transition-colors">FAQ</a>
         </div>
         <a
           href="sms:+16155884249"
@@ -177,10 +156,11 @@ function Index() {
           <p className="text-lg text-slate-700 leading-relaxed">
             Lumen Telepsych is a virtual psychiatric practice founded by Chelsea Johnson, PMHNP-BC,
             serving patients across Washington and Tennessee. We offer thoughtful medication
-            management and lifestyle planning across the full lifespan — adolescent through
-            geriatric — in a setting that feels less like a clinic and more like a real
-            conversation. Care is collaborative, intuitive, and grounded in years of clinical
-            experience across detox, forensic, mood disorder, adolescent, and geriatric settings.
+            management and lifestyle planning for ages 6 to 106 — in a space that feels less like
+            an appointment and more like a real conversation. Care is collaborative, intuitive,
+            and grounded in years of clinical experience across the lifespan and acuity spectrum,
+            including inpatient, outpatient, crisis intervention, emergency room, forensic, detox,
+            mood disorder, co-occurring disorder, adolescent, and geriatric care settings, and more.
           </p>
         </div>
       </section>
@@ -200,7 +180,7 @@ function Index() {
             {[
               {
                 title: "Lifespan Psychiatry",
-                body: "From adolescence through geriatric care, we treat the full spectrum — anxiety, depression, ADHD, bipolar, postpartum, sleep, and more. Years of inpatient, outpatient, and high-acuity experience inform every visit.",
+                body: "A deep desire to care for patients through every stage, concern, and need at every juncture of life — from a first hard season as a young person to the wisdom and weight of later years.",
                 link: "Services",
                 href: "#treatments",
                 bg: "bg-lumen-purple/15",
@@ -209,7 +189,7 @@ function Index() {
               },
               {
                 title: "Collaborative Medication Management",
-                body: "Treatment plans aren't handed down from a mountain — they're built side-by-side. Your goals lead. Brilliant clinical instinct fills in the map. Every decision is made with you, not for you.",
+                body: "Treatment plans aren't ordered for you — they're built side-by-side. Your goals lead. Brilliant clinical instinct fills in the map. Every decision is made with you, not for you.",
                 link: "Med Management",
                 href: "#chelsea",
                 bg: "bg-lumen-pink/20",
@@ -252,55 +232,22 @@ function Index() {
         <Sparkle className="absolute top-12 left-12 size-6 text-lumen-yellow opacity-60" />
         <Sparkle className="absolute bottom-20 right-20 size-8 text-lumen-pink opacity-50" />
         <Sparkle className="absolute top-1/2 right-10 size-4 text-lumen-teal opacity-60" />
-        <div className="max-w-5xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center relative z-10">
           <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-yellow font-bold">
             The Approach
           </span>
-          <h2 className="font-display text-5xl md:text-6xl font-extrabold mt-4 mb-8 leading-tight">
+          <h2 className="font-display text-5xl md:text-6xl font-extrabold mt-4 mb-10 leading-tight">
             You are the{" "}
             <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-lumen-pink to-lumen-orange">
               main character.
             </span>
           </h2>
-          <p className="text-lg md:text-xl text-slate-300 leading-relaxed mb-14 max-w-3xl mx-auto">
-            Treatment plans shouldn't be handed down from a mountain — they're built side-by-side.
-            Chelsea brings deep clinical experience, expertise, and diagnostic accuracy from years of
-            practice across the full lifespan. You bring the expertise on your own life. Together you
-            make the plan.
+          <p className="text-lg md:text-2xl text-slate-200 leading-relaxed font-light">
+            Casual on the surface, serious about the work underneath. Patients regularly share
+            things they hadn't planned to disclose — because for the first time it feels safe
+            enough to put it down. That's where the real treatment begins: warmth, humor, and
+            the willingness to say the hard thing when it'll actually move you forward.
           </p>
-
-          <div className="grid md:grid-cols-3 gap-5 text-left">
-            <div className="p-7 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-colors">
-              <div className="size-11 bg-lumen-teal/20 rounded-xl flex items-center justify-center text-lumen-teal mb-5">
-                <Sparkle className="size-5" />
-              </div>
-              <h3 className="font-display text-xl font-bold mb-2">Casual safety</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Patients often share things they hadn't planned to — because for the first time it feels
-                safe enough to put it down. That's where real treatment begins.
-              </p>
-            </div>
-            <div className="p-7 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-colors">
-              <div className="size-11 bg-lumen-purple/30 rounded-xl flex items-center justify-center text-lumen-purple mb-5">
-                <Sparkle className="size-5" />
-              </div>
-              <h3 className="font-display text-xl font-bold mb-2">Collaborative, not handed down</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                Your goals lead. Brilliant clinical instinct fills in the map. You'll never be left
-                in the dark about your own care — every decision is made with you, not for you.
-              </p>
-            </div>
-            <div className="p-7 bg-white/5 border border-white/10 rounded-3xl hover:bg-white/10 transition-colors">
-              <div className="size-11 bg-lumen-orange/20 rounded-xl flex items-center justify-center text-lumen-orange mb-5">
-                <Sparkle className="size-5" />
-              </div>
-              <h3 className="font-display text-xl font-bold mb-2">Real talk, real accountability</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                A friend who happens to be a brilliant clinician. Warmth, humor, and the willingness
-                to say the hard thing when it'll actually move you forward.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -341,7 +288,7 @@ function Index() {
               Meet your provider
             </span>
             <h2 className="font-display text-4xl md:text-5xl font-extrabold mt-4 leading-tight">
-              The brilliant clinician your friends keep <span className="italic text-lumen-pink">talking about.</span>
+              The clinician your friends keep <span className="italic text-lumen-pink">talking about.</span>
             </h2>
           </div>
 
@@ -364,10 +311,19 @@ function Index() {
 
             <div>
               <p className="text-lg text-slate-700 mb-6 leading-relaxed">
-                Chelsea didn't just study psychiatry — she lived it in every corner of the field.
-                As a travel psych nurse she worked across detox, forensic and criminal competency
-                settings, mood disorder clinics, adolescent and geriatric units, and inpatient and
-                outpatient programs nationwide.
+                Chelsea brings over a decade of experience across ER and psychiatric settings, and
+                has cared for patients professionally since age 15 — starting as a nursing assistant,
+                becoming a registered nurse at 20, and ultimately fulfilling her dream of becoming a
+                psychiatric mental health nurse practitioner to offer the kind of care she
+                consistently observed to be missing. Bring your problem to the table and we will
+                improve it. She is here for anyone willing to try.
+              </p>
+              <p className="text-lg text-slate-700 mb-6 leading-relaxed">
+                Outside of caring for patients, Chelsea has an equally long history of animal
+                rescue — fostering stray, abandoned, abused, and neglected animals and helping
+                coordinate feral cat trap/neuter/release programs with local animal super-heroes.
+                She also loves houseplants, thunderstorms, anything coffee flavored, all things
+                pink, and loud 2000s hip hop for every occasion.
               </p>
               <p className="text-lg text-slate-700 mb-8 leading-relaxed">
                 Bringing back your sparkle is what gets her out of bed in the morning. Watching
@@ -375,24 +331,6 @@ function Index() {
                 that's the whole point. Your light is worth protecting, and she's honored to help
                 you do it.
               </p>
-
-              <div className="grid grid-cols-2 gap-3 mb-6">
-                <div className="p-4 bg-white rounded-2xl border border-slate-100">
-                  <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">Certification</p>
-                  <p className="font-bold mt-1">ANCC PMHNP-BC</p>
-                </div>
-                <div className="p-4 bg-white rounded-2xl border border-slate-100">
-                  <p className="text-xs uppercase tracking-widest text-slate-500 font-bold">Education</p>
-                  <p className="font-bold mt-1">Univ. of South Alabama</p>
-                </div>
-              </div>
-
-              <a
-                href="sms:+16155884249"
-                className="inline-block px-7 py-3.5 bg-lumen-pink text-white rounded-full font-extrabold text-sm uppercase tracking-wider hover:bg-lumen-purple transition-colors shadow-lg"
-              >
-                Get to know Chelsea
-              </a>
             </div>
           </div>
         </div>
@@ -467,11 +405,8 @@ function Index() {
               ))}
             </div>
             <h2 className="font-display text-5xl md:text-6xl font-extrabold leading-tight">
-              5.0 across <span className="italic text-lumen-pink">47</span> verified reviews.
+              Kind words from <span className="italic text-lumen-pink">real patients.</span>
             </h2>
-            <p className="text-slate-700 mt-4 max-w-2xl mx-auto">
-              Bedside manner: 5.00 · Wait time: 4.97.
-            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -492,68 +427,6 @@ function Index() {
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Membership */}
-      <section className="py-24 px-6 md:px-10">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-14">
-            <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-pink font-bold">
-              Care plans
-            </span>
-            <h2 className="font-display text-5xl md:text-6xl font-extrabold mt-4 leading-tight">
-              Care that <span className="italic">fits your life.</span>
-            </h2>
-          </div>
-
-          <div className="max-w-2xl mx-auto">
-            <div className="p-9 md:p-12 rounded-[2rem] bg-gradient-to-br from-lumen-purple via-lumen-pink to-lumen-orange text-white shadow-2xl shadow-lumen-purple/30 relative overflow-hidden">
-              <span className="absolute top-5 right-5 bg-lumen-yellow text-slate-900 text-[10px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full">
-                Most popular
-              </span>
-              <p className="text-xs uppercase tracking-widest text-white/80 font-bold mb-3">Membership</p>
-              <h3 className="font-display text-3xl font-bold mb-5">The Sparkle Plan</h3>
-              <ul className="space-y-3 mb-8">
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-yellow shrink-0 mt-1.5" /> Direct 24/7 text access to your PMHNP</li>
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-yellow shrink-0 mt-1.5" /> One monthly wellness follow-up</li>
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-yellow shrink-0 mt-1.5" /> Medication management & refills</li>
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-yellow shrink-0 mt-1.5" /> Personalized lifestyle & treatment planning</li>
-                <li className="flex gap-3"><Sparkle className="size-4 text-lumen-yellow shrink-0 mt-1.5" /> Same provider every time</li>
-              </ul>
-              <a href="sms:+16155884249" className="block w-full text-center py-3.5 bg-white text-slate-900 rounded-2xl font-bold hover:bg-slate-50 transition-colors">
-                Start your membership
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section id="faq" className="py-24 px-6 md:px-10 bg-surface">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
-            <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-purple font-bold">FAQ</span>
-            <h2 className="font-display text-5xl md:text-6xl font-extrabold mt-4 leading-tight">
-              Good questions, <span className="italic">honest answers.</span>
-            </h2>
-          </div>
-          <div className="space-y-3">
-            {FAQS.map((f, i) => (
-              <details
-                key={i}
-                className="group bg-white p-6 rounded-2xl border border-slate-100 open:shadow-md transition-shadow"
-              >
-                <summary className="flex justify-between items-center cursor-pointer font-display font-bold text-lg list-none">
-                  {f.q}
-                  <span className="size-8 rounded-full bg-lumen-yellow/60 flex items-center justify-center text-slate-900 group-open:rotate-45 transition-transform shrink-0 ml-4">
-                    +
-                  </span>
-                </summary>
-                <p className="mt-4 text-slate-700 leading-relaxed">{f.a}</p>
-              </details>
             ))}
           </div>
         </div>
