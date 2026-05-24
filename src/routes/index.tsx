@@ -154,13 +154,16 @@ function Index() {
             You're living through a season most people can't understand. Here, you don't have to explain yourself.
           </h3>
           <p className="text-lg text-slate-700 leading-relaxed">
-            Lumen Telepsych is a virtual psychiatric practice founded by Chelsea Johnson, PMHNP-BC,
-            serving patients across Washington and Tennessee. We offer thoughtful medication
-            management and lifestyle planning for ages 6 to 106 — in a space that feels less like
-            an appointment and more like a real conversation. Care is collaborative, intuitive,
-            and grounded in years of clinical experience across the lifespan and acuity spectrum,
-            including inpatient, outpatient, crisis intervention, emergency room, forensic, detox,
-            mood disorder, co-occurring disorder, adolescent, and geriatric care settings, and more.
+            Lumen Telepsych is a virtual psychiatric practice operated by an experienced
+            psychiatric nurse practitioner, serving patients across Washington and Tennessee.
+            We offer thoughtful medication management and lifestyle planning for ages 6 to 106 —
+            in a space that feels less like an appointment and more like a real conversation.
+            Care is collaborative, intuitive, and grounded in years of clinical experience across
+            the full lifespan and acuity spectrum, including inpatient, outpatient, partial
+            hospitalization, intensive outpatient, crisis intervention, emergency room, forensic,
+            detox, mood disorder, co-occurring disorder, adolescent, geriatric, and
+            community-based care settings, ensuring a strong clinical understanding and a
+            comfort with whatever is brought to the table.
           </p>
         </div>
       </section>
@@ -180,7 +183,7 @@ function Index() {
             {[
               {
                 title: "Lifespan Psychiatry",
-                body: "A deep desire to care for patients through every stage, concern, and need at every juncture of life — from a first hard season as a young person to the wisdom and weight of later years.",
+                body: "A genuine commitment to walking with patients through every stage of life — meeting you where you are, with care that grows alongside you from your earliest years through every chapter ahead.",
                 link: "Services",
                 href: "#treatments",
                 bg: "bg-lumen-purple/15",
@@ -262,8 +265,9 @@ function Index() {
               Support for every <span className="italic underline decoration-lumen-orange decoration-4 underline-offset-8">season</span> of life.
             </h2>
             <p className="text-slate-600 max-w-2xl mx-auto text-lg">
-              From the obvious to the things you've never told anyone — psychiatric care for the
-              full range of what humans go through.
+              These are some of the things people come to Lumen for — but this is not the full
+              list. If what you're carrying isn't here, please still reach out. Care is offered
+              to anyone willing to ask for it, across every diagnosis, season, and acuity level.
             </p>
           </div>
 
@@ -276,6 +280,14 @@ function Index() {
                 {t.label}
               </span>
             ))}
+          </div>
+          <div className="text-center mt-10">
+            <a
+              href="sms:+16155884249"
+              className="inline-block px-7 py-3 bg-lumen-purple text-white rounded-full text-sm font-bold uppercase tracking-wider hover:opacity-90 transition-opacity"
+            >
+              Don't see it? Reach out anyway
+            </a>
           </div>
         </div>
       </section>
@@ -299,13 +311,13 @@ function Index() {
               <div className="relative aspect-square rounded-full overflow-hidden border-[10px] border-white shadow-xl ring-4 ring-lumen-purple/30 max-w-sm mx-auto">
                 <img
                   src={chelseaImg}
-                  alt="Chelsea Johnson, PMHNP-BC, founder of Lumen Telepsych"
+                  alt="Chelsea Johnson, PMHNP-BC of Lumen Telepsych"
                   className="w-full h-full object-cover"
                 />
               </div>
               <div className="text-center mt-6">
                 <p className="font-display text-2xl font-extrabold">Chelsea Johnson, PMHNP-BC</p>
-                <p className="text-slate-600 mt-1">Founder · Psychiatric Medication Management</p>
+                <p className="text-slate-600 mt-1">Psychiatric Medication Management</p>
               </div>
             </div>
 
