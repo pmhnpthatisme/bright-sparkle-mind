@@ -90,7 +90,7 @@ function Sparkle({ className = "" }: { className?: string }) {
 
 function Index() {
   return (
-    <div className="min-h-screen bg-surface font-sans text-slate-900 overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[#F5F0FA] via-[#F8F5FB] to-[#FBF4EC] font-sans text-slate-900 overflow-x-hidden">
       {/* Nav */}
       <nav className="sticky top-0 z-50 px-6 md:px-10 py-4 flex justify-between items-center bg-gradient-to-r from-lumen-purple/95 via-lumen-pink/90 to-lumen-orange/95 backdrop-blur-md text-white">
         <a href="#top" className="flex items-center gap-3">
