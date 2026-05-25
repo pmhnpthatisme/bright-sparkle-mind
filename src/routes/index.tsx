@@ -233,7 +233,7 @@ function Index() {
             {[
               {
                 title: "Lifespan Psychiatry",
-                body: "A genuine commitment to walking with patients through every stage of life — meeting you where you are, with care that grows alongside you from your earliest years through every chapter ahead.",
+                body: "A genuine commitment to walking with patients through every stage of life — meeting each person where they are, with care that grows alongside them from their earliest years through every chapter ahead.",
                 link: "Services",
                 href: "#treatments",
                 bg: "bg-lumen-purple/15",
@@ -251,7 +251,7 @@ function Index() {
               },
               {
                 title: "Flexible Support for Real Life",
-                body: "Life is already demanding — mental health care shouldn't add to it. Meet from your couch, your car, or your closet floor. Direct provider access between visits. Same Chelsea, every time.",
+                body: "Life is already demanding — mental health care shouldn't add to it. Meet from your fairy garden, your imaginary friend's trap house, or honestly anywhere you feel comfortable. Direct provider access between visits. Same Chelsea, every time.",
                 link: "Get Started",
                 href: "sms:+16155884249",
                 bg: "bg-lumen-orange/25",
