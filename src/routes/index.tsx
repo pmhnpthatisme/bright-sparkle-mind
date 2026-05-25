@@ -1,23 +1,33 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import chelseaImg from "@/assets/chelsea.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Lumen Telepsych — Bring back your sparkle | Virtual Psychiatry in WA & TN" },
+      { title: "Lumen Telepsych | Online Psychiatrist & Medication Management in Washington & Tennessee" },
       {
         name: "description",
         content:
-          "Virtual telepsychiatry with PMHNP Chelsea Johnson. Collaborative, casual, brilliant care across the lifespan in Washington and Tennessee. Text 615-588-4249.",
+          "Lumen Telepsych offers virtual psychiatry, online medication management, ADHD, anxiety, depression, bipolar, and lifespan mental health care in Washington and Tennessee. Same-week telepsychiatry appointments with Chelsea Johnson, PMHNP-BC. Book now.",
       },
-      { property: "og:title", content: "Lumen Telepsych — Bring back your sparkle" },
+      {
+        name: "keywords",
+        content:
+          "telepsychiatry, online psychiatrist, virtual psychiatric care, psychiatric nurse practitioner, PMHNP, medication management, ADHD, anxiety, depression, bipolar, postpartum, geriatric psychiatry, adolescent psychiatry, Washington psychiatrist, Tennessee psychiatrist, Nashville telepsych, Seattle telepsych, online therapy, mental health care",
+      },
+      { property: "og:title", content: "Lumen Telepsych — Online Psychiatry in WA & TN" },
       {
         property: "og:description",
         content:
-          "Virtual psychiatric care that meets you where you are. WA + TN.",
+          "Virtual psychiatric care and medication management across the lifespan. Licensed in Washington & Tennessee. Book your appointment today.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:site_name", content: "Lumen Telepsych" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Lumen Telepsych — Online Psychiatry in WA & TN" },
+      { name: "twitter:description", content: "Virtual psychiatric care and medication management across the lifespan." },
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
