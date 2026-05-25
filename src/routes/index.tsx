@@ -281,7 +281,7 @@ function Index() {
       </section>
 
       {/* The Approach / Patient as Main Character */}
-      <section className="py-24 px-6 md:px-10 bg-slate-900 text-white relative overflow-hidden">
+      <section id="approach-feature" className="py-16 md:py-20 px-6 md:px-10 bg-lumen-royal text-white relative overflow-hidden">
         <Sparkle className="absolute top-12 left-12 size-6 text-lumen-yellow opacity-60" />
         <Sparkle className="absolute bottom-20 right-20 size-8 text-lumen-pink opacity-50" />
         <Sparkle className="absolute top-1/2 right-10 size-4 text-lumen-teal opacity-60" />
@@ -317,7 +317,8 @@ function Index() {
             <p className="text-slate-600 max-w-2xl mx-auto text-lg">
               These are some of the things people come to Lumen for — but this is not the full
               list. If what you're carrying isn't here, please still reach out. Care is offered
-              to anyone willing to ask for it, across every diagnosis, season, and acuity level.
+              to anyone willing to ask for it. A complex history is not a barrier — it's often
+              exactly the reason to reach out.
             </p>
           </div>
 
@@ -377,8 +378,8 @@ function Index() {
                 has cared for patients professionally since age 15 — starting as a nursing assistant,
                 becoming a registered nurse at 20, and ultimately fulfilling her dream of becoming a
                 psychiatric mental health nurse practitioner to offer the kind of care she
-                consistently observed to be missing. Bring your problem to the table and we will
-                improve it. She is here for anyone willing to try.
+                consistently observed to be missing. Bring whatever you're carrying — together
+                we'll find a way forward. She is here for anyone willing to try.
               </p>
               <p className="text-lg text-slate-700 mb-6 leading-relaxed">
                 Outside of caring for patients, Chelsea has an equally long history of animal
