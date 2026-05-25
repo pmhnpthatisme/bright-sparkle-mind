@@ -195,7 +195,7 @@ function Index() {
       </header>
 
       {/* Intro paragraph — She Blooms style */}
-      <section id="about" className="py-20 md:py-24 px-6 md:px-10">
+      <section id="about" className="py-20 md:py-16 px-6 md:px-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-display text-3xl md:text-5xl font-extrabold mb-3 text-lumen-pink">
             Psychiatric Care That Actually Feels Human.
@@ -219,7 +219,7 @@ function Index() {
       </section>
 
       {/* Why Choose Lumen — 3 column cards */}
-      <section id="approach" className="pb-20 md:pb-28 px-6 md:px-10">
+      <section id="approach" className="pb-14 md:pb-20 px-6 md:px-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-orange font-bold">
@@ -305,7 +305,7 @@ function Index() {
       </section>
 
       {/* What We Treat */}
-      <section id="treatments" className="py-24 px-6 md:px-10">
+      <section id="treatments" className="py-16 px-6 md:px-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-purple font-bold">
@@ -344,7 +344,7 @@ function Index() {
       </section>
 
       {/* Meet Your Provider — She Blooms-style team section */}
-      <section id="chelsea" className="py-24 px-6 md:px-10 bg-gradient-to-b from-surface to-lumen-purple/10">
+      <section id="chelsea" className="py-16 px-6 md:px-10 bg-gradient-to-b from-surface to-lumen-purple/10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-orange font-bold">
@@ -400,7 +400,7 @@ function Index() {
       </section>
 
       {/* How It Works */}
-      <section className="py-24 px-6 md:px-10">
+      <section className="py-16 px-6 md:px-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-teal font-bold">
@@ -463,7 +463,7 @@ function Index() {
       </section>
 
       {/* Reviews */}
-      <section id="reviews" className="py-24 px-6 md:px-10 bg-gradient-to-br from-lumen-yellow/30 via-lumen-pink/15 to-lumen-purple/20">
+      <section id="reviews" className="py-16 px-6 md:px-10 bg-gradient-to-br from-lumen-yellow/30 via-lumen-pink/15 to-lumen-purple/20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-2 mb-5">
@@ -539,7 +539,7 @@ function Index() {
       </section>
 
       {/* Hours of Operation */}
-      <section id="hours" className="py-20 md:py-24 px-6 md:px-10">
+      <section id="hours" className="py-20 md:py-16 px-6 md:px-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-royal font-bold">
@@ -575,7 +575,7 @@ function Index() {
       </section>
 
       {/* Contact Us */}
-      <section id="contact" className="py-20 md:py-24 px-6 md:px-10 bg-gradient-to-br from-lumen-purple/15 via-surface to-lumen-pink/15">
+      <section id="contact" className="py-20 md:py-16 px-6 md:px-10 bg-gradient-to-br from-lumen-purple/15 via-surface to-lumen-pink/15">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-orange font-bold">
