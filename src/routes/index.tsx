@@ -36,10 +36,10 @@ export const Route = createFileRoute("/")({
 const TREATMENTS = [
   { label: "Depression", color: "bg-lumen-purple/15 text-lumen-purple" },
   { label: "Anxiety", color: "bg-lumen-teal/15 text-teal-700" },
-  { label: "Hoarding Disorder", color: "bg-lumen-orange/20 text-orange-700" },
+  { label: "ADHD", color: "bg-lumen-orange/20 text-orange-700" },
   { label: "Sleep Problems", color: "bg-indigo-100 text-indigo-700" },
   { label: "Weight Loss Consultation", color: "bg-emerald-100 text-emerald-700" },
-  { label: "Psychosexual Evaluation", color: "bg-lumen-pink/20 text-pink-700" },
+  { label: "PTSD & Trauma", color: "bg-lumen-pink/20 text-pink-700" },
   { label: "Young Adult Issues", color: "bg-lumen-yellow/40 text-amber-800" },
   { label: "New Patient Visit", color: "bg-rose-100 text-rose-700" },
   { label: "Psychiatry Consultation", color: "bg-fuchsia-100 text-fuchsia-700" },
@@ -195,31 +195,31 @@ function Index() {
       </header>
 
       {/* Intro paragraph — She Blooms style */}
-      <section id="about" className="py-20 md:py-24 px-6 md:px-10">
+      <section id="about" className="py-14 md:py-16 px-6 md:px-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-display text-3xl md:text-5xl font-extrabold mb-3 text-lumen-pink">
             Psychiatric Care That Actually Feels Human.
           </h2>
           <h3 className="font-display text-xl md:text-2xl text-slate-700 italic mb-8">
-            You're living through a season most people can't understand. Here, you don't have to explain yourself.
+            You're living through a season most people can't understand. Here, you don't have to translate it — just say it your way.
           </h3>
           <p className="text-lg text-slate-700 leading-relaxed">
             Lumen Telepsych is a virtual psychiatric practice operated by an experienced
-            psychiatric nurse practitioner, serving patients across Washington and Tennessee.
-            We offer thoughtful medication management and lifestyle planning for ages 6 to 106 —
-            in a space that feels less like an appointment and more like a real conversation.
-            Care is collaborative, intuitive, and grounded in years of clinical experience across
+            psychiatric nurse practitioner. We serve patients across Washington and Tennessee
+            with thoughtful medication management and lifestyle planning for ages 6 to 106 — in
+            a space that feels less like an appointment and more like a real conversation. Care
+            is collaborative, intuitive, and grounded in years of clinical experience across
             the full lifespan and acuity spectrum, including inpatient, outpatient, partial
-            hospitalization, intensive outpatient, crisis intervention, emergency room, forensic,
-            detox, mood disorder, co-occurring disorder, adolescent, geriatric, and
-            community-based care settings, ensuring a strong clinical understanding and a
-            comfort with whatever is brought to the table.
+            hospitalization, intensive outpatient, crisis intervention, emergency room,
+            forensic, detox, mood disorder, co-occurring disorder, adolescent, geriatric, and
+            community-based care settings. That breadth means a strong clinical foundation and
+            a real comfort with whatever you bring to the table.
           </p>
         </div>
       </section>
 
       {/* Why Choose Lumen — 3 column cards */}
-      <section id="approach" className="pb-20 md:pb-28 px-6 md:px-10">
+      <section id="approach" className="pb-14 md:pb-20 px-6 md:px-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-orange font-bold">
@@ -233,7 +233,7 @@ function Index() {
             {[
               {
                 title: "Lifespan Psychiatry",
-                body: "A genuine commitment to walking with patients through every stage of life — meeting you where you are, with care that grows alongside you from your earliest years through every chapter ahead.",
+                body: "A genuine commitment to walking with patients through every stage of life — meeting each person where they are, with care that grows alongside them from their earliest years through every chapter ahead.",
                 link: "Services",
                 href: "#treatments",
                 bg: "bg-lumen-purple/15",
@@ -251,7 +251,7 @@ function Index() {
               },
               {
                 title: "Flexible Support for Real Life",
-                body: "Life is already demanding — mental health care shouldn't add to it. Meet from your couch, your car, or your closet floor. Direct provider access between visits. Same Chelsea, every time.",
+                body: "Life is already demanding — mental health care shouldn't add to it. Meet from your fairy garden, your imaginary friend's trap house, or honestly anywhere you feel comfortable. Direct provider access between visits. Same Chelsea, every time.",
                 link: "Get Started",
                 href: "sms:+16155884249",
                 bg: "bg-lumen-orange/25",
@@ -281,7 +281,7 @@ function Index() {
       </section>
 
       {/* The Approach / Patient as Main Character */}
-      <section className="py-24 px-6 md:px-10 bg-slate-900 text-white relative overflow-hidden">
+      <section id="approach-feature" className="py-16 md:py-20 px-6 md:px-10 bg-lumen-royal text-white relative overflow-hidden">
         <Sparkle className="absolute top-12 left-12 size-6 text-lumen-yellow opacity-60" />
         <Sparkle className="absolute bottom-20 right-20 size-8 text-lumen-pink opacity-50" />
         <Sparkle className="absolute top-1/2 right-10 size-4 text-lumen-teal opacity-60" />
@@ -305,7 +305,7 @@ function Index() {
       </section>
 
       {/* What We Treat */}
-      <section id="treatments" className="py-24 px-6 md:px-10">
+      <section id="treatments" className="py-16 px-6 md:px-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-purple font-bold">
@@ -317,7 +317,8 @@ function Index() {
             <p className="text-slate-600 max-w-2xl mx-auto text-lg">
               These are some of the things people come to Lumen for — but this is not the full
               list. If what you're carrying isn't here, please still reach out. Care is offered
-              to anyone willing to ask for it, across every diagnosis, season, and acuity level.
+              to anyone willing to ask for it. A complex history is not a barrier — it's often
+              exactly the reason to reach out.
             </p>
           </div>
 
@@ -343,7 +344,7 @@ function Index() {
       </section>
 
       {/* Meet Your Provider — She Blooms-style team section */}
-      <section id="chelsea" className="py-24 px-6 md:px-10 bg-gradient-to-b from-surface to-lumen-purple/10">
+      <section id="chelsea" className="py-16 px-6 md:px-10 bg-gradient-to-b from-surface to-lumen-purple/10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-orange font-bold">
@@ -377,8 +378,8 @@ function Index() {
                 has cared for patients professionally since age 15 — starting as a nursing assistant,
                 becoming a registered nurse at 20, and ultimately fulfilling her dream of becoming a
                 psychiatric mental health nurse practitioner to offer the kind of care she
-                consistently observed to be missing. Bring your problem to the table and we will
-                improve it. She is here for anyone willing to try.
+                consistently observed to be missing. Bring whatever you're carrying — together
+                we'll find a way forward. She is here for anyone willing to try.
               </p>
               <p className="text-lg text-slate-700 mb-6 leading-relaxed">
                 Outside of caring for patients, Chelsea has an equally long history of animal
@@ -399,7 +400,7 @@ function Index() {
       </section>
 
       {/* How It Works */}
-      <section className="py-24 px-6 md:px-10">
+      <section className="py-16 px-6 md:px-10">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-teal font-bold">
@@ -415,6 +416,7 @@ function Index() {
                 n: "01",
                 bg: "bg-lumen-purple/15",
                 t: "text-lumen-purple",
+                border: "border-lumen-purple/60",
                 title: "Reach out & book",
                 body: "Text, call, or book directly on our platforms. A human writes back — we'll find a time that works.",
               },
@@ -422,6 +424,7 @@ function Index() {
                 n: "02",
                 bg: "bg-lumen-orange/20",
                 t: "text-orange-700",
+                border: "border-lumen-orange/70",
                 title: "Complete your packet",
                 body: "Fill out a short informative intake packet so we can prepare to give you the best possible care.",
               },
@@ -429,6 +432,7 @@ function Index() {
                 n: "03",
                 bg: "bg-lumen-teal/20",
                 t: "text-teal-700",
+                border: "border-lumen-teal/60",
                 title: "Have your session",
                 body: "Meet on a HIPAA-secure video visit where you feel comfortable, prioritized, and actually heard.",
               },
@@ -436,13 +440,14 @@ function Index() {
                 n: "04",
                 bg: "bg-lumen-pink/20",
                 t: "text-pink-700",
+                border: "border-lumen-pink/60",
                 title: "Stay in touch",
                 body: "Direct provider access between visits. If you need us, we're here — same Chelsea, every time.",
               },
             ].map((s) => (
               <div
                 key={s.n}
-                className="p-8 bg-white rounded-3xl border border-slate-100 hover:-translate-y-1 transition-transform shadow-sm"
+                className={`p-8 bg-white rounded-3xl border-2 ${s.border} hover:-translate-y-1 transition-transform shadow-sm`}
               >
                 <div
                   className={`size-14 rounded-2xl ${s.bg} ${s.t} flex items-center justify-center font-display font-extrabold text-xl mb-5`}
@@ -458,7 +463,7 @@ function Index() {
       </section>
 
       {/* Reviews */}
-      <section id="reviews" className="py-24 px-6 md:px-10 bg-gradient-to-br from-lumen-yellow/30 via-lumen-pink/15 to-lumen-purple/20">
+      <section id="reviews" className="py-16 px-6 md:px-10 bg-gradient-to-br from-lumen-yellow/30 via-lumen-pink/15 to-lumen-purple/20">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <div className="flex items-center justify-center gap-2 mb-5">
@@ -534,7 +539,7 @@ function Index() {
       </section>
 
       {/* Hours of Operation */}
-      <section id="hours" className="py-20 md:py-24 px-6 md:px-10">
+      <section id="hours" className="py-14 md:py-16 px-6 md:px-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-royal font-bold">
@@ -550,14 +555,15 @@ function Index() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { day: "Monday – Thursday", hours: "9:00 AM – 6:00 PM", bg: "bg-lumen-purple/15", text: "text-lumen-royal" },
-              { day: "Friday", hours: "9:00 AM – 3:00 PM", bg: "bg-lumen-pink/20", text: "text-pink-700" },
-              { day: "Saturday", hours: "By appointment", bg: "bg-lumen-orange/25", text: "text-orange-700" },
-              { day: "Sunday", hours: "Closed", bg: "bg-lumen-teal/20", text: "text-teal-700" },
+              { day: "Monday – Thursday", pt: "9:00 AM – 6:00 PM PT", ct: "11:00 AM – 8:00 PM CT", bg: "bg-lumen-purple/15", text: "text-lumen-royal" },
+              { day: "Friday", pt: "9:00 AM – 3:00 PM PT", ct: "11:00 AM – 5:00 PM CT", bg: "bg-lumen-pink/20", text: "text-pink-700" },
+              { day: "Saturday", pt: "By appointment", ct: "By appointment", bg: "bg-lumen-orange/25", text: "text-orange-700" },
+              { day: "Sunday", pt: "Closed", ct: "Closed", bg: "bg-lumen-teal/20", text: "text-teal-700" },
             ].map((h) => (
               <div key={h.day} className={`p-6 rounded-2xl ${h.bg} text-center`}>
                 <p className={`font-display font-extrabold text-lg ${h.text}`}>{h.day}</p>
-                <p className="text-slate-700 mt-2">{h.hours}</p>
+                <p className="text-slate-700 mt-2">{h.pt}</p>
+                <p className="text-slate-700">{h.ct}</p>
               </div>
             ))}
           </div>
@@ -569,7 +575,7 @@ function Index() {
       </section>
 
       {/* Contact Us */}
-      <section id="contact" className="py-20 md:py-24 px-6 md:px-10 bg-gradient-to-br from-lumen-purple/15 via-surface to-lumen-pink/15">
+      <section id="contact" className="py-14 md:py-16 px-6 md:px-10 bg-gradient-to-br from-lumen-purple/15 via-surface to-lumen-pink/15">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-orange font-bold">
