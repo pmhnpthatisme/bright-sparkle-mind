@@ -36,10 +36,10 @@ export const Route = createFileRoute("/")({
 const TREATMENTS = [
   { label: "Depression", color: "bg-lumen-purple/15 text-lumen-purple" },
   { label: "Anxiety", color: "bg-lumen-teal/15 text-teal-700" },
-  { label: "Hoarding Disorder", color: "bg-lumen-orange/20 text-orange-700" },
+  { label: "ADHD", color: "bg-lumen-orange/20 text-orange-700" },
   { label: "Sleep Problems", color: "bg-indigo-100 text-indigo-700" },
   { label: "Weight Loss Consultation", color: "bg-emerald-100 text-emerald-700" },
-  { label: "Psychosexual Evaluation", color: "bg-lumen-pink/20 text-pink-700" },
+  { label: "PTSD & Trauma", color: "bg-lumen-pink/20 text-pink-700" },
   { label: "Young Adult Issues", color: "bg-lumen-yellow/40 text-amber-800" },
   { label: "New Patient Visit", color: "bg-rose-100 text-rose-700" },
   { label: "Psychiatry Consultation", color: "bg-fuchsia-100 text-fuchsia-700" },
@@ -201,19 +201,19 @@ function Index() {
             Psychiatric Care That Actually Feels Human.
           </h2>
           <h3 className="font-display text-xl md:text-2xl text-slate-700 italic mb-8">
-            You're living through a season most people can't understand. Here, you don't have to explain yourself.
+            You're living through a season most people can't understand. Here, you don't have to translate it — just say it your way.
           </h3>
           <p className="text-lg text-slate-700 leading-relaxed">
             Lumen Telepsych is a virtual psychiatric practice operated by an experienced
-            psychiatric nurse practitioner, serving patients across Washington and Tennessee.
-            We offer thoughtful medication management and lifestyle planning for ages 6 to 106 —
-            in a space that feels less like an appointment and more like a real conversation.
-            Care is collaborative, intuitive, and grounded in years of clinical experience across
+            psychiatric nurse practitioner. We serve patients across Washington and Tennessee
+            with thoughtful medication management and lifestyle planning for ages 6 to 106 — in
+            a space that feels less like an appointment and more like a real conversation. Care
+            is collaborative, intuitive, and grounded in years of clinical experience across
             the full lifespan and acuity spectrum, including inpatient, outpatient, partial
-            hospitalization, intensive outpatient, crisis intervention, emergency room, forensic,
-            detox, mood disorder, co-occurring disorder, adolescent, geriatric, and
-            community-based care settings, ensuring a strong clinical understanding and a
-            comfort with whatever is brought to the table.
+            hospitalization, intensive outpatient, crisis intervention, emergency room,
+            forensic, detox, mood disorder, co-occurring disorder, adolescent, geriatric, and
+            community-based care settings. That breadth means a strong clinical foundation and
+            a real comfort with whatever you bring to the table.
           </p>
         </div>
       </section>
