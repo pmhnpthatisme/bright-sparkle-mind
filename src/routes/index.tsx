@@ -416,6 +416,7 @@ function Index() {
                 n: "01",
                 bg: "bg-lumen-purple/15",
                 t: "text-lumen-purple",
+                border: "border-lumen-purple/60",
                 title: "Reach out & book",
                 body: "Text, call, or book directly on our platforms. A human writes back — we'll find a time that works.",
               },
@@ -423,6 +424,7 @@ function Index() {
                 n: "02",
                 bg: "bg-lumen-orange/20",
                 t: "text-orange-700",
+                border: "border-lumen-orange/70",
                 title: "Complete your packet",
                 body: "Fill out a short informative intake packet so we can prepare to give you the best possible care.",
               },
@@ -430,6 +432,7 @@ function Index() {
                 n: "03",
                 bg: "bg-lumen-teal/20",
                 t: "text-teal-700",
+                border: "border-lumen-teal/60",
                 title: "Have your session",
                 body: "Meet on a HIPAA-secure video visit where you feel comfortable, prioritized, and actually heard.",
               },
@@ -437,13 +440,14 @@ function Index() {
                 n: "04",
                 bg: "bg-lumen-pink/20",
                 t: "text-pink-700",
+                border: "border-lumen-pink/60",
                 title: "Stay in touch",
                 body: "Direct provider access between visits. If you need us, we're here — same Chelsea, every time.",
               },
             ].map((s) => (
               <div
                 key={s.n}
-                className="p-8 bg-white rounded-3xl border border-slate-100 hover:-translate-y-1 transition-transform shadow-sm"
+                className={`p-8 bg-white rounded-3xl border-2 ${s.border} hover:-translate-y-1 transition-transform shadow-sm`}
               >
                 <div
                   className={`size-14 rounded-2xl ${s.bg} ${s.t} flex items-center justify-center font-display font-extrabold text-xl mb-5`}
