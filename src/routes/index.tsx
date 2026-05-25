@@ -98,29 +98,69 @@ function Sparkle({ className = "" }: { className?: string }) {
   );
 }
 
+const REVIEW_THEMES = [
+  { bg: "bg-lumen-purple/15", text: "text-lumen-royal", chip: "bg-lumen-royal text-white" },
+  { bg: "bg-lumen-pink/20", text: "text-pink-700", chip: "bg-lumen-pink text-white" },
+  { bg: "bg-lumen-orange/25", text: "text-orange-700", chip: "bg-lumen-orange text-white" },
+];
+
 function Index() {
+  const [contact, setContact] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+    consent: false,
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleContactSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!contact.consent) return;
+    const subject = encodeURIComponent(`New patient inquiry from ${contact.name}`);
+    const body = encodeURIComponent(
+      `Name: ${contact.name}\nEmail: ${contact.email}\nPhone: ${contact.phone}\n\nMessage:\n${contact.message}\n\nConsent: Patient has consented to receive a reply at the email and/or phone number provided above.`,
+    );
+    window.location.href = `mailto:lumentelepsych@gmail.com?subject=${subject}&body=${body}`;
+    setSubmitted(true);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#F5F0FA] via-[#F8F5FB] to-[#FBF4EC] font-sans text-slate-900 overflow-x-hidden">
-      {/* Nav */}
-      <nav className="sticky top-0 z-50 px-6 md:px-10 py-4 flex justify-between items-center bg-gradient-to-r from-lumen-purple/95 via-lumen-pink/90 to-lumen-orange/95 backdrop-blur-md text-white">
+      {/* Crisis banner */}
+      <div
+        role="alert"
+        className="bg-lumen-royal text-white text-center text-xs md:text-sm px-4 py-2 font-semibold"
+      >
+        In a mental health crisis? Please go to your nearest emergency room or call{" "}
+        <a href="tel:911" className="underline font-extrabold">911</a>. You can also call or text the
+        988 Suicide & Crisis Lifeline.
+      </div>
+
+      {/* Nav — soft salmon header */}
+      <nav className="sticky top-0 z-50 px-4 md:px-10 py-3 md:py-4 flex flex-wrap gap-y-2 justify-between items-center bg-gradient-to-r from-[#FFC7B5] via-[#FFB5A7] to-[#F8A488] backdrop-blur-md text-lumen-royal shadow-sm">
         <a href="#top" className="flex items-center gap-3">
-          <div className="size-9 rounded-full bg-white/25 ring-2 ring-white/60 backdrop-blur flex items-center justify-center">
-            <Sparkle className="size-4 text-white" />
+          <div className="size-9 rounded-full bg-white/60 ring-2 ring-lumen-royal/30 backdrop-blur flex items-center justify-center">
+            <Sparkle className="size-4 text-lumen-royal" />
           </div>
-          <span className="font-display text-xl md:text-2xl font-extrabold tracking-[0.18em]">LUMEN</span>
+          <span className="font-display text-base md:text-2xl font-extrabold tracking-[0.14em]">
+            LUMEN TELEPSYCH
+          </span>
         </a>
-        <div className="hidden md:flex gap-8 font-semibold text-sm tracking-wide uppercase">
-          <a href="#about" className="hover:text-lumen-yellow transition-colors">About</a>
-          <a href="#approach" className="hover:text-lumen-yellow transition-colors">Approach</a>
-          <a href="#treatments" className="hover:text-lumen-yellow transition-colors">Services</a>
-          <a href="#chelsea" className="hover:text-lumen-yellow transition-colors">Provider</a>
-          <a href="#reviews" className="hover:text-lumen-yellow transition-colors">Reviews</a>
+        <div className="hidden lg:flex gap-6 xl:gap-8 font-semibold text-xs xl:text-sm tracking-wide uppercase">
+          <a href="#about" className="hover:text-white transition-colors">About</a>
+          <a href="#approach" className="hover:text-white transition-colors">Approach</a>
+          <a href="#treatments" className="hover:text-white transition-colors">Services</a>
+          <a href="#chelsea" className="hover:text-white transition-colors">Provider</a>
+          <a href="#reviews" className="hover:text-white transition-colors">Reviews</a>
+          <a href="#hours" className="hover:text-white transition-colors">Hours</a>
+          <a href="#contact" className="hover:text-white transition-colors">Contact</a>
         </div>
         <a
-          href="sms:+16155884249"
-          className="px-5 py-2.5 bg-white text-lumen-pink rounded-full text-xs md:text-sm font-extrabold uppercase tracking-wider hover:bg-lumen-yellow hover:text-slate-900 transition-colors shadow-lg"
+          href="#contact"
+          className="px-4 md:px-5 py-2 md:py-2.5 bg-lumen-royal text-white rounded-full text-xs md:text-sm font-extrabold uppercase tracking-wider hover:bg-lumen-purple hover:text-lumen-royal transition-colors shadow-lg"
         >
-          Get Started
+          Book Now
         </a>
       </nav>
 
