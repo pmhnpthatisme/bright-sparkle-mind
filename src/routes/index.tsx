@@ -195,7 +195,7 @@ function Index() {
       </header>
 
       {/* Intro paragraph — She Blooms style */}
-      <section id="about" className="py-20 md:py-16 px-6 md:px-10">
+      <section id="about" className="py-14 md:py-16 px-6 md:px-10">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-display text-3xl md:text-5xl font-extrabold mb-3 text-lumen-pink">
             Psychiatric Care That Actually Feels Human.
@@ -539,7 +539,7 @@ function Index() {
       </section>
 
       {/* Hours of Operation */}
-      <section id="hours" className="py-20 md:py-16 px-6 md:px-10">
+      <section id="hours" className="py-14 md:py-16 px-6 md:px-10">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-royal font-bold">
@@ -575,7 +575,7 @@ function Index() {
       </section>
 
       {/* Contact Us */}
-      <section id="contact" className="py-20 md:py-16 px-6 md:px-10 bg-gradient-to-br from-lumen-purple/15 via-surface to-lumen-pink/15">
+      <section id="contact" className="py-14 md:py-16 px-6 md:px-10 bg-gradient-to-br from-lumen-purple/15 via-surface to-lumen-pink/15">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-10">
             <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-orange font-bold">
