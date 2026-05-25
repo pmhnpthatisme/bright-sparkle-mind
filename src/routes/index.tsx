@@ -471,25 +471,28 @@ function Index() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {REVIEWS.map((r, i) => (
-              <div
-                key={i}
-                className="p-7 bg-white rounded-3xl border border-white shadow-sm hover:-translate-y-1 transition-transform"
-              >
-                <Sparkle className="size-5 text-lumen-orange mb-4" />
-                <p className="text-slate-700 leading-relaxed mb-5">"{r.quote}"</p>
-                <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
-                  <div className="size-10 rounded-full bg-gradient-to-br from-lumen-purple to-lumen-orange flex items-center justify-center text-white font-bold text-sm">
-                    {r.name.slice(0, 2)}
-                  </div>
-                  <div>
-                    <p className="font-bold text-sm">{r.name}</p>
-                    <p className="text-xs text-slate-500">{r.tag}</p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {REVIEWS.map((r, i) => {
+              const theme = REVIEW_THEMES[i % REVIEW_THEMES.length];
+              return (
+                <div
+                  key={i}
+                  className={`p-7 md:p-8 rounded-[2rem] ${theme.bg} hover:-translate-y-1 transition-transform flex flex-col`}
+                >
+                  <Sparkle className={`size-6 ${theme.text} mb-4`} />
+                  <p className="text-slate-800 leading-relaxed mb-6 flex-1">"{r.quote}"</p>
+                  <div className="flex items-center gap-3 pt-4 border-t border-black/10">
+                    <div className={`size-10 rounded-full ${theme.chip} flex items-center justify-center font-bold text-sm`}>
+                      {r.name.slice(0, 2)}
+                    </div>
+                    <div>
+                      <p className={`font-bold text-sm ${theme.text}`}>{r.name}</p>
+                      <p className="text-xs text-slate-600">{r.tag}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -511,13 +514,17 @@ function Index() {
               start bringing back your sparkle today.
             </p>
             <a
-              href="sms:+16155884249"
-              className="inline-block px-10 py-5 bg-white text-slate-900 rounded-full font-extrabold text-lg md:text-xl shadow-2xl hover:bg-lumen-yellow hover:scale-[1.03] transition-all"
+              href="#contact"
+              className="inline-block px-10 py-5 bg-white text-lumen-royal rounded-full font-extrabold text-lg md:text-xl shadow-2xl hover:bg-lumen-yellow hover:scale-[1.03] transition-all"
             >
-              Text 615-588-4249
+              Book Now
             </a>
-            <p className="mt-6 text-white/80 text-sm">
-              or email{" "}
+            <p className="mt-6 text-white/90 text-sm md:text-base">
+              Text{" "}
+              <a href="sms:+16155884249" className="underline font-bold">
+                615-588-4249
+              </a>{" "}
+              · Email{" "}
               <a href="mailto:lumentelepsych@gmail.com" className="underline font-bold">
                 lumentelepsych@gmail.com
               </a>
@@ -526,24 +533,152 @@ function Index() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="px-6 md:px-10 pb-12 pt-8">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-8 pt-8 border-t border-slate-200">
-          <div className="flex items-center gap-2.5">
-            <div className="size-7 rounded-full bg-gradient-to-tr from-lumen-purple via-lumen-pink to-lumen-orange" />
-            <div>
-              <p className="font-display font-extrabold tracking-tight">LUMEN TELEPSYCH</p>
-              <p className="text-xs text-slate-500">Women-owned · Licensed in WA & TN</p>
-            </div>
+      {/* Hours of Operation */}
+      <section id="hours" className="py-20 md:py-24 px-6 md:px-10">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12">
+            <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-royal font-bold">
+              Hours of operation
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl font-extrabold mt-4 leading-tight">
+              When you can <span className="italic text-lumen-pink">reach us.</span>
+            </h2>
+            <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
+              All visits are virtual via secure HIPAA-compliant video. Hours are listed in Pacific
+              and Central time zones for our Washington and Tennessee patients.
+            </p>
           </div>
-          <div className="text-sm text-slate-500">
-            © {new Date().getFullYear()} Lumen Telepsych LLC · Chelsea Johnson, PMHNP-BC
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { day: "Monday – Thursday", hours: "9:00 AM – 6:00 PM", bg: "bg-lumen-purple/15", text: "text-lumen-royal" },
+              { day: "Friday", hours: "9:00 AM – 3:00 PM", bg: "bg-lumen-pink/20", text: "text-pink-700" },
+              { day: "Saturday", hours: "By appointment", bg: "bg-lumen-orange/25", text: "text-orange-700" },
+              { day: "Sunday", hours: "Closed", bg: "bg-lumen-teal/20", text: "text-teal-700" },
+            ].map((h) => (
+              <div key={h.day} className={`p-6 rounded-2xl ${h.bg} text-center`}>
+                <p className={`font-display font-extrabold text-lg ${h.text}`}>{h.day}</p>
+                <p className="text-slate-700 mt-2">{h.hours}</p>
+              </div>
+            ))}
           </div>
-          <div className="flex gap-6 text-sm font-semibold text-slate-600">
-            <a href="sms:+16155884249" className="hover:text-lumen-purple">615-588-4249</a>
-            <a href="mailto:lumentelepsych@gmail.com" className="hover:text-lumen-orange">Email</a>
-          </div>
+          <p className="text-center text-sm text-slate-600 mt-8 max-w-2xl mx-auto">
+            Messages received outside business hours will be answered the next business day. For
+            urgent clinical needs between visits, established patients can text directly.
+          </p>
         </div>
+      </section>
+
+      {/* Contact Us */}
+      <section id="contact" className="py-20 md:py-24 px-6 md:px-10 bg-gradient-to-br from-lumen-purple/15 via-surface to-lumen-pink/15">
+        <div className="max-w-3xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-orange font-bold">
+              Contact & book
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl font-extrabold mt-4 leading-tight">
+              Send a <span className="italic text-lumen-royal">message.</span>
+            </h2>
+            <p className="text-slate-600 mt-4">
+              Tell us a little about what you're looking for and we'll get back to you to book your
+              first appointment. You can also text or call <a href="tel:+16155884249" className="font-bold text-lumen-royal underline">615-588-4249</a>.
+            </p>
+          </div>
+          {submitted ? (
+            <div className="p-8 rounded-3xl bg-white shadow-sm text-center">
+              <Sparkle className="size-8 text-lumen-pink mx-auto mb-3" />
+              <p className="font-display text-2xl font-extrabold mb-2">Your email is ready to send.</p>
+              <p className="text-slate-600">
+                Your mail app should have opened with your message pre-filled. Just hit send and
+                we'll be in touch.
+              </p>
+            </div>
+          ) : (
+            <form
+              onSubmit={handleContactSubmit}
+              className="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-white space-y-5"
+            >
+              <div className="grid md:grid-cols-2 gap-5">
+                <label className="block">
+                  <span className="block text-sm font-semibold text-slate-700 mb-1.5">Full name *</span>
+                  <input
+                    required
+                    type="text"
+                    value={contact.name}
+                    onChange={(e) => setContact({ ...contact, name: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-lumen-royal focus:outline-none focus:ring-2 focus:ring-lumen-royal/20"
+                  />
+                </label>
+                <label className="block">
+                  <span className="block text-sm font-semibold text-slate-700 mb-1.5">Phone *</span>
+                  <input
+                    required
+                    type="tel"
+                    value={contact.phone}
+                    onChange={(e) => setContact({ ...contact, phone: e.target.value })}
+                    className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-lumen-royal focus:outline-none focus:ring-2 focus:ring-lumen-royal/20"
+                  />
+                </label>
+              </div>
+              <label className="block">
+                <span className="block text-sm font-semibold text-slate-700 mb-1.5">Email *</span>
+                <input
+                  required
+                  type="email"
+                  value={contact.email}
+                  onChange={(e) => setContact({ ...contact, email: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-lumen-royal focus:outline-none focus:ring-2 focus:ring-lumen-royal/20"
+                />
+              </label>
+              <label className="block">
+                <span className="block text-sm font-semibold text-slate-700 mb-1.5">Your message *</span>
+                <textarea
+                  required
+                  rows={5}
+                  value={contact.message}
+                  onChange={(e) => setContact({ ...contact, message: e.target.value })}
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-lumen-royal focus:outline-none focus:ring-2 focus:ring-lumen-royal/20 resize-y"
+                  placeholder="What brings you here? Anything you'd like us to know before reaching out."
+                />
+              </label>
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input
+                  required
+                  type="checkbox"
+                  checked={contact.consent}
+                  onChange={(e) => setContact({ ...contact, consent: e.target.checked })}
+                  className="mt-1 size-5 accent-lumen-royal cursor-pointer"
+                />
+                <span className="text-sm text-slate-700">
+                  I consent to receive a reply at the phone number and/or email address I have
+                  provided above. *
+                </span>
+              </label>
+              <button
+                type="submit"
+                disabled={!contact.consent}
+                className="w-full md:w-auto px-8 py-4 bg-lumen-royal text-white rounded-full font-extrabold text-sm uppercase tracking-wider shadow-lg hover:bg-lumen-purple hover:text-lumen-royal transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              >
+                Send Message
+              </button>
+              <p className="text-xs text-slate-500">
+                This form is for general inquiries and scheduling. Please do not include sensitive
+                medical information. <strong>If you are in crisis, call 911 or go to your nearest
+                emergency room.</strong>
+              </p>
+            </form>
+          )}
+        </div>
+      </section>
+
+      {/* Minimal footer */}
+      <footer className="px-6 md:px-10 py-8 text-center text-xs text-slate-500">
+        <p className="mb-1">
+          © {new Date().getFullYear()} Lumen Telepsych LLC · Licensed in Washington & Tennessee
+        </p>
+        <p>
+          <strong>In crisis?</strong> Call <a href="tel:911" className="underline">911</a> or the
+          988 Suicide & Crisis Lifeline. This site does not provide emergency care.
+        </p>
       </footer>
     </div>
   );
