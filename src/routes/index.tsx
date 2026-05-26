@@ -111,12 +111,14 @@ function Index() {
     phone: "",
     message: "",
     consent: false,
+    crisisAck: false,
+    commsConsent: false,
   });
   const [submitted, setSubmitted] = useState(false);
 
   const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!contact.consent) return;
+    if (!contact.consent || !contact.crisisAck || !contact.commsConsent) return;
     const subject = encodeURIComponent(`New patient inquiry from ${contact.name}`);
     const body = encodeURIComponent(
       `Name: ${contact.name}\nEmail: ${contact.email}\nPhone: ${contact.phone}\n\nMessage:\n${contact.message}\n\nConsent: Patient has consented to receive a reply at the email and/or phone number provided above.`,
@@ -591,7 +593,12 @@ function Index() {
             </h2>
             <p className="text-slate-600 mt-4">
               Tell us a little about what you're looking for and we'll get back to you to book your
-              first appointment. You can also text or call <a href="tel:+16155884249" className="font-bold text-lumen-royal underline">615-588-4249</a>.
+              first appointment. You can also text or call{" "}
+              <a href="tel:+16155884249" className="font-bold text-lumen-royal underline">615-588-4249</a>{" "}
+              or email{" "}
+              <a href="mailto:lumentelepsych@gmail.com" className="font-bold text-lumen-royal underline">
+                lumentelepsych@gmail.com
+              </a>.
             </p>
           </div>
           {submitted ? (
