@@ -381,6 +381,11 @@ function Index() {
                 consistently observed to be missing. Bring whatever you're carrying — together
                 we'll find a way forward. She is here for anyone willing to try.
               </p>
+              <blockquote className="my-6 pl-5 border-l-4 border-lumen-pink bg-lumen-purple/10 rounded-r-2xl py-4 pr-5">
+                <p className="font-display italic text-xl md:text-2xl text-lumen-royal leading-snug">
+                  "Come as you are—no version of you is too much or not enough here."
+                </p>
+              </blockquote>
               <p className="text-lg text-slate-700 mb-6 leading-relaxed">
                 Outside of caring for patients, Chelsea has an equally long history of animal
                 rescue — fostering stray, abandoned, abused, and neglected animals and helping

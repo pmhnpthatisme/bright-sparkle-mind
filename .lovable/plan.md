@@ -1,34 +1,42 @@
-## Copy updates in `src/routes/index.tsx`
+## Plan: Content & Trust Updates
 
-**1. "Psychiatric Care That Actually Feels Human" intro paragraph**
-- Remove "founded by Chelsea Johnson, PMHNP-BC" → replace with neutral phrasing, e.g. "operated by an experienced psychiatric nurse practitioner".
-- Update the final sentence to expand the settings list and end with: "…ensuring a strong clinical understanding and a comfort with whatever is brought to the table."
+### 1. Hours of Operation — Simplify timezone wording
+Replace the current dual-timezone explanation with clear Central Time wording plus a helpful note for Washington patients.
 
-Proposed paragraph:
-> Lumen Telepsych is a virtual psychiatric practice operated by an experienced psychiatric nurse practitioner, serving patients across Washington and Tennessee. We offer thoughtful medication management and lifestyle planning for ages 6 to 106 — in a space that feels less like an appointment and more like a real conversation. Care is collaborative, intuitive, and grounded in years of clinical experience across the full lifespan and acuity spectrum, including inpatient, outpatient, partial hospitalization, intensive outpatient, crisis intervention, emergency room, forensic, detox, mood disorder, co-occurring disorder, adolescent, geriatric, and community-based care settings, ensuring a strong clinical understanding and a comfort with whatever is brought to the table.
+Current: "Hours are listed in Pacific and Central time zones for our Washington and Tennessee patients."
 
-**2. "Lifespan Psychiatry" card** — rewrite to remove pessimistic framing ("first hard season", "older years"):
-> A genuine commitment to walking with patients through every stage of life — meeting you where you are, with care that grows alongside you from young years through every chapter ahead.
+Proposed: "All hours are listed in **Central Time**. Patients in Washington: please adjust accordingly (for example, 9 AM CT = 7 AM PT)."
 
-**3. "What We Treat" section** — make it explicit the list isn't exhaustive and that anyone is welcome to reach out:
-- Update the subheading to clearly invite anyone, e.g.:
-> "These are some of the things people come to Lumen for — but this is not the full list. If what you're carrying isn't here, please still reach out. Care is offered to anyone willing to ask for it, across every diagnosis, season, and acuity level."
-- Optionally add a small CTA pill linking to text/booking.
+This is cleaner, less cluttered, and still inclusive.
 
-**4. Meet Your Provider section**
-- Change "Founder · Psychiatric Medication Management" → "Psychiatric Medication Management" (remove "Founder").
-- Update the alt text on Chelsea's photo to remove "founder of Lumen Telepsych".
+### 2. Contact & Book section — Add email alongside phone
+In the paragraph under the "Send a message" heading (currently only shows phone), add the email `lumentelepsych@gmail.com` styled the same way as the phone number (`text-lumen-royal underline font-bold`).
 
-**5. Optional consolidation (offered, your call):** Remove the "What We Treat" diagnosis chip list entirely and replace with a single warm paragraph emphasizing lifespan training, comfort with low-to-extremely-high acuity, and openness to helping anyone who reaches out. I will keep the section by default and only remove if you confirm — see question below.
+### 3. Meet Your Provider — Add welcoming quote
+Insert the requested quote in a visually distinct block within the provider section:
 
-## Background color refresh in `src/styles.css`
+> "Come as you are—no version of you is too much or not enough here."
 
-The current `--surface: #FFFBF7` reads as a flat white. Warm it into a soft, low-glare cream that aligns with the purple/orange/pink palette and doesn't fatigue the eye:
+Placement: after the main bio paragraph (the one ending "...we'll find a way forward."), before the personal/interests paragraph. Styled as an italic pull-quote with a left accent border or soft background to differentiate it from body text.
 
-- `--surface`: `#FBF4EC` (warm blush-cream) — softer, lightly peach-tinted, pairs with the gradients without competing.
-- Section backgrounds that currently rely on plain white will inherit this automatically.
-- Keep the dark "Approach" section as-is for contrast.
+### 4. Contact form — Recommend two additional trust/compliance checkboxes
 
-## Question before I build
+For a telehealth practice, adding these two required checkboxes improves legal protection, SEO trust signals, and patient clarity without hurting conversion:
 
-Do you want me to **remove** the "What We Treat" chip list and replace with a single lifespan/acuity statement, or **keep** the chips and just add the "not the full list — please reach out" framing above them? I'll default to keeping the chips + adding the welcoming framing unless you say otherwise.
+| Checkbox | Purpose |
+|---|---|
+| **Crisis acknowledgment** | "I understand this form is for general inquiries and scheduling only, and is not monitored for emergencies. If I am in crisis, I will call 911 or 988." |
+| **Privacy/communication consent** | "I consent to receive communications (including unencrypted email and text) at the contact details I provided, and I understand that messaging via this form is not a substitute for clinical advice." |
+
+Why these matter:
+- **Crisis checkbox**: Protects the practice legally and reiterates the emergency protocol. Repeating it as an interactive checkbox (vs. static text) increases patient awareness and reduces liability.
+- **Communication consent**: Covers telehealth privacy basics and sets expectations. Google and patients both look for transparency signals on healthcare sites.
+
+Also add a short line of text above the submit button: "We typically reply within 1–2 business days."
+
+This keeps the form human (warm language), luxurious (clear, uncluttered), and aligned with conversion goals (trust = more bookings).
+
+### Files to edit
+- `src/routes/index.tsx` — all changes above.
+
+No new dependencies needed.
