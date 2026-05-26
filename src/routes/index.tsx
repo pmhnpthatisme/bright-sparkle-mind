@@ -554,21 +554,21 @@ function Index() {
               When you can <span className="italic text-lumen-pink">reach us.</span>
             </h2>
             <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
-              All visits are virtual via secure HIPAA-compliant video. Hours are listed in Pacific
-              and Central time zones for our Washington and Tennessee patients.
+              All visits are virtual via secure HIPAA-compliant video. Hours are listed in{" "}
+              <strong>Central Time</strong>. Patients in Washington — please adjust accordingly
+              (for reference, 9:00 AM CT = 7:00 AM PT).
             </p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { day: "Monday – Thursday", pt: "9:00 AM – 6:00 PM PT", ct: "11:00 AM – 8:00 PM CT", bg: "bg-lumen-purple/15", text: "text-lumen-royal" },
-              { day: "Friday", pt: "9:00 AM – 3:00 PM PT", ct: "11:00 AM – 5:00 PM CT", bg: "bg-lumen-pink/20", text: "text-pink-700" },
-              { day: "Saturday", pt: "By appointment", ct: "By appointment", bg: "bg-lumen-orange/25", text: "text-orange-700" },
-              { day: "Sunday", pt: "Closed", ct: "Closed", bg: "bg-lumen-teal/20", text: "text-teal-700" },
+              { day: "Monday – Thursday", hours: "11:00 AM – 8:00 PM CT", bg: "bg-lumen-purple/15", text: "text-lumen-royal" },
+              { day: "Friday", hours: "11:00 AM – 5:00 PM CT", bg: "bg-lumen-pink/20", text: "text-pink-700" },
+              { day: "Saturday", hours: "By appointment", bg: "bg-lumen-orange/25", text: "text-orange-700" },
+              { day: "Sunday", hours: "Closed", bg: "bg-lumen-teal/20", text: "text-teal-700" },
             ].map((h) => (
               <div key={h.day} className={`p-6 rounded-2xl ${h.bg} text-center`}>
                 <p className={`font-display font-extrabold text-lg ${h.text}`}>{h.day}</p>
-                <p className="text-slate-700 mt-2">{h.pt}</p>
-                <p className="text-slate-700">{h.ct}</p>
+                <p className="text-slate-700 mt-2">{h.hours}</p>
               </div>
             ))}
           </div>
