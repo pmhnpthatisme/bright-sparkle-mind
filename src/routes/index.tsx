@@ -671,9 +671,40 @@ function Index() {
                   provided above. *
                 </span>
               </label>
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input
+                  required
+                  type="checkbox"
+                  checked={contact.commsConsent}
+                  onChange={(e) => setContact({ ...contact, commsConsent: e.target.checked })}
+                  className="mt-1 size-5 accent-lumen-royal cursor-pointer"
+                />
+                <span className="text-sm text-slate-700">
+                  I understand that messages sent through this form may travel by unencrypted email
+                  or text, and that this form is not a substitute for clinical advice or
+                  established-patient communication. *
+                </span>
+              </label>
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input
+                  required
+                  type="checkbox"
+                  checked={contact.crisisAck}
+                  onChange={(e) => setContact({ ...contact, crisisAck: e.target.checked })}
+                  className="mt-1 size-5 accent-lumen-royal cursor-pointer"
+                />
+                <span className="text-sm text-slate-700">
+                  I understand this form is for general inquiries and scheduling only and is not
+                  monitored for emergencies. If I am in crisis, I will call <strong>911</strong> or
+                  the <strong>988</strong> Suicide & Crisis Lifeline. *
+                </span>
+              </label>
+              <p className="text-sm text-slate-600">
+                We typically reply within <strong>1–2 business days</strong>.
+              </p>
               <button
                 type="submit"
-                disabled={!contact.consent}
+                disabled={!contact.consent || !contact.crisisAck || !contact.commsConsent}
                 className="w-full md:w-auto px-8 py-4 bg-lumen-royal text-white rounded-full font-extrabold text-sm uppercase tracking-wider shadow-lg hover:bg-lumen-purple hover:text-lumen-royal transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 Send Message
