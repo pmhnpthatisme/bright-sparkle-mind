@@ -794,7 +794,7 @@ function Index() {
               )}
               <button
                 type="submit"
-                disabled={sending || !contact.consent || !contact.crisisAck || !contact.commsConsent}
+                disabled={sending || !contact.consent || !contact.crisisAck || !contact.commsConsent || !contact.hipaaAck}
                 className="w-full md:w-auto px-8 py-4 bg-lumen-royal text-white rounded-full font-extrabold text-sm uppercase tracking-wider shadow-lg hover:bg-lumen-purple hover:text-lumen-royal transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 {sending ? "Sending…" : "Send Message"}
