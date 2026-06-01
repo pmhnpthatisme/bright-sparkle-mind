@@ -478,6 +478,7 @@ function Index() {
                 border: "border-lumen-purple/60",
                 title: "Reach out & book",
                 body: "Text, call, or book directly on our platforms. A human writes back — we'll find a time that works.",
+                cta: "Reach out & book",
               },
               {
                 n: "02",
@@ -486,6 +487,7 @@ function Index() {
                 border: "border-lumen-orange/70",
                 title: "Complete your packet",
                 body: "Fill out a short informative intake packet so we can prepare to give you the best possible care.",
+                cta: "Start your intake",
               },
               {
                 n: "03",
@@ -515,6 +517,20 @@ function Index() {
                 </div>
                 <h3 className="font-display text-2xl font-bold mb-3">{s.title}</h3>
                 <p className="text-slate-600 leading-relaxed">{s.body}</p>
+                {s.cta && (
+                  <button
+                    type="button"
+                    onClick={openBooking}
+                    className={`mt-5 inline-flex items-center gap-1 px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider text-white ${s.t.replace("text-", "bg-")} bg-opacity-90 hover:opacity-90 transition-opacity cursor-pointer`}
+                    style={
+                      s.n === "01"
+                        ? { background: "var(--color-lumen-purple, #7c3aed)" }
+                        : { background: "var(--color-lumen-orange, #f97316)" }
+                    }
+                  >
+                    {s.cta} →
+                  </button>
+                )}
               </div>
             ))}
           </div>
