@@ -114,6 +114,7 @@ function Index() {
     consent: false,
     crisisAck: false,
     commsConsent: false,
+    hipaaAck: false,
   });
   const [submitted, setSubmitted] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
