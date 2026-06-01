@@ -124,6 +124,7 @@ export const Route = createFileRoute("/api/public/contact")({
           consent_reply: true,
           consent_comms: true,
           consent_crisis: true,
+          consent_hipaa: true,
           email_sent: emailResult.ok,
           email_error: emailResult.ok ? null : emailResult.error,
         });
