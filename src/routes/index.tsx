@@ -375,12 +375,13 @@ function Index() {
             ))}
           </div>
           <div className="text-center mt-10">
-            <a
-              href="sms:+16155884249"
-              className="inline-block px-7 py-3 bg-lumen-purple text-white rounded-full text-sm font-bold uppercase tracking-wider hover:opacity-90 transition-opacity"
+            <button
+              type="button"
+              onClick={openBooking}
+              className="inline-block px-7 py-3 bg-lumen-purple text-white rounded-full text-sm font-bold uppercase tracking-wider hover:opacity-90 transition-opacity cursor-pointer"
             >
               Don't see it? Reach out anyway
-            </a>
+            </button>
           </div>
         </div>
       </section>
