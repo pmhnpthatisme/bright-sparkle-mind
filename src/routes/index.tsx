@@ -114,6 +114,7 @@ function Index() {
     consent: false,
     crisisAck: false,
     commsConsent: false,
+    hipaaAck: false,
   });
   const [submitted, setSubmitted] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -123,7 +124,7 @@ function Index() {
 
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!contact.consent || !contact.crisisAck || !contact.commsConsent) return;
+    if (!contact.consent || !contact.crisisAck || !contact.commsConsent || !contact.hipaaAck) return;
     setSending(true);
     setSendError(null);
     try {
@@ -138,6 +139,7 @@ function Index() {
           consent_reply: contact.consent,
           consent_comms: contact.commsConsent,
           consent_crisis: contact.crisisAck,
+          consent_hipaa: contact.hipaaAck,
         }),
       });
       const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
@@ -770,6 +772,18 @@ function Index() {
                   the <strong>988</strong> Suicide & Crisis Lifeline. *
                 </span>
               </label>
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input
+                  required
+                  type="checkbox"
+                  checked={contact.hipaaAck}
+                  onChange={(e) => setContact({ ...contact, hipaaAck: e.target.checked })}
+                  className="mt-1 size-5 accent-lumen-royal cursor-pointer"
+                />
+                <span className="text-sm text-slate-700">
+                  I understand this form is not a secure or encrypted channel for sharing protected health information. I agree not to include sensitive medical details here, and I understand any clinical matters will be discussed during a proper, secure intake or appointment. *
+                </span>
+              </label>
               <p className="text-sm text-slate-600">
                 We typically reply within <strong>1–2 business days</strong>.
               </p>
@@ -780,7 +794,7 @@ function Index() {
               )}
               <button
                 type="submit"
-                disabled={sending || !contact.consent || !contact.crisisAck || !contact.commsConsent}
+                disabled={sending || !contact.consent || !contact.crisisAck || !contact.commsConsent || !contact.hipaaAck}
                 className="w-full md:w-auto px-8 py-4 bg-lumen-royal text-white rounded-full font-extrabold text-sm uppercase tracking-wider shadow-lg hover:bg-lumen-purple hover:text-lumen-royal transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 {sending ? "Sending…" : "Send Message"}

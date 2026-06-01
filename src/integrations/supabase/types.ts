@@ -18,6 +18,7 @@ export type Database = {
         Row: {
           consent_comms: boolean
           consent_crisis: boolean
+          consent_hipaa: boolean
           consent_reply: boolean
           created_at: string
           email: string
@@ -31,6 +32,7 @@ export type Database = {
         Insert: {
           consent_comms: boolean
           consent_crisis: boolean
+          consent_hipaa?: boolean
           consent_reply: boolean
           created_at?: string
           email: string
@@ -44,6 +46,7 @@ export type Database = {
         Update: {
           consent_comms?: boolean
           consent_crisis?: boolean
+          consent_hipaa?: boolean
           consent_reply?: boolean
           created_at?: string
           email?: string

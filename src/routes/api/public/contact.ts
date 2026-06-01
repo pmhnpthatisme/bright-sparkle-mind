@@ -10,6 +10,7 @@ const ContactSchema = z.object({
   consent_reply: z.literal(true),
   consent_comms: z.literal(true),
   consent_crisis: z.literal(true),
+  consent_hipaa: z.literal(true),
 });
 
 // Simple in-memory rate limit (5 per 10 min per IP). Resets on cold start.
@@ -47,7 +48,7 @@ async function sendViaResend(input: z.infer<typeof ContactSchema>) {
       </table>
       <h3 style="color:#4c1d95;margin:20px 0 8px;font-size:15px">Message</h3>
       <p style="white-space:pre-wrap;background:#f5f3ff;padding:14px;border-radius:10px;font-size:14px;line-height:1.5">${escapeHtml(input.message)}</p>
-      <p style="font-size:12px;color:#64748b;margin-top:18px">Patient has consented to receive a reply at the email/phone above and has acknowledged the crisis-care and communications disclosures.</p>
+      <p style="font-size:12px;color:#64748b;margin-top:18px">Patient has consented to receive a reply at the email/phone above and has acknowledged the crisis-care, communications, and HIPAA disclosures.</p>
     </div>
   `;
   try {
@@ -107,7 +108,7 @@ export const Route = createFileRoute("/api/public/contact")({
         const parsed = ContactSchema.safeParse(raw);
         if (!parsed.success) {
           return Response.json(
-            { ok: false, error: "Please fill out every field and check all three consent boxes." },
+            { ok: false, error: "Please fill out every field and check all four consent boxes." },
             { status: 400 },
           );
         }
@@ -123,6 +124,7 @@ export const Route = createFileRoute("/api/public/contact")({
           consent_reply: true,
           consent_comms: true,
           consent_crisis: true,
+          consent_hipaa: true,
           email_sent: emailResult.ok,
           email_error: emailResult.ok ? null : emailResult.error,
         });
