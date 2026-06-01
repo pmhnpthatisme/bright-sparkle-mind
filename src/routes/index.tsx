@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import chelseaImg from "@/assets/chelsea.jpg";
+import { BookingDialog } from "@/components/BookingDialog";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -115,20 +116,46 @@ function Index() {
     commsConsent: false,
   });
   const [submitted, setSubmitted] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
+  const openBooking = () => setBookingOpen(true);
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!contact.consent || !contact.crisisAck || !contact.commsConsent) return;
-    const subject = encodeURIComponent(`New patient inquiry from ${contact.name}`);
-    const body = encodeURIComponent(
-      `Name: ${contact.name}\nEmail: ${contact.email}\nPhone: ${contact.phone}\n\nMessage:\n${contact.message}\n\nConsent: Patient has consented to receive a reply at the email and/or phone number provided above.`,
-    );
-    window.location.href = `mailto:lumentelepsych@gmail.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    setSending(true);
+    setSendError(null);
+    try {
+      const res = await fetch("/api/public/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: contact.name,
+          email: contact.email,
+          phone: contact.phone,
+          message: contact.message,
+          consent_reply: contact.consent,
+          consent_comms: contact.commsConsent,
+          consent_crisis: contact.crisisAck,
+        }),
+      });
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
+      if (!res.ok || !data.ok) {
+        setSendError(data.error || "Something went wrong. Please try again or text us directly.");
+      } else {
+        setSubmitted(true);
+      }
+    } catch {
+      setSendError("Network error. Please try again or text us directly.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#F5F0FA] via-[#F8F5FB] to-[#FBF4EC] font-sans text-slate-900 overflow-x-hidden">
+      <BookingDialog open={bookingOpen} onOpenChange={setBookingOpen} />
       {/* Crisis banner */}
       <div
         role="alert"
@@ -238,6 +265,7 @@ function Index() {
                 body: "A genuine commitment to walking with patients through every stage of life — meeting each person where they are, with care that grows alongside them from their earliest years through every chapter ahead.",
                 link: "Services",
                 href: "#treatments",
+                action: "scroll" as const,
                 bg: "bg-lumen-purple/15",
                 text: "text-lumen-purple",
                 btn: "bg-lumen-purple",
@@ -247,15 +275,17 @@ function Index() {
                 body: "Treatment plans aren't ordered for you — they're built side-by-side. Your goals lead. Brilliant clinical instinct fills in the map. Every decision is made with you, not for you.",
                 link: "Med Management",
                 href: "#chelsea",
+                action: "scroll" as const,
                 bg: "bg-lumen-pink/20",
                 text: "text-pink-700",
                 btn: "bg-lumen-pink",
               },
               {
                 title: "Flexible Support for Real Life",
-                body: "Life is already demanding — mental health care shouldn't add to it. Meet from your fairy garden, your imaginary friend's trap house, or honestly anywhere you feel comfortable. Direct provider access between visits. Same Chelsea, every time.",
+                body: "Life is already demanding — mental health care shouldn't add to it. Meet from your parked car, the corner of the closet that gets the best Wi-Fi, or wherever your nervous system is willing to sit still for 50 minutes. Direct provider access between visits. Same Chelsea, every time.",
                 link: "Get Started",
-                href: "sms:+16155884249",
+                href: "#contact",
+                action: "book" as const,
                 bg: "bg-lumen-orange/25",
                 text: "text-orange-700",
                 btn: "bg-lumen-orange",
@@ -270,12 +300,22 @@ function Index() {
                   {c.title}
                 </h3>
                 <p className="text-slate-700 leading-relaxed mb-7 flex-1">{c.body}</p>
-                <a
-                  href={c.href}
-                  className={`inline-block self-start px-6 py-2.5 ${c.btn} text-white rounded-full text-sm font-bold uppercase tracking-wider hover:opacity-90 transition-opacity`}
-                >
-                  {c.link}
-                </a>
+                {c.action === "book" ? (
+                  <button
+                    type="button"
+                    onClick={openBooking}
+                    className={`inline-block self-start px-6 py-2.5 ${c.btn} text-white rounded-full text-sm font-bold uppercase tracking-wider hover:opacity-90 transition-opacity cursor-pointer`}
+                  >
+                    {c.link}
+                  </button>
+                ) : (
+                  <a
+                    href={c.href}
+                    className={`inline-block self-start px-6 py-2.5 ${c.btn} text-white rounded-full text-sm font-bold uppercase tracking-wider hover:opacity-90 transition-opacity`}
+                  >
+                    {c.link}
+                  </a>
+                )}
               </div>
             ))}
           </div>
@@ -335,12 +375,13 @@ function Index() {
             ))}
           </div>
           <div className="text-center mt-10">
-            <a
-              href="sms:+16155884249"
-              className="inline-block px-7 py-3 bg-lumen-purple text-white rounded-full text-sm font-bold uppercase tracking-wider hover:opacity-90 transition-opacity"
+            <button
+              type="button"
+              onClick={openBooking}
+              className="inline-block px-7 py-3 bg-lumen-purple text-white rounded-full text-sm font-bold uppercase tracking-wider hover:opacity-90 transition-opacity cursor-pointer"
             >
               Don't see it? Reach out anyway
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -376,12 +417,23 @@ function Index() {
 
             <div>
               <p className="text-lg text-slate-700 mb-6 leading-relaxed">
+                Lumen Telepsych is a virtual psychiatric practice serving patients across
+                Washington and Tennessee with thoughtful medication management and lifestyle
+                planning for ages 6 to 106. Care is collaborative, intuitive, and grounded in
+                years of clinical experience across the full lifespan and acuity spectrum —
+                inpatient, outpatient, partial hospitalization, intensive outpatient, crisis
+                intervention, emergency room, forensic, detox, mood disorder, co-occurring
+                disorder, adolescent, geriatric, and community-based settings. That breadth
+                means a strong clinical foundation and real comfort with whatever you bring
+                to the table.
+              </p>
+              <p className="text-lg text-slate-700 mb-6 leading-relaxed">
                 Chelsea brings over a decade of experience across ER and psychiatric settings, and
                 has cared for patients professionally since age 15 — starting as a nursing assistant,
                 becoming a registered nurse at 20, and ultimately fulfilling her dream of becoming a
                 psychiatric mental health nurse practitioner to offer the kind of care she
-                consistently observed to be missing. Bring whatever you're carrying — together
-                we'll find a way forward. She is here for anyone willing to try.
+                consistently observed to be missing. Whatever brought you here today is welcome —
+                we'll work through it at your pace, not anyone else's.
               </p>
               <blockquote className="my-6 pl-5 border-l-4 border-lumen-pink bg-lumen-purple/10 rounded-r-2xl py-4 pr-5">
                 <p className="font-display italic text-xl md:text-2xl text-lumen-royal leading-snug">
@@ -426,6 +478,7 @@ function Index() {
                 border: "border-lumen-purple/60",
                 title: "Reach out & book",
                 body: "Text, call, or book directly on our platforms. A human writes back — we'll find a time that works.",
+                cta: "Reach out & book",
               },
               {
                 n: "02",
@@ -434,6 +487,7 @@ function Index() {
                 border: "border-lumen-orange/70",
                 title: "Complete your packet",
                 body: "Fill out a short informative intake packet so we can prepare to give you the best possible care.",
+                cta: "Start your intake",
               },
               {
                 n: "03",
@@ -442,6 +496,7 @@ function Index() {
                 border: "border-lumen-teal/60",
                 title: "Have your session",
                 body: "Meet on a HIPAA-secure video visit where you feel comfortable, prioritized, and actually heard.",
+                cta: undefined as string | undefined,
               },
               {
                 n: "04",
@@ -450,6 +505,7 @@ function Index() {
                 border: "border-lumen-pink/60",
                 title: "Stay in touch",
                 body: "Direct provider access between visits. If you need us, we're here — same Chelsea, every time.",
+                cta: undefined as string | undefined,
               },
             ].map((s) => (
               <div
@@ -463,6 +519,20 @@ function Index() {
                 </div>
                 <h3 className="font-display text-2xl font-bold mb-3">{s.title}</h3>
                 <p className="text-slate-600 leading-relaxed">{s.body}</p>
+                {s.cta && (
+                  <button
+                    type="button"
+                    onClick={openBooking}
+                    className={`mt-5 inline-flex items-center gap-1 px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider text-white ${s.t.replace("text-", "bg-")} bg-opacity-90 hover:opacity-90 transition-opacity cursor-pointer`}
+                    style={
+                      s.n === "01"
+                        ? { background: "var(--color-lumen-purple, #7c3aed)" }
+                        : { background: "var(--color-lumen-orange, #f97316)" }
+                    }
+                  >
+                    {s.cta} →
+                  </button>
+                )}
               </div>
             ))}
           </div>
@@ -525,16 +595,17 @@ function Index() {
               Same-day appointments often available. Reach out with any questions —
               start bringing back your sparkle today.
             </p>
-            <a
-              href="#contact"
-              className="inline-block px-10 py-5 bg-white text-lumen-royal rounded-full font-extrabold text-lg md:text-xl shadow-2xl hover:bg-lumen-yellow hover:scale-[1.03] transition-all"
+            <button
+              type="button"
+              onClick={openBooking}
+              className="inline-block px-10 py-5 bg-white text-lumen-royal rounded-full font-extrabold text-lg md:text-xl shadow-2xl hover:bg-lumen-yellow hover:scale-[1.03] transition-all cursor-pointer"
             >
               Book Now
-            </a>
+            </button>
             <p className="mt-6 text-white/90 text-sm md:text-base">
               Text{" "}
-              <a href="sms:+16155884249" className="underline font-bold">
-                615-588-4249
+              <a href="sms:+13606372104" className="underline font-bold">
+                (360) 637-2104
               </a>{" "}
               · Email{" "}
               <a href="mailto:lumentelepsych@gmail.com" className="underline font-bold">
@@ -563,9 +634,9 @@ function Index() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { day: "Monday – Thursday", hours: "11:00 AM – 8:00 PM CT", bg: "bg-lumen-purple/15", text: "text-lumen-royal" },
-              { day: "Friday", hours: "11:00 AM – 5:00 PM CT", bg: "bg-lumen-pink/20", text: "text-pink-700" },
-              { day: "Saturday", hours: "By appointment", bg: "bg-lumen-orange/25", text: "text-orange-700" },
+              { day: "Monday – Wednesday", hours: "By appointment only", bg: "bg-lumen-purple/15", text: "text-lumen-royal" },
+              { day: "Thursday – Friday", hours: "8:00 AM – 8:00 PM CT", bg: "bg-lumen-pink/20", text: "text-pink-700" },
+              { day: "Saturday", hours: "8:00 AM – 8:00 PM CT", bg: "bg-lumen-orange/25", text: "text-orange-700" },
               { day: "Sunday", hours: "Closed", bg: "bg-lumen-teal/20", text: "text-teal-700" },
             ].map((h) => (
               <div key={h.day} className={`p-6 rounded-2xl ${h.bg} text-center`}>
@@ -594,7 +665,7 @@ function Index() {
             <p className="text-slate-600 mt-4">
               Tell us a little about what you're looking for and we'll get back to you to book your
               first appointment. You can also text or call{" "}
-              <a href="tel:+16155884249" className="font-bold text-lumen-royal underline">615-588-4249</a>{" "}
+              <a href="tel:+13606372104" className="font-bold text-lumen-royal underline">(360) 637-2104</a>{" "}
               or email{" "}
               <a href="mailto:lumentelepsych@gmail.com" className="font-bold text-lumen-royal underline">
                 lumentelepsych@gmail.com
@@ -604,16 +675,16 @@ function Index() {
           {submitted ? (
             <div className="p-8 rounded-3xl bg-white shadow-sm text-center">
               <Sparkle className="size-8 text-lumen-pink mx-auto mb-3" />
-              <p className="font-display text-2xl font-extrabold mb-2">Your email is ready to send.</p>
+              <p className="font-display text-2xl font-extrabold mb-2">Thank you — your message is in.</p>
               <p className="text-slate-600">
-                Your mail app should have opened with your message pre-filled. Just hit send and
-                we'll be in touch.
+                We've received your inquiry and will reply within 1–2 business days at the email
+                or phone number you provided.
               </p>
             </div>
           ) : (
             <form
               onSubmit={handleContactSubmit}
-              className="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-white space-y-5"
+              className="bg-white p-6 md:p-10 rounded-3xl shadow-lg border-2 border-lumen-royal/40 space-y-5"
             >
               <div className="grid md:grid-cols-2 gap-5">
                 <label className="block">
@@ -702,17 +773,22 @@ function Index() {
               <p className="text-sm text-slate-600">
                 We typically reply within <strong>1–2 business days</strong>.
               </p>
+              {sendError && (
+                <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                  {sendError}
+                </p>
+              )}
               <button
                 type="submit"
-                disabled={!contact.consent || !contact.crisisAck || !contact.commsConsent}
+                disabled={sending || !contact.consent || !contact.crisisAck || !contact.commsConsent}
                 className="w-full md:w-auto px-8 py-4 bg-lumen-royal text-white rounded-full font-extrabold text-sm uppercase tracking-wider shadow-lg hover:bg-lumen-purple hover:text-lumen-royal transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                Send Message
+                {sending ? "Sending…" : "Send Message"}
               </button>
               <p className="text-xs text-slate-500">
-                This form is for general inquiries and scheduling. Please do not include sensitive
-                medical information. <strong>If you are in crisis, call 911 or go to your nearest
-                emergency room.</strong>
+                This form isn't monitored in real time. If you need to speak with someone right
+                now, the <strong>Crisis Text Line</strong> is available 24/7 — text{" "}
+                <strong>HOME to 741741</strong> — or call/text <strong>988</strong>.
               </p>
             </form>
           )}
@@ -721,12 +797,8 @@ function Index() {
 
       {/* Minimal footer */}
       <footer className="px-6 md:px-10 py-8 text-center text-xs text-slate-500">
-        <p className="mb-1">
-          © {new Date().getFullYear()} Lumen Telepsych LLC · Licensed in Washington & Tennessee
-        </p>
         <p>
-          <strong>In crisis?</strong> Call <a href="tel:911" className="underline">911</a> or the
-          988 Suicide & Crisis Lifeline. This site does not provide emergency care.
+          © {new Date().getFullYear()} Lumen Telepsych LLC · Licensed in Washington & Tennessee
         </p>
       </footer>
     </div>
