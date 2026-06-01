@@ -771,17 +771,22 @@ function Index() {
               <p className="text-sm text-slate-600">
                 We typically reply within <strong>1–2 business days</strong>.
               </p>
+              {sendError && (
+                <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
+                  {sendError}
+                </p>
+              )}
               <button
                 type="submit"
-                disabled={!contact.consent || !contact.crisisAck || !contact.commsConsent}
+                disabled={sending || !contact.consent || !contact.crisisAck || !contact.commsConsent}
                 className="w-full md:w-auto px-8 py-4 bg-lumen-royal text-white rounded-full font-extrabold text-sm uppercase tracking-wider shadow-lg hover:bg-lumen-purple hover:text-lumen-royal transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                Send Message
+                {sending ? "Sending…" : "Send Message"}
               </button>
               <p className="text-xs text-slate-500">
-                This form is for general inquiries and scheduling. Please do not include sensitive
-                medical information. <strong>If you are in crisis, call 911 or go to your nearest
-                emergency room.</strong>
+                This form isn't monitored in real time. If you need to speak with someone right
+                now, the <strong>Crisis Text Line</strong> is available 24/7 — text{" "}
+                <strong>HOME to 741741</strong> — or call/text <strong>988</strong>.
               </p>
             </form>
           )}
@@ -790,12 +795,8 @@ function Index() {
 
       {/* Minimal footer */}
       <footer className="px-6 md:px-10 py-8 text-center text-xs text-slate-500">
-        <p className="mb-1">
-          © {new Date().getFullYear()} Lumen Telepsych LLC · Licensed in Washington & Tennessee
-        </p>
         <p>
-          <strong>In crisis?</strong> Call <a href="tel:911" className="underline">911</a> or the
-          988 Suicide & Crisis Lifeline. This site does not provide emergency care.
+          © {new Date().getFullYear()} Lumen Telepsych LLC · Licensed in Washington & Tennessee
         </p>
       </footer>
     </div>
