@@ -772,6 +772,18 @@ function Index() {
                   the <strong>988</strong> Suicide & Crisis Lifeline. *
                 </span>
               </label>
+              <label className="flex items-start gap-3 cursor-pointer">
+                <input
+                  required
+                  type="checkbox"
+                  checked={contact.hipaaAck}
+                  onChange={(e) => setContact({ ...contact, hipaaAck: e.target.checked })}
+                  className="mt-1 size-5 accent-lumen-royal cursor-pointer"
+                />
+                <span className="text-sm text-slate-700">
+                  I understand this form is not a secure or encrypted channel for sharing protected health information. I agree not to include sensitive medical details here, and I understand any clinical matters will be discussed during a proper, secure intake or appointment. *
+                </span>
+              </label>
               <p className="text-sm text-slate-600">
                 We typically reply within <strong>1–2 business days</strong>.
               </p>
