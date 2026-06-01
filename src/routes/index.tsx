@@ -663,7 +663,7 @@ function Index() {
             <p className="text-slate-600 mt-4">
               Tell us a little about what you're looking for and we'll get back to you to book your
               first appointment. You can also text or call{" "}
-              <a href="tel:+16155884249" className="font-bold text-lumen-royal underline">615-588-4249</a>{" "}
+              <a href="tel:+13606372104" className="font-bold text-lumen-royal underline">(360) 637-2104</a>{" "}
               or email{" "}
               <a href="mailto:lumentelepsych@gmail.com" className="font-bold text-lumen-royal underline">
                 lumentelepsych@gmail.com
@@ -673,16 +673,16 @@ function Index() {
           {submitted ? (
             <div className="p-8 rounded-3xl bg-white shadow-sm text-center">
               <Sparkle className="size-8 text-lumen-pink mx-auto mb-3" />
-              <p className="font-display text-2xl font-extrabold mb-2">Your email is ready to send.</p>
+              <p className="font-display text-2xl font-extrabold mb-2">Thank you — your message is in.</p>
               <p className="text-slate-600">
-                Your mail app should have opened with your message pre-filled. Just hit send and
-                we'll be in touch.
+                We've received your inquiry and will reply within 1–2 business days at the email
+                or phone number you provided.
               </p>
             </div>
           ) : (
             <form
               onSubmit={handleContactSubmit}
-              className="bg-white p-6 md:p-10 rounded-3xl shadow-sm border border-white space-y-5"
+              className="bg-white p-6 md:p-10 rounded-3xl shadow-lg border-2 border-lumen-royal/40 space-y-5"
             >
               <div className="grid md:grid-cols-2 gap-5">
                 <label className="block">
