@@ -108,7 +108,7 @@ export const Route = createFileRoute("/api/public/contact")({
         const parsed = ContactSchema.safeParse(raw);
         if (!parsed.success) {
           return Response.json(
-            { ok: false, error: "Please fill out every field and check all three consent boxes." },
+            { ok: false, error: "Please fill out every field and check all four consent boxes." },
             { status: 400 },
           );
         }
