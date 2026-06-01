@@ -417,12 +417,23 @@ function Index() {
 
             <div>
               <p className="text-lg text-slate-700 mb-6 leading-relaxed">
+                Lumen Telepsych is a virtual psychiatric practice serving patients across
+                Washington and Tennessee with thoughtful medication management and lifestyle
+                planning for ages 6 to 106. Care is collaborative, intuitive, and grounded in
+                years of clinical experience across the full lifespan and acuity spectrum —
+                inpatient, outpatient, partial hospitalization, intensive outpatient, crisis
+                intervention, emergency room, forensic, detox, mood disorder, co-occurring
+                disorder, adolescent, geriatric, and community-based settings. That breadth
+                means a strong clinical foundation and real comfort with whatever you bring
+                to the table.
+              </p>
+              <p className="text-lg text-slate-700 mb-6 leading-relaxed">
                 Chelsea brings over a decade of experience across ER and psychiatric settings, and
                 has cared for patients professionally since age 15 — starting as a nursing assistant,
                 becoming a registered nurse at 20, and ultimately fulfilling her dream of becoming a
                 psychiatric mental health nurse practitioner to offer the kind of care she
-                consistently observed to be missing. Bring whatever you're carrying — together
-                we'll find a way forward. She is here for anyone willing to try.
+                consistently observed to be missing. Whatever brought you here today is welcome —
+                we'll work through it at your pace, not anyone else's.
               </p>
               <blockquote className="my-6 pl-5 border-l-4 border-lumen-pink bg-lumen-purple/10 rounded-r-2xl py-4 pr-5">
                 <p className="font-display italic text-xl md:text-2xl text-lumen-royal leading-snug">
