@@ -632,9 +632,9 @@ function Index() {
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
-              { day: "Monday – Thursday", hours: "11:00 AM – 8:00 PM CT", bg: "bg-lumen-purple/15", text: "text-lumen-royal" },
-              { day: "Friday", hours: "11:00 AM – 5:00 PM CT", bg: "bg-lumen-pink/20", text: "text-pink-700" },
-              { day: "Saturday", hours: "By appointment", bg: "bg-lumen-orange/25", text: "text-orange-700" },
+              { day: "Monday – Wednesday", hours: "By appointment only", bg: "bg-lumen-purple/15", text: "text-lumen-royal" },
+              { day: "Thursday – Friday", hours: "8:00 AM – 8:00 PM CT", bg: "bg-lumen-pink/20", text: "text-pink-700" },
+              { day: "Saturday", hours: "8:00 AM – 8:00 PM CT", bg: "bg-lumen-orange/25", text: "text-orange-700" },
               { day: "Sunday", hours: "Closed", bg: "bg-lumen-teal/20", text: "text-teal-700" },
             ].map((h) => (
               <div key={h.day} className={`p-6 rounded-2xl ${h.bg} text-center`}>
