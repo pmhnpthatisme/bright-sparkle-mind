@@ -124,7 +124,7 @@ function Index() {
 
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!contact.consent || !contact.crisisAck || !contact.commsConsent) return;
+    if (!contact.consent || !contact.crisisAck || !contact.commsConsent || !contact.hipaaAck) return;
     setSending(true);
     setSendError(null);
     try {
@@ -139,6 +139,7 @@ function Index() {
           consent_reply: contact.consent,
           consent_comms: contact.commsConsent,
           consent_crisis: contact.crisisAck,
+          consent_hipaa: contact.hipaaAck,
         }),
       });
       const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
