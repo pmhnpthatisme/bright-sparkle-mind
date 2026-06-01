@@ -1,42 +1,88 @@
-## Plan: Content & Trust Updates
+## Plan: Booking router, working contact form, copy + design polish
 
-### 1. Hours of Operation — Simplify timezone wording
-Replace the current dual-timezone explanation with clear Central Time wording plus a helpful note for Washington patients.
+### A. Copy & content edits (`src/routes/index.tsx`)
 
-Current: "Hours are listed in Pacific and Central time zones for our Washington and Tennessee patients."
+1. **Flexible Support card** — replace fairy garden / trap house lines with three fresh, on-brand humorous examples (dry-witty default):
+   > "Meet from your parked car, the corner of the closet that gets the best Wi-Fi, or wherever your nervous system is willing to sit still for 50 minutes."
 
-Proposed: "All hours are listed in **Central Time**. Patients in Washington: please adjust accordingly (for example, 9 AM CT = 7 AM PT)."
+2. **Move practice intro into Meet Your Provider.** Pull the "serving patients in Washington and Tennessee… full-lifespan…" paragraph out of the upper section and place it as the lead-in to the provider bio. Replace the upper section's intro with a tighter, more emotional one-liner so the page still flows.
 
-This is cleaner, less cluttered, and still inclusive.
+3. **Meet Your Provider — replace "Bring whatever you're carrying"** (duplicated language) with:
+   > "Whatever brought you here today is welcome — we'll work through it at your pace, not anyone else's."
 
-### 2. Contact & Book section — Add email alongside phone
-In the paragraph under the "Send a message" heading (currently only shows phone), add the email `lumentelepsych@gmail.com` styled the same way as the phone number (`text-lumen-royal underline font-bold`).
+4. **Contact section crisis line** — remove the duplicated 911/988 sentence (still acknowledged via the required checkbox and the top-of-page banner). Replace with a softer redirect + a *new* resource:
+   > "This form isn't monitored in real time. If you need to speak with someone right now, the **Crisis Text Line** is available 24/7 — text **HOME to 741741** — or call/text **988**."
 
-### 3. Meet Your Provider — Add welcoming quote
-Insert the requested quote in a visually distinct block within the provider section:
+5. **Bottom footer** — remove the "we do not provide emergency care" line per request.
 
-> "Come as you are—no version of you is too much or not enough here."
+6. **Phone number** — replace every instance of `615-588-4249` with `360-637-2104` (display `(360) 637-2104`, `tel:+13606372104`). Update the bottom "Book Now" CTA helper line that currently shows the phone to read **"Text 360-637-2104"** as previously requested.
 
-Placement: after the main bio paragraph (the one ending "...we'll find a way forward."), before the personal/interests paragraph. Styled as an italic pull-quote with a left accent border or soft background to differentiate it from body text.
+### B. Hours of operation update
 
-### 4. Contact form — Recommend two additional trust/compliance checkboxes
+Replace current week with:
+- Monday — By appointment only
+- Tuesday — By appointment only
+- Wednesday — By appointment only
+- Thursday — 8:00 AM – 8:00 PM CT
+- Friday — 8:00 AM – 8:00 PM CT
+- Saturday — 8:00 AM – 8:00 PM CT
+- Sunday — Closed
 
-For a telehealth practice, adding these two required checkboxes improves legal protection, SEO trust signals, and patient clarity without hurting conversion:
+Keep the existing "All hours listed in Central Time…" note.
 
-| Checkbox | Purpose |
-|---|---|
-| **Crisis acknowledgment** | "I understand this form is for general inquiries and scheduling only, and is not monitored for emergencies. If I am in crisis, I will call 911 or 988." |
-| **Privacy/communication consent** | "I consent to receive communications (including unencrypted email and text) at the contact details I provided, and I understand that messaging via this form is not a substitute for clinical advice." |
+### C. Booking router (new shared component)
 
-Why these matter:
-- **Crisis checkbox**: Protects the practice legally and reiterates the emergency protocol. Repeating it as an interactive checkbox (vs. static text) increases patient awareness and reduces liability.
-- **Communication consent**: Covers telehealth privacy basics and sets expectations. Google and patients both look for transparency signals on healthcare sites.
+Create `src/components/BookingDialog.tsx` — a styled dialog (shadcn `Dialog`, royal/lavender theme, same rounded card aesthetic) that opens whenever the patient clicks any of:
+- "Book Now" (hero + bottom CTA)
+- "Get Started"
+- "Don't see it? Reach out anyway"
+- The new **clickable Step 1 ("Reach out & book")** and **Step 2 ("Complete your packet")** cards in *How It Works*
 
-Also add a short line of text above the submit button: "We typically reply within 1–2 business days."
+The dialog shows three large, idiot-proof cards stacked vertically (one-tap on mobile), each with an icon, short label, and one-line plain-English description:
 
-This keeps the form human (warm language), luxurious (clear, uncluttered), and aligned with conversion goals (trust = more bookings).
+| Card | Label | Subtext |
+|---|---|---|
+| 1 | **Self-Pay** | "Book and complete intake directly through our secure patient portal." → opens TherapyNotes patient portal in new tab |
+| 2 | **Insurance (in-network direct)** | "Verify benefits and schedule." → opens insurance intake URL |
+| 3 | **Headway** | "Use your insurance through Headway's scheduling platform." → opens Headway provider page |
 
-### Files to edit
-- `src/routes/index.tsx` — all changes above.
+Because you didn't share the exact URLs, the file will define them at the top as clearly-marked constants (`SELFPAY_URL`, `INSURANCE_URL`, `HEADWAY_URL`) with placeholder TherapyNotes/Headway URLs and a `TODO: replace with your portal links` comment. You can paste your real links into that one file and every button updates.
 
-No new dependencies needed.
+Each link opens in a new tab with `rel="noopener noreferrer"`. TherapyNotes' patient portal flow is HIPAA-compliant by default, so directing patients there satisfies the HIPAA requirement without our site handling PHI.
+
+### D. Working contact-form email delivery
+
+Static sites can't send email, so this requires a small backend. Defaulting to **Lovable Cloud + Resend** (most reliable; submissions emailed to `lumentelepsych@gmail.com`; also stored in a `contact_submissions` table for backup).
+
+Steps:
+1. Enable Lovable Cloud.
+2. Connect Resend connector.
+3. Create `contact_submissions` table (name, email, phone, message, consents, created_at) + RLS (insert-only for anon; select for service role).
+4. Public server route `src/routes/api/public/contact.ts`:
+   - Zod-validates input (length limits, email/phone format, all 3 consent booleans required).
+   - Simple in-memory rate-limit (5/min per IP).
+   - Inserts row via service-role client.
+   - Sends email to `lumentelepsych@gmail.com` via Resend gateway with formatted patient details + a `reply-to` set to the patient's email so you can reply directly.
+5. Update the contact form `handleContactSubmit` to `POST` to `/api/public/contact` and show success/error toast.
+
+### E. "Send a Message" visual treatment
+
+Wrap the contact form card in a royal-purple border (`border-2 border-lumen-royal`) on a soft `bg-lumen-purple/5` background, matching the wrapped-color pattern used on the other sections.
+
+### F. Make How It Works steps actionable
+
+- Step 1 card → button "Reach out & book" → opens `BookingDialog`
+- Step 2 card → button "Start your intake packet" → opens `BookingDialog`
+- Steps 3 & 4 remain visual only (already non-interactive in user flow)
+- Keep existing border-color theming intact (purple/orange/teal/pink wraps).
+
+### Files touched
+- `src/routes/index.tsx` — all copy edits, phone update, hours, contact-form wiring, Step 1/2 buttons, "Send a Message" wrapper.
+- `src/components/BookingDialog.tsx` — new shared dialog.
+- `src/lib/contact.ts` — small client helper for the POST.
+- `src/routes/api/public/contact.ts` — new server route.
+- Migration: `contact_submissions` table + RLS + grants.
+
+### Things you'll want to give me after approval
+- The three real booking URLs (Self-pay TherapyNotes portal, Insurance intake, Headway profile) — I'll wire them into one file in seconds.
+- (Resend free-tier API key will be requested at the moment we need it.)
