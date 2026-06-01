@@ -10,6 +10,7 @@ const ContactSchema = z.object({
   consent_reply: z.literal(true),
   consent_comms: z.literal(true),
   consent_crisis: z.literal(true),
+  consent_hipaa: z.literal(true),
 });
 
 // Simple in-memory rate limit (5 per 10 min per IP). Resets on cold start.
