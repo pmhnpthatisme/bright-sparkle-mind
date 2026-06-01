@@ -48,7 +48,7 @@ async function sendViaResend(input: z.infer<typeof ContactSchema>) {
       </table>
       <h3 style="color:#4c1d95;margin:20px 0 8px;font-size:15px">Message</h3>
       <p style="white-space:pre-wrap;background:#f5f3ff;padding:14px;border-radius:10px;font-size:14px;line-height:1.5">${escapeHtml(input.message)}</p>
-      <p style="font-size:12px;color:#64748b;margin-top:18px">Patient has consented to receive a reply at the email/phone above and has acknowledged the crisis-care and communications disclosures.</p>
+      <p style="font-size:12px;color:#64748b;margin-top:18px">Patient has consented to receive a reply at the email/phone above and has acknowledged the crisis-care, communications, and HIPAA disclosures.</p>
     </div>
   `;
   try {
