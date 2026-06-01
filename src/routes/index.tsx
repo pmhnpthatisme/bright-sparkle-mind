@@ -496,6 +496,7 @@ function Index() {
                 border: "border-lumen-teal/60",
                 title: "Have your session",
                 body: "Meet on a HIPAA-secure video visit where you feel comfortable, prioritized, and actually heard.",
+                cta: undefined as string | undefined,
               },
               {
                 n: "04",
@@ -504,6 +505,7 @@ function Index() {
                 border: "border-lumen-pink/60",
                 title: "Stay in touch",
                 body: "Direct provider access between visits. If you need us, we're here — same Chelsea, every time.",
+                cta: undefined as string | undefined,
               },
             ].map((s) => (
               <div
