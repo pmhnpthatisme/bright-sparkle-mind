@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import chelseaImg from "@/assets/chelsea.jpg";
+import { BookingDialog } from "@/components/BookingDialog";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -115,20 +116,46 @@ function Index() {
     commsConsent: false,
   });
   const [submitted, setSubmitted] = useState(false);
+  const [bookingOpen, setBookingOpen] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
+  const openBooking = () => setBookingOpen(true);
 
-  const handleContactSubmit = (e: React.FormEvent) => {
+  const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!contact.consent || !contact.crisisAck || !contact.commsConsent) return;
-    const subject = encodeURIComponent(`New patient inquiry from ${contact.name}`);
-    const body = encodeURIComponent(
-      `Name: ${contact.name}\nEmail: ${contact.email}\nPhone: ${contact.phone}\n\nMessage:\n${contact.message}\n\nConsent: Patient has consented to receive a reply at the email and/or phone number provided above.`,
-    );
-    window.location.href = `mailto:lumentelepsych@gmail.com?subject=${subject}&body=${body}`;
-    setSubmitted(true);
+    setSending(true);
+    setSendError(null);
+    try {
+      const res = await fetch("/api/public/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: contact.name,
+          email: contact.email,
+          phone: contact.phone,
+          message: contact.message,
+          consent_reply: contact.consent,
+          consent_comms: contact.commsConsent,
+          consent_crisis: contact.crisisAck,
+        }),
+      });
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
+      if (!res.ok || !data.ok) {
+        setSendError(data.error || "Something went wrong. Please try again or text us directly.");
+      } else {
+        setSubmitted(true);
+      }
+    } catch {
+      setSendError("Network error. Please try again or text us directly.");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#F5F0FA] via-[#F8F5FB] to-[#FBF4EC] font-sans text-slate-900 overflow-x-hidden">
+      <BookingDialog open={bookingOpen} onOpenChange={setBookingOpen} />
       {/* Crisis banner */}
       <div
         role="alert"
