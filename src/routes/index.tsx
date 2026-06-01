@@ -593,16 +593,17 @@ function Index() {
               Same-day appointments often available. Reach out with any questions —
               start bringing back your sparkle today.
             </p>
-            <a
-              href="#contact"
-              className="inline-block px-10 py-5 bg-white text-lumen-royal rounded-full font-extrabold text-lg md:text-xl shadow-2xl hover:bg-lumen-yellow hover:scale-[1.03] transition-all"
+            <button
+              type="button"
+              onClick={openBooking}
+              className="inline-block px-10 py-5 bg-white text-lumen-royal rounded-full font-extrabold text-lg md:text-xl shadow-2xl hover:bg-lumen-yellow hover:scale-[1.03] transition-all cursor-pointer"
             >
               Book Now
-            </a>
+            </button>
             <p className="mt-6 text-white/90 text-sm md:text-base">
               Text{" "}
-              <a href="sms:+16155884249" className="underline font-bold">
-                615-588-4249
+              <a href="sms:+13606372104" className="underline font-bold">
+                (360) 637-2104
               </a>{" "}
               · Email{" "}
               <a href="mailto:lumentelepsych@gmail.com" className="underline font-bold">
