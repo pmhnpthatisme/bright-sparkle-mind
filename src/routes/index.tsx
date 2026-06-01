@@ -265,6 +265,7 @@ function Index() {
                 body: "A genuine commitment to walking with patients through every stage of life — meeting each person where they are, with care that grows alongside them from their earliest years through every chapter ahead.",
                 link: "Services",
                 href: "#treatments",
+                action: "scroll" as const,
                 bg: "bg-lumen-purple/15",
                 text: "text-lumen-purple",
                 btn: "bg-lumen-purple",
@@ -274,15 +275,17 @@ function Index() {
                 body: "Treatment plans aren't ordered for you — they're built side-by-side. Your goals lead. Brilliant clinical instinct fills in the map. Every decision is made with you, not for you.",
                 link: "Med Management",
                 href: "#chelsea",
+                action: "scroll" as const,
                 bg: "bg-lumen-pink/20",
                 text: "text-pink-700",
                 btn: "bg-lumen-pink",
               },
               {
                 title: "Flexible Support for Real Life",
-                body: "Life is already demanding — mental health care shouldn't add to it. Meet from your fairy garden, your imaginary friend's trap house, or honestly anywhere you feel comfortable. Direct provider access between visits. Same Chelsea, every time.",
+                body: "Life is already demanding — mental health care shouldn't add to it. Meet from your parked car, the corner of the closet that gets the best Wi-Fi, or wherever your nervous system is willing to sit still for 50 minutes. Direct provider access between visits. Same Chelsea, every time.",
                 link: "Get Started",
-                href: "sms:+16155884249",
+                href: "#contact",
+                action: "book" as const,
                 bg: "bg-lumen-orange/25",
                 text: "text-orange-700",
                 btn: "bg-lumen-orange",
@@ -297,12 +300,22 @@ function Index() {
                   {c.title}
                 </h3>
                 <p className="text-slate-700 leading-relaxed mb-7 flex-1">{c.body}</p>
-                <a
-                  href={c.href}
-                  className={`inline-block self-start px-6 py-2.5 ${c.btn} text-white rounded-full text-sm font-bold uppercase tracking-wider hover:opacity-90 transition-opacity`}
-                >
-                  {c.link}
-                </a>
+                {c.action === "book" ? (
+                  <button
+                    type="button"
+                    onClick={openBooking}
+                    className={`inline-block self-start px-6 py-2.5 ${c.btn} text-white rounded-full text-sm font-bold uppercase tracking-wider hover:opacity-90 transition-opacity cursor-pointer`}
+                  >
+                    {c.link}
+                  </button>
+                ) : (
+                  <a
+                    href={c.href}
+                    className={`inline-block self-start px-6 py-2.5 ${c.btn} text-white rounded-full text-sm font-bold uppercase tracking-wider hover:opacity-90 transition-opacity`}
+                  >
+                    {c.link}
+                  </a>
+                )}
               </div>
             ))}
           </div>
