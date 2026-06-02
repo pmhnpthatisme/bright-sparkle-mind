@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import chelseaImg from "@/assets/chelsea.jpg";
+import chelseaAsset from "@/assets/chelsea.jpg.asset.json";
 import { BookingDialog } from "@/components/BookingDialog";
 
 export const Route = createFileRoute("/")({
@@ -240,10 +240,10 @@ function Index() {
             with thoughtful medication management and lifestyle planning for ages 6 to 106 — in
             a space that feels less like an appointment and more like a real conversation. Care
             is collaborative, intuitive, and grounded in years of clinical experience across
-            the full lifespan and acuity spectrum, including inpatient, outpatient, partial
-            hospitalization, intensive outpatient, crisis intervention, emergency room,
+            the full lifespan and acuity spectrum. That experience spans inpatient, outpatient,
+            partial hospitalization, intensive outpatient, crisis intervention, emergency room,
             forensic, detox, mood disorder, co-occurring disorder, adolescent, geriatric, and
-            community-based care settings. That breadth means a strong clinical foundation and
+            community-based settings. That breadth ensures a strong clinical foundation and
             a real comfort with whatever you bring to the table.
           </p>
         </div>
@@ -340,10 +340,10 @@ function Index() {
             </span>
           </h2>
           <p className="text-lg md:text-2xl text-slate-200 leading-relaxed font-light">
-            Casual on the surface, serious about the work underneath. Patients regularly share
-            things they hadn't planned to disclose — because for the first time it feels safe
-            enough to put it down. That's where the real treatment begins: warmth, humor, and
-            the willingness to say the hard thing when it'll actually move you forward.
+            Casual on the surface, serious about the work underneath. Patient comfort during
+            the conversation is the priority — it's safe to put it down here. That's where the
+            real treatment begins: warmth, humor, and accountability, with the reminder that
+            you are so much more capable than you believe.
           </p>
         </div>
       </section>
@@ -406,7 +406,7 @@ function Index() {
               <div className="absolute -bottom-6 -right-6 size-40 bg-lumen-teal/40 rounded-full blur-2xl" />
               <div className="relative aspect-square rounded-full overflow-hidden border-[10px] border-white shadow-xl ring-4 ring-lumen-purple/30 max-w-sm mx-auto">
                 <img
-                  src={chelseaImg}
+                  src={chelseaAsset.url}
                   alt="Chelsea Johnson, PMHNP-BC of Lumen Telepsych"
                   className="w-full h-full object-cover"
                 />
@@ -419,23 +419,11 @@ function Index() {
 
             <div>
               <p className="text-lg text-slate-700 mb-6 leading-relaxed">
-                Lumen Telepsych is a virtual psychiatric practice serving patients across
-                Washington and Tennessee with thoughtful medication management and lifestyle
-                planning for ages 6 to 106. Care is collaborative, intuitive, and grounded in
-                years of clinical experience across the full lifespan and acuity spectrum —
-                inpatient, outpatient, partial hospitalization, intensive outpatient, crisis
-                intervention, emergency room, forensic, detox, mood disorder, co-occurring
-                disorder, adolescent, geriatric, and community-based settings. That breadth
-                means a strong clinical foundation and real comfort with whatever you bring
-                to the table.
-              </p>
-              <p className="text-lg text-slate-700 mb-6 leading-relaxed">
                 Chelsea brings over a decade of experience across ER and psychiatric settings, and
                 has cared for patients professionally since age 15 — starting as a nursing assistant,
                 becoming a registered nurse at 20, and ultimately fulfilling her dream of becoming a
                 psychiatric mental health nurse practitioner to offer the kind of care she
-                consistently observed to be missing. Whatever brought you here today is welcome —
-                we'll work through it at your pace, not anyone else's.
+                consistently observed to be missing. Whatever brought you here today is welcome.
               </p>
               <blockquote className="my-6 pl-5 border-l-4 border-lumen-pink bg-lumen-purple/10 rounded-r-2xl py-4 pr-5">
                 <p className="font-display italic text-xl md:text-2xl text-lumen-royal leading-snug">
