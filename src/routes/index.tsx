@@ -284,7 +284,7 @@ function Index() {
               },
               {
                 title: "Flexible Support for Real Life",
-                body: "Life is already demanding — mental health care shouldn't add to it. Meet from your parked car, the corner of the closet that gets the best Wi-Fi, or wherever your nervous system is willing to sit still for 50 minutes. Direct provider access between visits. Same Chelsea, every time.",
+                body: "Life is already demanding. Mental health care shouldn't add to it. Parked car, couch, bed, closet corner — if it's got Wi-Fi, it counts. Direct provider access between visits. Same Chelsea every time.",
                 link: "Get Started",
                 href: "#contact",
                 action: "book" as const,
