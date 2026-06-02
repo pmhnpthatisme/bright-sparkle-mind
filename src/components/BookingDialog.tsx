@@ -1,10 +1,12 @@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
 // TODO: Replace these placeholder URLs with your real portal links.
-// (Paste them here and every Book Now / Get Started button updates automatically.)
-const SELFPAY_URL = "https://www.therapynotes.com/patient-portal/"; // TherapyNotes patient portal
-const INSURANCE_URL = "https://www.therapynotes.com/patient-portal/"; // Direct in-network intake
-const HEADWAY_URL = "https://headway.co/"; // Your Headway provider profile
+// The user mentioned a TherapyNotes intake link but didn't paste the URL —
+// once provided, set THERAPYNOTES_URL below and every Self-Pay / WA Insurance
+// button updates automatically. HEADWAY_URL is for TN insurance clients and
+// will be provided later.
+const THERAPYNOTES_URL = "https://www.therapynotes.com/patient-portal/"; // PLACEHOLDER — replace with your TherapyNotes intake link
+const HEADWAY_URL = "https://headway.co/"; // PLACEHOLDER — replace with your Headway provider profile
 
 type Option = {
   label: string;
@@ -20,28 +22,28 @@ type Option = {
 const OPTIONS: Option[] = [
   {
     label: "Self-Pay",
-    subtitle: "No insurance — paying out of pocket",
+    subtitle: "Paying out of pocket (WA or TN)",
     body: "Book and complete intake directly through our secure HIPAA-compliant patient portal.",
-    href: SELFPAY_URL,
+    href: THERAPYNOTES_URL,
     cardBg: "bg-lumen-purple/15 hover:bg-lumen-purple/25",
     accent: "text-lumen-royal",
     pill: "bg-lumen-royal text-white",
     emoji: "✦",
   },
   {
-    label: "Insurance (in-network direct)",
-    subtitle: "Using your insurance through Lumen directly",
-    body: "Verify benefits and schedule through our patient portal — we'll bill your insurance for you.",
-    href: INSURANCE_URL,
+    label: "Washington Insurance",
+    subtitle: "Optum · Premera · Cigna · Aetna",
+    body: "If you live in Washington and have one of these plans, book directly through our patient portal — we bill your insurance for you.",
+    href: THERAPYNOTES_URL,
     cardBg: "bg-lumen-pink/20 hover:bg-lumen-pink/30",
     accent: "text-pink-700",
     pill: "bg-lumen-pink text-white",
     emoji: "✦",
   },
   {
-    label: "Headway",
-    subtitle: "Using your insurance through Headway",
-    body: "Schedule through Headway's platform — they handle benefits, billing, and copays.",
+    label: "Tennessee Insurance",
+    subtitle: "Cigna · Aetna · Carelon · Ascension · Optum",
+    body: "If you live in Tennessee and have one of these plans, you'll book through Headway, which handles benefits, billing, and copays.",
     href: HEADWAY_URL,
     cardBg: "bg-lumen-orange/25 hover:bg-lumen-orange/35",
     accent: "text-orange-700",
