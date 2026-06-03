@@ -113,8 +113,6 @@ function Index() {
     message: "",
     consent: false,
     crisisAck: false,
-    commsConsent: false,
-    hipaaAck: false,
   });
   const [submitted, setSubmitted] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -124,7 +122,7 @@ function Index() {
 
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!contact.consent || !contact.crisisAck || !contact.commsConsent || !contact.hipaaAck) return;
+    if (!contact.consent || !contact.crisisAck) return;
     setSending(true);
     setSendError(null);
     try {
@@ -137,9 +135,9 @@ function Index() {
           phone: contact.phone,
           message: contact.message,
           consent_reply: contact.consent,
-          consent_comms: contact.commsConsent,
+          consent_comms: contact.consent,
           consent_crisis: contact.crisisAck,
-          consent_hipaa: contact.hipaaAck,
+          consent_hipaa: contact.consent,
         }),
       });
       const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
