@@ -726,22 +726,11 @@ function Index() {
                   className="mt-1 size-5 accent-lumen-royal cursor-pointer"
                 />
                 <span className="text-sm text-slate-700">
-                  I consent to receive a reply at the phone number and/or email address I have
-                  provided above. *
-                </span>
-              </label>
-              <label className="flex items-start gap-3 cursor-pointer">
-                <input
-                  required
-                  type="checkbox"
-                  checked={contact.commsConsent}
-                  onChange={(e) => setContact({ ...contact, commsConsent: e.target.checked })}
-                  className="mt-1 size-5 accent-lumen-royal cursor-pointer"
-                />
-                <span className="text-sm text-slate-700">
-                  I understand that messages sent through this form may travel by unencrypted email
-                  or text, and that this form is not a substitute for clinical advice or
-                  established-patient communication. *
+                  I consent to receive a reply at the phone number and/or email address I provided.
+                  I understand this form is <strong>not a secure or HIPAA-encrypted channel</strong>,
+                  that messages may travel by unencrypted email or text, and that I should not
+                  include protected health information here — any clinical matters will be handled
+                  during a secure intake or appointment. *
                 </span>
               </label>
               <label className="flex items-start gap-3 cursor-pointer">
@@ -758,18 +747,6 @@ function Index() {
                   the <strong>988</strong> Suicide & Crisis Lifeline. *
                 </span>
               </label>
-              <label className="flex items-start gap-3 cursor-pointer">
-                <input
-                  required
-                  type="checkbox"
-                  checked={contact.hipaaAck}
-                  onChange={(e) => setContact({ ...contact, hipaaAck: e.target.checked })}
-                  className="mt-1 size-5 accent-lumen-royal cursor-pointer"
-                />
-                <span className="text-sm text-slate-700">
-                  I understand this form is not a secure or encrypted channel for sharing protected health information. I agree not to include sensitive medical details here, and I understand any clinical matters will be discussed during a proper, secure intake or appointment. *
-                </span>
-              </label>
               <p className="text-sm text-slate-600">
                 We typically reply within <strong>1–2 business days</strong>.
               </p>
@@ -780,7 +757,7 @@ function Index() {
               )}
               <button
                 type="submit"
-                disabled={sending || !contact.consent || !contact.crisisAck || !contact.commsConsent || !contact.hipaaAck}
+                disabled={sending || !contact.consent || !contact.crisisAck}
                 className="w-full md:w-auto px-8 py-4 bg-lumen-royal text-white rounded-full font-extrabold text-sm uppercase tracking-wider shadow-lg hover:bg-lumen-purple hover:text-lumen-royal transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 {sending ? "Sending…" : "Send Message"}
