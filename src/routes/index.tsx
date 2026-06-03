@@ -2,6 +2,19 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import chelseaAsset from "@/assets/chelsea.jpg.asset.json";
 import { BookingDialog } from "@/components/BookingDialog";
+import dpcPdf from "@/assets/intake/dpc.pdf.asset.json";
+import billingPdf from "@/assets/intake/billing.pdf.asset.json";
+import intakePdf from "@/assets/intake/intake.pdf.asset.json";
+import narcoticPdf from "@/assets/intake/narcotic.pdf.asset.json";
+import crisisPdf from "@/assets/intake/crisis.pdf.asset.json";
+
+const INTAKE_PACKET = [
+  { label: "1. DPC Agreement", desc: "Direct primary-care membership terms for self-pay clients.", file: dpcPdf },
+  { label: "2. Billing Form", desc: "Payment authorization and fee acknowledgment.", file: billingPdf },
+  { label: "3. Patient Intake Form", desc: "Demographics, history, and clinical background.", file: intakePdf },
+  { label: "4. Narcotic Policy", desc: "Controlled-substance prescribing policy and consent.", file: narcoticPdf },
+  { label: "5. Crisis Prevention Info", desc: "Safety plan and after-hours/emergency resources.", file: crisisPdf },
+];
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -113,8 +126,6 @@ function Index() {
     message: "",
     consent: false,
     crisisAck: false,
-    commsConsent: false,
-    hipaaAck: false,
   });
   const [submitted, setSubmitted] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
@@ -124,7 +135,7 @@ function Index() {
 
   const handleContactSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!contact.consent || !contact.crisisAck || !contact.commsConsent || !contact.hipaaAck) return;
+    if (!contact.consent || !contact.crisisAck) return;
     setSending(true);
     setSendError(null);
     try {
@@ -137,9 +148,9 @@ function Index() {
           phone: contact.phone,
           message: contact.message,
           consent_reply: contact.consent,
-          consent_comms: contact.commsConsent,
+          consent_comms: contact.consent,
           consent_crisis: contact.crisisAck,
-          consent_hipaa: contact.hipaaAck,
+          consent_hipaa: contact.consent,
         }),
       });
       const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
@@ -642,6 +653,53 @@ function Index() {
         </div>
       </section>
 
+      {/* Self-Pay / DPC Intake Packet */}
+      <section id="intake-packet" className="py-14 md:py-16 px-6 md:px-10 bg-white">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-orange font-bold">
+              Self-Pay / DPC Intake Packet
+            </span>
+            <h2 className="font-display text-4xl md:text-5xl font-extrabold mt-4 leading-tight">
+              Forms to <span className="italic text-lumen-royal">complete before your first visit.</span>
+            </h2>
+            <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
+              If you're a self-pay or DPC client in <strong>Washington</strong> or <strong>Tennessee</strong>,
+              please download, complete, and return all five forms below before your initial appointment.
+              Work through them in order — each one builds on the last.
+            </p>
+          </div>
+          <ol className="space-y-3">
+            {INTAKE_PACKET.map((doc) => (
+              <li key={doc.label}>
+                <a
+                  href={doc.file.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                  className="flex items-start gap-4 p-5 rounded-2xl bg-lumen-purple/10 hover:bg-lumen-purple/20 border-2 border-transparent hover:border-lumen-royal/30 transition-colors group"
+                >
+                  <div className="size-10 shrink-0 rounded-full bg-lumen-royal text-white flex items-center justify-center font-extrabold">
+                    PDF
+                  </div>
+                  <div className="flex-1">
+                    <p className="font-display text-lg font-extrabold text-lumen-royal leading-tight">
+                      {doc.label}
+                    </p>
+                    <p className="text-sm text-slate-700 mt-1">{doc.desc}</p>
+                  </div>
+                  <span className="text-lumen-royal font-bold text-2xl group-hover:translate-x-1 transition-transform">↓</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+          <p className="text-xs text-slate-500 mt-6 text-center">
+            Insurance-based clients (WA: Optum/Premera/Cigna/Aetna · TN via Headway) complete intake
+            through their respective portals and do not need to fill out this packet.
+          </p>
+        </div>
+      </section>
+
       {/* Contact Us */}
       <section id="contact" className="py-14 md:py-16 px-6 md:px-10 bg-gradient-to-br from-lumen-purple/15 via-surface to-lumen-pink/15">
         <div className="max-w-3xl mx-auto">
@@ -728,22 +786,11 @@ function Index() {
                   className="mt-1 size-5 accent-lumen-royal cursor-pointer"
                 />
                 <span className="text-sm text-slate-700">
-                  I consent to receive a reply at the phone number and/or email address I have
-                  provided above. *
-                </span>
-              </label>
-              <label className="flex items-start gap-3 cursor-pointer">
-                <input
-                  required
-                  type="checkbox"
-                  checked={contact.commsConsent}
-                  onChange={(e) => setContact({ ...contact, commsConsent: e.target.checked })}
-                  className="mt-1 size-5 accent-lumen-royal cursor-pointer"
-                />
-                <span className="text-sm text-slate-700">
-                  I understand that messages sent through this form may travel by unencrypted email
-                  or text, and that this form is not a substitute for clinical advice or
-                  established-patient communication. *
+                  I consent to receive a reply at the phone number and/or email address I provided.
+                  I understand this form is <strong>not a secure or HIPAA-encrypted channel</strong>,
+                  that messages may travel by unencrypted email or text, and that I should not
+                  include protected health information here — any clinical matters will be handled
+                  during a secure intake or appointment. *
                 </span>
               </label>
               <label className="flex items-start gap-3 cursor-pointer">
@@ -760,18 +807,6 @@ function Index() {
                   the <strong>988</strong> Suicide & Crisis Lifeline. *
                 </span>
               </label>
-              <label className="flex items-start gap-3 cursor-pointer">
-                <input
-                  required
-                  type="checkbox"
-                  checked={contact.hipaaAck}
-                  onChange={(e) => setContact({ ...contact, hipaaAck: e.target.checked })}
-                  className="mt-1 size-5 accent-lumen-royal cursor-pointer"
-                />
-                <span className="text-sm text-slate-700">
-                  I understand this form is not a secure or encrypted channel for sharing protected health information. I agree not to include sensitive medical details here, and I understand any clinical matters will be discussed during a proper, secure intake or appointment. *
-                </span>
-              </label>
               <p className="text-sm text-slate-600">
                 We typically reply within <strong>1–2 business days</strong>.
               </p>
@@ -782,7 +817,7 @@ function Index() {
               )}
               <button
                 type="submit"
-                disabled={sending || !contact.consent || !contact.crisisAck || !contact.commsConsent || !contact.hipaaAck}
+                disabled={sending || !contact.consent || !contact.crisisAck}
                 className="w-full md:w-auto px-8 py-4 bg-lumen-royal text-white rounded-full font-extrabold text-sm uppercase tracking-wider shadow-lg hover:bg-lumen-purple hover:text-lumen-royal transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
                 {sending ? "Sending…" : "Send Message"}
