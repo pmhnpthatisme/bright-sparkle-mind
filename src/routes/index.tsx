@@ -2,19 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import chelseaAsset from "@/assets/chelsea.jpg.asset.json";
 import { BookingDialog } from "@/components/BookingDialog";
-import dpcPdf from "@/assets/intake/dpc.pdf.asset.json";
-import billingPdf from "@/assets/intake/billing.pdf.asset.json";
-import intakePdf from "@/assets/intake/intake.pdf.asset.json";
-import narcoticPdf from "@/assets/intake/narcotic.pdf.asset.json";
-import crisisPdf from "@/assets/intake/crisis.pdf.asset.json";
-
-const INTAKE_PACKET = [
-  { label: "1. DPC Agreement", desc: "Direct primary-care membership terms for self-pay clients.", file: dpcPdf },
-  { label: "2. Billing Form", desc: "Payment authorization and fee acknowledgment.", file: billingPdf },
-  { label: "3. Patient Intake Form", desc: "Demographics, history, and clinical background.", file: intakePdf },
-  { label: "4. Narcotic Policy", desc: "Controlled-substance prescribing policy and consent.", file: narcoticPdf },
-  { label: "5. Crisis Prevention Info", desc: "Safety plan and after-hours/emergency resources.", file: crisisPdf },
-];
 
 export const Route = createFileRoute("/")({
   component: Index,
