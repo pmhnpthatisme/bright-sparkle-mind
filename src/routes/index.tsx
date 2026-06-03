@@ -640,53 +640,6 @@ function Index() {
         </div>
       </section>
 
-      {/* Self-Pay / DPC Intake Packet */}
-      <section id="intake-packet" className="py-14 md:py-16 px-6 md:px-10 bg-white">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-orange font-bold">
-              Self-Pay / DPC Intake Packet
-            </span>
-            <h2 className="font-display text-4xl md:text-5xl font-extrabold mt-4 leading-tight">
-              Forms to <span className="italic text-lumen-royal">complete before your first visit.</span>
-            </h2>
-            <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
-              If you're a self-pay or DPC client in <strong>Washington</strong> or <strong>Tennessee</strong>,
-              please download, complete, and return all five forms below before your initial appointment.
-              Work through them in order — each one builds on the last.
-            </p>
-          </div>
-          <ol className="space-y-3">
-            {INTAKE_PACKET.map((doc) => (
-              <li key={doc.label}>
-                <a
-                  href={doc.file.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  download
-                  className="flex items-start gap-4 p-5 rounded-2xl bg-lumen-purple/10 hover:bg-lumen-purple/20 border-2 border-transparent hover:border-lumen-royal/30 transition-colors group"
-                >
-                  <div className="size-10 shrink-0 rounded-full bg-lumen-royal text-white flex items-center justify-center font-extrabold">
-                    PDF
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-display text-lg font-extrabold text-lumen-royal leading-tight">
-                      {doc.label}
-                    </p>
-                    <p className="text-sm text-slate-700 mt-1">{doc.desc}</p>
-                  </div>
-                  <span className="text-lumen-royal font-bold text-2xl group-hover:translate-x-1 transition-transform">↓</span>
-                </a>
-              </li>
-            ))}
-          </ol>
-          <p className="text-xs text-slate-500 mt-6 text-center">
-            Insurance-based clients (WA: Optum/Premera/Cigna/Aetna · TN via Headway) complete intake
-            through their respective portals and do not need to fill out this packet.
-          </p>
-        </div>
-      </section>
-
       {/* Contact Us */}
       <section id="contact" className="py-14 md:py-16 px-6 md:px-10 bg-gradient-to-br from-lumen-purple/15 via-surface to-lumen-pink/15">
         <div className="max-w-3xl mx-auto">
