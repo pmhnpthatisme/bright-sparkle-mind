@@ -5,13 +5,18 @@ import billingPdf from "@/assets/intake/billing.pdf.asset.json";
 import intakePdf from "@/assets/intake/intake.pdf.asset.json";
 import narcoticPdf from "@/assets/intake/narcotic.pdf.asset.json";
 import crisisPdf from "@/assets/intake/crisis.pdf.asset.json";
+import insurancePdf from "@/assets/intake/insurance.pdf.asset.json";
 
-const INTAKE_PACKET = [
+const SELFPAY_PACKET = [
   { label: "1. DPC Agreement", desc: "Direct primary-care membership terms.", file: dpcPdf },
   { label: "2. Billing Form", desc: "Payment authorization and fee acknowledgment.", file: billingPdf },
   { label: "3. Patient Intake Form", desc: "Demographics, history, and clinical background.", file: intakePdf },
   { label: "4. Narcotic Policy", desc: "Controlled-substance prescribing policy and consent.", file: narcoticPdf },
   { label: "5. Crisis Prevention Info", desc: "Safety plan and after-hours/emergency resources.", file: crisisPdf },
+];
+
+const WA_INSURANCE_PACKET = [
+  { label: "Insurance Intake Packet", desc: "Complete this packet before your first appointment so we can verify benefits and bill your plan.", file: insurancePdf },
 ];
 
 // TODO: Replace these placeholder URLs with your real portal links.
@@ -73,7 +78,7 @@ export function BookingDialog({
   open: boolean;
   onOpenChange: (open: boolean) => void;
 }) {
-  const [view, setView] = useState<"options" | "selfpay">("options");
+  const [view, setView] = useState<"options" | "selfpay" | "wainsurance">("options");
 
   const handleOpenChange = (next: boolean) => {
     if (!next) setView("options");
@@ -90,20 +95,20 @@ export function BookingDialog({
             Let's get you booked
           </span>
           <DialogTitle className="font-display text-3xl md:text-4xl font-extrabold text-lumen-royal leading-tight mt-2">
-            How are you paying?
+            Which option best fits your care?
           </DialogTitle>
           <DialogDescription className="text-slate-600 text-base mt-2">
-            Pick the option that matches you — each one takes you straight to the right intake portal.
+            Choose the path that matches your situation and we'll guide you to the right intake.
           </DialogDescription>
         </DialogHeader>
 
         <div className="space-y-3 mt-2">
           {OPTIONS.map((o) => (
-            o.label === "Self-Pay" ? (
+            o.label === "Self-Pay" || o.label === "Washington Insurance" ? (
               <button
                 key={o.label}
                 type="button"
-                onClick={() => setView("selfpay")}
+                onClick={() => setView(o.label === "Self-Pay" ? "selfpay" : "wainsurance")}
                 className={`block w-full text-left p-5 rounded-2xl ${o.cardBg} transition-colors group`}
               >
                 <CardInner o={o} />
@@ -126,7 +131,7 @@ export function BookingDialog({
           Not sure which to pick? Text <a href="tel:+13606372104" className="font-bold text-lumen-royal underline">(360) 637-2104</a> and we'll help you choose.
         </p>
           </>
-        ) : (
+        ) : view === "selfpay" ? (
           <>
             <DialogHeader className="text-left">
               <button
@@ -149,7 +154,7 @@ export function BookingDialog({
             </DialogHeader>
 
             <ol className="space-y-3 mt-2">
-              {INTAKE_PACKET.map((doc) => (
+              {SELFPAY_PACKET.map((doc) => (
                 <li key={doc.label}>
                   <a
                     href={doc.file.url}
@@ -157,6 +162,62 @@ export function BookingDialog({
                     rel="noopener noreferrer"
                     download
                     className="flex items-start gap-4 p-4 rounded-2xl bg-lumen-purple/10 hover:bg-lumen-purple/20 border-2 border-transparent hover:border-lumen-royal/30 transition-colors group"
+                  >
+                    <div className="size-10 shrink-0 rounded-full bg-lumen-royal text-white flex items-center justify-center font-extrabold text-xs">
+                      PDF
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-display text-base font-extrabold text-lumen-royal leading-tight">
+                        {doc.label}
+                      </p>
+                      <p className="text-sm text-slate-700 mt-1">{doc.desc}</p>
+                    </div>
+                    <span className="text-lumen-royal font-bold text-2xl group-hover:translate-x-1 transition-transform">↓</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+
+            <a
+              href={THERAPYNOTES_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-4 block w-full text-center p-4 rounded-2xl bg-lumen-royal text-white font-display font-extrabold text-lg hover:bg-lumen-royal/90 transition-colors"
+            >
+              Continue to booking portal →
+            </a>
+          </>
+        ) : (
+          <>
+            <DialogHeader className="text-left">
+              <button
+                type="button"
+                onClick={() => setView("options")}
+                className="text-xs font-bold text-lumen-royal hover:underline self-start mb-2"
+              >
+                ← Back to options
+              </button>
+              <span className="font-display text-xs tracking-[0.3em] uppercase text-lumen-orange font-bold">
+                Washington Insurance Intake
+              </span>
+              <DialogTitle className="font-display text-3xl md:text-4xl font-extrabold text-lumen-royal leading-tight mt-2">
+                Complete your insurance intake packet.
+              </DialogTitle>
+              <DialogDescription className="text-slate-600 text-base mt-2">
+                Washington clients using <strong>Optum, Premera, Cigna, or Aetna</strong>: download
+                and complete the intake packet below, then continue to the booking portal.
+              </DialogDescription>
+            </DialogHeader>
+
+            <ol className="space-y-3 mt-2">
+              {WA_INSURANCE_PACKET.map((doc) => (
+                <li key={doc.label}>
+                  <a
+                    href={doc.file.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download
+                    className="flex items-start gap-4 p-4 rounded-2xl bg-lumen-pink/15 hover:bg-lumen-pink/25 border-2 border-transparent hover:border-lumen-royal/30 transition-colors group"
                   >
                     <div className="size-10 shrink-0 rounded-full bg-lumen-royal text-white flex items-center justify-center font-extrabold text-xs">
                       PDF
