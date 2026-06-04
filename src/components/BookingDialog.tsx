@@ -16,16 +16,17 @@ const SELFPAY_PACKET = [
 ];
 
 const WA_INSURANCE_PACKET = [
-  { label: "Insurance Intake Packet", desc: "Complete this packet before your first appointment so we can verify benefits and bill your plan.", file: insurancePdf },
+  { label: "1. DPC Agreement", desc: "Practice agreement and acknowledgments.", file: dpcPdf },
+  { label: "2. Billing Form", desc: "Payment authorization on file for any copays/coinsurance.", file: billingPdf },
+  { label: "3. Patient Intake Form", desc: "Demographics, history, and clinical background.", file: intakePdf },
+  { label: "4. Narcotic Policy", desc: "Controlled-substance prescribing policy and consent.", file: narcoticPdf },
+  { label: "5. Crisis Prevention Info", desc: "Safety plan and after-hours/emergency resources.", file: crisisPdf },
+  { label: "6. Insurance Intake Form", desc: "Insurance details so we can verify benefits and bill your plan directly.", file: insurancePdf },
 ];
 
-// TODO: Replace these placeholder URLs with your real portal links.
-// The user mentioned a TherapyNotes intake link but didn't paste the URL —
-// once provided, set THERAPYNOTES_URL below and every Self-Pay / WA Insurance
-// button updates automatically. HEADWAY_URL is for TN insurance clients and
-// will be provided later.
-const THERAPYNOTES_URL = "https://www.therapynotes.com/patient-portal/"; // PLACEHOLDER — replace with your TherapyNotes intake link
-const HEADWAY_URL = "https://headway.co/"; // PLACEHOLDER — replace with your Headway provider profile
+const THERAPYNOTES_URL = "https://therapyportal.com/p/lumentelepsych2025/";
+const HEADWAY_URL = "https://care.headway.co/providers/chelsea-johnson-5?utm_source=pem&utm_medium=direct_link&utm_campaign=174369";
+const ZOCDOC_URL = "https://www.zocdoc.com/doctor/chelsea-johnson-aprn-rn-pmhnp-bc-np-msn-685897";
 
 type Option = {
   label: string;
@@ -70,6 +71,17 @@ const OPTIONS: Option[] = [
     emoji: "✦",
   },
 ];
+
+const ZOCDOC_OPTION: Option = {
+  label: "Book via Zocdoc",
+  subtitle: "Self-pay (WA/TN) or WA insurance",
+  body: "Prefer Zocdoc? You can book and complete intake right inside Zocdoc — great for self-pay clients in Washington or Tennessee, and for Washington clients using insurance. (Tennessee insurance clients: please use Headway above.)",
+  href: ZOCDOC_URL,
+  cardBg: "bg-slate-100 hover:bg-slate-200",
+  accent: "text-slate-700",
+  pill: "bg-slate-700 text-white",
+  emoji: "✦",
+};
 
 export function BookingDialog({
   open,
@@ -125,6 +137,14 @@ export function BookingDialog({
               </a>
             )
           ))}
+          <a
+            href={ZOCDOC_OPTION.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`block p-5 rounded-2xl ${ZOCDOC_OPTION.cardBg} transition-colors group border-t-2 border-dashed border-slate-300 mt-4 pt-5`}
+          >
+            <CardInner o={ZOCDOC_OPTION} />
+          </a>
         </div>
 
         <p className="text-xs text-slate-500 mt-4 text-center">
@@ -205,7 +225,7 @@ export function BookingDialog({
               </DialogTitle>
               <DialogDescription className="text-slate-600 text-base mt-2">
                 Washington clients using <strong>Optum, Premera, Cigna, or Aetna</strong>: download
-                and complete the intake packet below, then continue to the booking portal.
+                and complete all six forms below in order, then continue to the booking portal to finish enrollment.
               </DialogDescription>
             </DialogHeader>
 

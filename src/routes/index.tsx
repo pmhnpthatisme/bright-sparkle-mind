@@ -406,7 +406,7 @@ function Index() {
                 <img
                   src={chelseaAsset.url}
                   alt="Chelsea Johnson, PMHNP-BC of Lumen Telepsych"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-[50%_28%]"
                 />
               </div>
               <div className="text-center mt-6">
