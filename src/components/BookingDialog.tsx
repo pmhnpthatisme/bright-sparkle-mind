@@ -225,7 +225,7 @@ export function BookingDialog({
               </DialogTitle>
               <DialogDescription className="text-slate-600 text-base mt-2">
                 Washington clients using <strong>Optum, Premera, Cigna, or Aetna</strong>: download
-                and complete the intake packet below, then continue to the booking portal.
+                and complete all six forms below in order, then continue to the booking portal to finish enrollment.
               </DialogDescription>
             </DialogHeader>
 
