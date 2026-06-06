@@ -450,7 +450,7 @@ function Index() {
             </h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
+            {([
               {
                 n: "01",
                 bg: "bg-lumen-purple/15",
@@ -458,7 +458,8 @@ function Index() {
                 border: "border-lumen-purple/60",
                 title: "Reach out & book",
                 body: "Text, call, or book directly on our platforms. A human writes back — we'll find a time that works.",
-                cta: "Reach out & book",
+                cta: { label: "Reach out & book", kind: "book" as const },
+                btnBg: "var(--color-lumen-purple, #7c3aed)",
               },
               {
                 n: "02",
@@ -467,7 +468,8 @@ function Index() {
                 border: "border-lumen-orange/70",
                 title: "Complete your packet",
                 body: "Fill out a short informative intake packet so we can prepare to give you the best possible care.",
-                cta: "Start your intake",
+                cta: { label: "Start your intake", kind: "book" as const },
+                btnBg: "var(--color-lumen-orange, #f97316)",
               },
               {
                 n: "03",
@@ -476,7 +478,12 @@ function Index() {
                 border: "border-lumen-teal/60",
                 title: "Have your session",
                 body: "Meet on a HIPAA-secure video visit where you feel comfortable, prioritized, and actually heard.",
-                cta: undefined as string | undefined,
+                cta: {
+                  label: "Pick your appointment time →",
+                  kind: "external" as const,
+                  href: "https://therapyportal.com/p/lumentelepsych2025/?fbclid=IwY2xjawSOpAdleHRuA2FlbQIxMABicmlkETF0RVJsV3QzUmdyNkgwTHJqc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHtFufkUGjcMny3p62P0ZkE8lG6WX1dRVErp4RKfYDF7aPFkpQwAktIifZnLR_aem_TwcXuUhvVDdcwh3BE2E9eQ",
+                },
+                btnBg: "var(--color-lumen-teal, #14b8a6)",
               },
               {
                 n: "04",
@@ -485,12 +492,13 @@ function Index() {
                 border: "border-lumen-pink/60",
                 title: "Stay in touch",
                 body: "Direct provider access between visits. If you need us, we're here — same Chelsea, every time.",
-                cta: undefined as string | undefined,
+                cta: { label: "Slide into our inbox →", kind: "scroll" as const, href: "#contact" },
+                btnBg: "var(--color-lumen-pink, #ec4899)",
               },
-            ].map((s) => (
+            ]).map((s) => (
               <div
                 key={s.n}
-                className={`p-8 bg-white rounded-3xl border-2 ${s.border} hover:-translate-y-1 transition-transform shadow-sm`}
+                className={`p-8 bg-white rounded-3xl border-2 ${s.border} hover:-translate-y-1 transition-transform shadow-sm flex flex-col`}
               >
                 <div
                   className={`size-14 rounded-2xl ${s.bg} ${s.t} flex items-center justify-center font-display font-extrabold text-xl mb-5`}
@@ -498,20 +506,36 @@ function Index() {
                   {s.n}
                 </div>
                 <h3 className="font-display text-2xl font-bold mb-3">{s.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{s.body}</p>
-                {s.cta && (
+                <p className="text-slate-600 leading-relaxed flex-1">{s.body}</p>
+                {s.cta.kind === "book" && (
                   <button
                     type="button"
                     onClick={openBooking}
-                    className={`mt-5 inline-flex items-center gap-1 px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider text-white ${s.t.replace("text-", "bg-")} bg-opacity-90 hover:opacity-90 transition-opacity cursor-pointer`}
-                    style={
-                      s.n === "01"
-                        ? { background: "var(--color-lumen-purple, #7c3aed)" }
-                        : { background: "var(--color-lumen-orange, #f97316)" }
-                    }
+                    className="mt-5 inline-flex items-center gap-1 px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider text-white hover:opacity-90 transition-opacity cursor-pointer self-start"
+                    style={{ background: s.btnBg }}
                   >
-                    {s.cta} →
+                    {s.cta.label} →
                   </button>
+                )}
+                {s.cta.kind === "external" && (
+                  <a
+                    href={s.cta.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-1 px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider text-white hover:opacity-90 transition-opacity self-start"
+                    style={{ background: s.btnBg }}
+                  >
+                    {s.cta.label}
+                  </a>
+                )}
+                {s.cta.kind === "scroll" && (
+                  <a
+                    href={s.cta.href}
+                    className="mt-5 inline-flex items-center gap-1 px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider text-white hover:opacity-90 transition-opacity self-start"
+                    style={{ background: s.btnBg }}
+                  >
+                    {s.cta.label}
+                  </a>
                 )}
               </div>
             ))}
@@ -764,11 +788,24 @@ function Index() {
         </div>
       </section>
 
-      {/* Minimal footer */}
-      <footer className="px-6 md:px-10 py-8 text-center text-xs text-slate-500">
+      {/* Footer: dark purple top accent line + © + Facebook */}
+      <div className="h-1.5 w-full bg-lumen-royal" aria-hidden />
+      <footer className="px-6 md:px-10 py-8 text-center text-xs text-slate-500 bg-white">
         <p>
           © {new Date().getFullYear()} Lumen Telepsych LLC · Licensed in Washington & Tennessee
         </p>
+        <a
+          href="https://www.facebook.com/p/Lumen-Telepsych-61584225376280/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Lumen Telepsych on Facebook"
+          className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-lumen-royal/30 text-lumen-royal font-bold text-xs hover:bg-lumen-royal hover:text-white transition-colors"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" className="size-4" aria-hidden>
+            <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z" />
+          </svg>
+          Follow us on Facebook
+        </a>
       </footer>
     </div>
   );
