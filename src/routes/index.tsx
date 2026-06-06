@@ -166,8 +166,8 @@ function Index() {
         988 Suicide & Crisis Lifeline.
       </div>
 
-      {/* Nav — soft salmon header */}
-      <nav className="sticky top-0 z-50 px-4 md:px-10 py-3 md:py-4 flex flex-wrap gap-y-2 justify-between items-center bg-gradient-to-r from-[#FFC7B5] via-[#FFB5A7] to-[#F8A488] backdrop-blur-md text-lumen-royal shadow-sm">
+      {/* Nav — soft salmon header (minimal: logo + Book Now) */}
+      <nav className="sticky top-0 z-50 px-4 md:px-10 py-3 md:py-4 flex justify-between items-center bg-gradient-to-r from-[#FFC7B5] via-[#FFB5A7] to-[#F8A488] backdrop-blur-md text-lumen-royal shadow-sm">
         <a href="#top" className="flex items-center gap-3">
           <div className="size-9 rounded-full bg-white/60 ring-2 ring-lumen-royal/30 backdrop-blur flex items-center justify-center">
             <Sparkle className="size-4 text-lumen-royal" />
@@ -176,21 +176,13 @@ function Index() {
             LUMEN TELEPSYCH
           </span>
         </a>
-        <div className="hidden lg:flex gap-6 xl:gap-8 font-semibold text-xs xl:text-sm tracking-wide uppercase">
-          <a href="#about" className="hover:text-white transition-colors">About</a>
-          <a href="#approach" className="hover:text-white transition-colors">Approach</a>
-          <a href="#treatments" className="hover:text-white transition-colors">Services</a>
-          <a href="#chelsea" className="hover:text-white transition-colors">Provider</a>
-          <a href="#reviews" className="hover:text-white transition-colors">Reviews</a>
-          <a href="#hours" className="hover:text-white transition-colors">Hours</a>
-          <a href="#contact" className="hover:text-white transition-colors">Contact</a>
-        </div>
-        <a
-          href="#contact"
-          className="px-4 md:px-5 py-2 md:py-2.5 bg-lumen-royal text-white rounded-full text-xs md:text-sm font-extrabold uppercase tracking-wider hover:bg-lumen-purple hover:text-lumen-royal transition-colors shadow-lg"
+        <button
+          type="button"
+          onClick={openBooking}
+          className="px-4 md:px-5 py-2 md:py-2.5 bg-lumen-royal text-white rounded-full text-xs md:text-sm font-extrabold uppercase tracking-wider hover:bg-lumen-purple hover:text-lumen-royal transition-colors shadow-lg cursor-pointer"
         >
           Book Now
-        </a>
+        </button>
       </nav>
 
       {/* Hero — wide rounded banner with overlay text */}
@@ -410,7 +402,7 @@ function Index() {
                 />
               </div>
               <div className="text-center mt-6">
-                <p className="font-display text-2xl font-extrabold">Chelsea Johnson, PMHNP-BC</p>
+                <p className="font-display text-2xl font-extrabold">Chelsea Johnson, PMHNP-BC, MSN, ARNP</p>
                 <p className="text-slate-600 mt-1">Psychiatric Medication Management</p>
               </div>
             </div>
@@ -458,7 +450,7 @@ function Index() {
             </h2>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
+            {([
               {
                 n: "01",
                 bg: "bg-lumen-purple/15",
@@ -466,7 +458,8 @@ function Index() {
                 border: "border-lumen-purple/60",
                 title: "Reach out & book",
                 body: "Text, call, or book directly on our platforms. A human writes back — we'll find a time that works.",
-                cta: "Reach out & book",
+                cta: { label: "Reach out & book", kind: "book" as const },
+                btnBg: "var(--color-lumen-purple, #7c3aed)",
               },
               {
                 n: "02",
@@ -475,7 +468,8 @@ function Index() {
                 border: "border-lumen-orange/70",
                 title: "Complete your packet",
                 body: "Fill out a short informative intake packet so we can prepare to give you the best possible care.",
-                cta: "Start your intake",
+                cta: { label: "Start your intake", kind: "book" as const },
+                btnBg: "var(--color-lumen-orange, #f97316)",
               },
               {
                 n: "03",
@@ -484,7 +478,12 @@ function Index() {
                 border: "border-lumen-teal/60",
                 title: "Have your session",
                 body: "Meet on a HIPAA-secure video visit where you feel comfortable, prioritized, and actually heard.",
-                cta: undefined as string | undefined,
+                cta: {
+                  label: "Pick your appointment time →",
+                  kind: "external" as const,
+                  href: "https://therapyportal.com/p/lumentelepsych2025/?fbclid=IwY2xjawSOpAdleHRuA2FlbQIxMABicmlkETF0RVJsV3QzUmdyNkgwTHJqc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHtFufkUGjcMny3p62P0ZkE8lG6WX1dRVErp4RKfYDF7aPFkpQwAktIifZnLR_aem_TwcXuUhvVDdcwh3BE2E9eQ",
+                },
+                btnBg: "var(--color-lumen-teal, #14b8a6)",
               },
               {
                 n: "04",
@@ -493,12 +492,13 @@ function Index() {
                 border: "border-lumen-pink/60",
                 title: "Stay in touch",
                 body: "Direct provider access between visits. If you need us, we're here — same Chelsea, every time.",
-                cta: undefined as string | undefined,
+                cta: { label: "Slide into our inbox →", kind: "scroll" as const, href: "#contact" },
+                btnBg: "var(--color-lumen-pink, #ec4899)",
               },
-            ].map((s) => (
+            ]).map((s) => (
               <div
                 key={s.n}
-                className={`p-8 bg-white rounded-3xl border-2 ${s.border} hover:-translate-y-1 transition-transform shadow-sm`}
+                className={`p-8 bg-white rounded-3xl border-2 ${s.border} hover:-translate-y-1 transition-transform shadow-sm flex flex-col`}
               >
                 <div
                   className={`size-14 rounded-2xl ${s.bg} ${s.t} flex items-center justify-center font-display font-extrabold text-xl mb-5`}
@@ -506,20 +506,36 @@ function Index() {
                   {s.n}
                 </div>
                 <h3 className="font-display text-2xl font-bold mb-3">{s.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{s.body}</p>
-                {s.cta && (
+                <p className="text-slate-600 leading-relaxed flex-1">{s.body}</p>
+                {s.cta.kind === "book" && (
                   <button
                     type="button"
                     onClick={openBooking}
-                    className={`mt-5 inline-flex items-center gap-1 px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider text-white ${s.t.replace("text-", "bg-")} bg-opacity-90 hover:opacity-90 transition-opacity cursor-pointer`}
-                    style={
-                      s.n === "01"
-                        ? { background: "var(--color-lumen-purple, #7c3aed)" }
-                        : { background: "var(--color-lumen-orange, #f97316)" }
-                    }
+                    className="mt-5 inline-flex items-center gap-1 px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider text-white hover:opacity-90 transition-opacity cursor-pointer self-start"
+                    style={{ background: s.btnBg }}
                   >
-                    {s.cta} →
+                    {s.cta.label} →
                   </button>
+                )}
+                {s.cta.kind === "external" && (
+                  <a
+                    href={s.cta.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-1 px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider text-white hover:opacity-90 transition-opacity self-start"
+                    style={{ background: s.btnBg }}
+                  >
+                    {s.cta.label}
+                  </a>
+                )}
+                {s.cta.kind === "scroll" && (
+                  <a
+                    href={s.cta.href}
+                    className="mt-5 inline-flex items-center gap-1 px-5 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider text-white hover:opacity-90 transition-opacity self-start"
+                    style={{ background: s.btnBg }}
+                  >
+                    {s.cta.label}
+                  </a>
                 )}
               </div>
             ))}
@@ -772,11 +788,24 @@ function Index() {
         </div>
       </section>
 
-      {/* Minimal footer */}
-      <footer className="px-6 md:px-10 py-8 text-center text-xs text-slate-500">
+      {/* Footer: dark purple top accent line + © + Facebook */}
+      <div className="h-1.5 w-full bg-lumen-royal" aria-hidden />
+      <footer className="px-6 md:px-10 py-8 text-center text-xs text-slate-500 bg-white">
         <p>
           © {new Date().getFullYear()} Lumen Telepsych LLC · Licensed in Washington & Tennessee
         </p>
+        <a
+          href="https://www.facebook.com/p/Lumen-Telepsych-61584225376280/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Lumen Telepsych on Facebook"
+          className="mt-4 inline-flex items-center gap-2 px-4 py-2 rounded-full border-2 border-lumen-royal/30 text-lumen-royal font-bold text-xs hover:bg-lumen-royal hover:text-white transition-colors"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" className="size-4" aria-hidden>
+            <path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z" />
+          </svg>
+          Follow us on Facebook
+        </a>
       </footer>
     </div>
   );
