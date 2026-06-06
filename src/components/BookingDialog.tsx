@@ -3,8 +3,8 @@ import { useState } from "react";
 import { IntakeWizard } from "@/components/intake/IntakeWizard";
 
 const THERAPYNOTES_URL = "https://therapyportal.com/p/lumentelepsych2025/";
-const HEADWAY_URL = "https://care.headway.co/providers/chelsea-johnson-5?utm_source=pem&utm_medium=direct_link&utm_campaign=174369";
-const ZOCDOC_URL = "https://www.zocdoc.com/doctor/chelsea-johnson-aprn-rn-pmhnp-bc-np-msn-685897";
+const HEADWAY_URL = "https://care.headway.co/providers/chelsea-johnson-5?state=TENNESSEE";
+const ZOCDOC_URL = "https://www.zocdoc.com/booking-link/doctor/chelsea-johnson-aprn-rn-pmhnp-bc-np-msn-685897";
 
 type Option = {
   label: string;
@@ -40,7 +40,7 @@ const OPTIONS: Option[] = [
   },
   {
     label: "Tennessee Insurance",
-    subtitle: "Cigna · Aetna · Carelon · Ascension · Optum",
+    subtitle: "Ascension · Independence Blue Cross · Cigna · Horizon Blue Cross of NJ · Aetna · Carelon Behavioral Health",
     body: "If you live in Tennessee and have one of these plans, you'll book through Headway, which handles benefits, billing, and copays.",
     href: HEADWAY_URL,
     cardBg: "bg-lumen-orange/25 hover:bg-lumen-orange/35",

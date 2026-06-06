@@ -166,8 +166,8 @@ function Index() {
         988 Suicide & Crisis Lifeline.
       </div>
 
-      {/* Nav — soft salmon header */}
-      <nav className="sticky top-0 z-50 px-4 md:px-10 py-3 md:py-4 flex flex-wrap gap-y-2 justify-between items-center bg-gradient-to-r from-[#FFC7B5] via-[#FFB5A7] to-[#F8A488] backdrop-blur-md text-lumen-royal shadow-sm">
+      {/* Nav — soft salmon header (minimal: logo + Book Now) */}
+      <nav className="sticky top-0 z-50 px-4 md:px-10 py-3 md:py-4 flex justify-between items-center bg-gradient-to-r from-[#FFC7B5] via-[#FFB5A7] to-[#F8A488] backdrop-blur-md text-lumen-royal shadow-sm">
         <a href="#top" className="flex items-center gap-3">
           <div className="size-9 rounded-full bg-white/60 ring-2 ring-lumen-royal/30 backdrop-blur flex items-center justify-center">
             <Sparkle className="size-4 text-lumen-royal" />
@@ -176,21 +176,13 @@ function Index() {
             LUMEN TELEPSYCH
           </span>
         </a>
-        <div className="hidden lg:flex gap-6 xl:gap-8 font-semibold text-xs xl:text-sm tracking-wide uppercase">
-          <a href="#about" className="hover:text-white transition-colors">About</a>
-          <a href="#approach" className="hover:text-white transition-colors">Approach</a>
-          <a href="#treatments" className="hover:text-white transition-colors">Services</a>
-          <a href="#chelsea" className="hover:text-white transition-colors">Provider</a>
-          <a href="#reviews" className="hover:text-white transition-colors">Reviews</a>
-          <a href="#hours" className="hover:text-white transition-colors">Hours</a>
-          <a href="#contact" className="hover:text-white transition-colors">Contact</a>
-        </div>
-        <a
-          href="#contact"
-          className="px-4 md:px-5 py-2 md:py-2.5 bg-lumen-royal text-white rounded-full text-xs md:text-sm font-extrabold uppercase tracking-wider hover:bg-lumen-purple hover:text-lumen-royal transition-colors shadow-lg"
+        <button
+          type="button"
+          onClick={openBooking}
+          className="px-4 md:px-5 py-2 md:py-2.5 bg-lumen-royal text-white rounded-full text-xs md:text-sm font-extrabold uppercase tracking-wider hover:bg-lumen-purple hover:text-lumen-royal transition-colors shadow-lg cursor-pointer"
         >
           Book Now
-        </a>
+        </button>
       </nav>
 
       {/* Hero — wide rounded banner with overlay text */}
@@ -410,7 +402,7 @@ function Index() {
                 />
               </div>
               <div className="text-center mt-6">
-                <p className="font-display text-2xl font-extrabold">Chelsea Johnson, PMHNP-BC</p>
+                <p className="font-display text-2xl font-extrabold">Chelsea Johnson, PMHNP-BC, MSN, ARNP</p>
                 <p className="text-slate-600 mt-1">Psychiatric Medication Management</p>
               </div>
             </div>
