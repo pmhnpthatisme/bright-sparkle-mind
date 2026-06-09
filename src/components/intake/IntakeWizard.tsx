@@ -403,7 +403,7 @@ export function IntakeWizard({ flavor, onBack, onComplete }: Props) {
           )}
           <PolicyAck title="Billing & Payment Consent"
             body={isWAInsurance
-              ? "I authorize Lumen Telepsych to keep a valid debit/credit card on file for any copays, coinsurance, deductibles, or charges not covered by my insurance. I understand cancellations with less than 24 hours' notice or no-shows may incur a fee."
+              ? "I authorize Lumen Telepsych to keep a valid debit/credit card on file for any copays, coinsurance, deductibles, or charges not covered by my insurance. I understand that a co-payment may be due at the time of service, and that cancellations with less than 24 hours' notice or no-shows may incur a fee."
               : "Intake appointments are $250, non-refundable, due at the first visit. Monthly DPC membership is $100/month, automatically billed if elected. Lumen Telepsych does not bill insurance for self-pay clients (superbills available on request). A valid card must be kept on file. Late cancellations (<24h) and no-shows incur a fee."}
             checked={form.ackBilling} onChange={(v) => set("ackBilling", v)} />
           <PolicyAck title="Narcotic Policy"
@@ -420,7 +420,7 @@ export function IntakeWizard({ flavor, onBack, onComplete }: Props) {
             checked={form.ackPrivacy} onChange={(v) => set("ackPrivacy", v)} />
           {isWAInsurance && (
             <PolicyAck title="Authorization to Bill Insurance"
-              body="I authorize Lumen Telepsych to submit claims to the insurance carrier listed above for psychiatric services provided, and I authorize release of any medical information necessary to process those claims. I understand I am financially responsible for any amounts not covered."
+              body="I authorize Lumen Telepsych to submit claims to the insurance carrier listed above for psychiatric services provided, and I authorize release of any medical information necessary to process those claims. I understand I am financially responsible for any amounts not covered by my plan, including any co-payment that may be due at the time of service."
               checked={form.ackInsuranceAuth} onChange={(v) => set("ackInsuranceAuth", v)} />
           )}
           <PolicyAck highlight title="Consent to Treatment (required)"
