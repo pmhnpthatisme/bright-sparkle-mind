@@ -370,6 +370,9 @@ export function IntakeWizard({ flavor, onBack, onComplete }: Props) {
 
       {steps[step] === "Insurance" && (
         <div className="space-y-4">
+          <div className="rounded-xl border border-lumen-royal/20 bg-lumen-royal/5 px-4 py-3 text-sm text-slate-700">
+            Please note: depending on your plan, a <strong>co-payment may be due at the time of service</strong>. We'll verify your benefits and let you know what to expect before your visit.
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Field label="Insurance company *"><input className={inputCls} value={form.insuranceCompany} onChange={(e) => set("insuranceCompany", e.target.value)} placeholder="Optum, Premera, Cigna, Aetna" /></Field>
             <Field label="Plan name"><input className={inputCls} value={form.planName} onChange={(e) => set("planName", e.target.value)} /></Field>
