@@ -238,10 +238,10 @@ export function IntakeWizard({ flavor, onBack, onComplete }: Props) {
             Continue to the booking portal →
           </a>
           <a
-            href="sms:+13606372104"
+            href="sms:+13608723435"
             className="block w-full text-center p-4 rounded-2xl bg-white border-2 border-lumen-royal text-lumen-royal font-display font-extrabold text-base hover:bg-lumen-purple/10 transition-colors"
           >
-            Or text the practice at (360) 637-2104 for current availability
+            Or text the practice at (360) 872-3435 for current availability
           </a>
           <button type="button" onClick={onComplete} className="text-xs font-bold text-lumen-royal hover:underline mt-2">
             Close
@@ -374,7 +374,7 @@ export function IntakeWizard({ flavor, onBack, onComplete }: Props) {
             Please note: depending on your plan, a <strong>co-payment may be due at the time of service</strong>. We'll verify your benefits and let you know what to expect before your visit.
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Field label="Insurance company *"><input className={inputCls} value={form.insuranceCompany} onChange={(e) => set("insuranceCompany", e.target.value)} placeholder="Optum, Premera, Cigna, Aetna" /></Field>
+            <Field label="Insurance company *"><input className={inputCls} value={form.insuranceCompany} onChange={(e) => set("insuranceCompany", e.target.value)} placeholder="Aetna, First Choice Health Network, Cigna" /></Field>
             <Field label="Plan name"><input className={inputCls} value={form.planName} onChange={(e) => set("planName", e.target.value)} /></Field>
             <Field label="Member ID *"><input className={inputCls} value={form.memberId} onChange={(e) => set("memberId", e.target.value)} /></Field>
             <Field label="Group number"><input className={inputCls} value={form.groupNumber} onChange={(e) => set("groupNumber", e.target.value)} /></Field>

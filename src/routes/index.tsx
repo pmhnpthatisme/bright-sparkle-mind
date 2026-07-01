@@ -608,8 +608,8 @@ function Index() {
             </button>
             <p className="mt-6 text-white/90 text-sm md:text-base">
               Text{" "}
-              <a href="sms:+13606372104" className="underline font-bold">
-                (360) 637-2104
+              <a href="sms:+13608723435" className="underline font-bold">
+                (360) 872-3435
               </a>{" "}
               · Email{" "}
               <a href="mailto:lumentelepsych@gmail.com" className="underline font-bold">
@@ -669,7 +669,7 @@ function Index() {
             <p className="text-slate-600 mt-4">
               Tell us a little about what you're looking for and we'll get back to you to book your
               first appointment. You can also text or call{" "}
-              <a href="tel:+13606372104" className="font-bold text-lumen-royal underline">(360) 637-2104</a>{" "}
+              <a href="tel:+13608723435" className="font-bold text-lumen-royal underline">(360) 872-3435</a>{" "}
               or email{" "}
               <a href="mailto:lumentelepsych@gmail.com" className="font-bold text-lumen-royal underline">
                 lumentelepsych@gmail.com
