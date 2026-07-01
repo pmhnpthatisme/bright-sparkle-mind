@@ -30,8 +30,8 @@ const OPTIONS: Option[] = [
   },
   {
     label: "Washington Insurance",
-    subtitle: "Optum · Premera · Cigna · Aetna",
-    body: "If you live in Washington and have one of these plans, book directly through our patient portal — we bill your insurance for you.",
+    subtitle: "Aetna · First Choice Health Network · Cigna",
+    body: "If you live in Washington and have Aetna, First Choice Health Network, or Cigna, book directly through our patient portal — we bill your insurance for you.",
     href: THERAPYNOTES_URL,
     cardBg: "bg-lumen-pink/20 hover:bg-lumen-pink/30",
     accent: "text-pink-700",
@@ -53,7 +53,7 @@ const OPTIONS: Option[] = [
 const ZOCDOC_OPTION: Option = {
   label: "Book via Zocdoc",
   subtitle: "Self-pay (WA/TN) or WA insurance",
-  body: "Prefer Zocdoc? You can book and complete intake right inside Zocdoc — great for self-pay clients in Washington or Tennessee, and for Washington clients using insurance. (Tennessee insurance clients: please use Headway above.)",
+  body: "Prefer Zocdoc? You can book and complete intake right inside Zocdoc — great for self-pay clients in Washington or Tennessee, and for Washington clients using insurance. (Tennessee insurance clients: please use Headway above.) Please note: Zocdoc charges the practice a per-booking fee. To keep this option available for everyone, appointments cancelled with less than 24 hours' notice or missed as a no-show will be billed the equivalent Zocdoc booking fee.",
   href: ZOCDOC_URL,
   cardBg: "bg-slate-100 hover:bg-slate-200",
   accent: "text-slate-700",
@@ -126,7 +126,7 @@ export function BookingDialog({
         </div>
 
         <p className="text-xs text-slate-500 mt-4 text-center">
-          Not sure which to pick? Text <a href="tel:+13606372104" className="font-bold text-lumen-royal underline">(360) 637-2104</a> and we'll help you choose.
+          Not sure which to pick? Text <a href="tel:+13608723435" className="font-bold text-lumen-royal underline">(360) 872-3435</a> and we'll help you choose.
         </p>
           </>
         ) : (
