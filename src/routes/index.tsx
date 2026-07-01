@@ -481,7 +481,7 @@ function Index() {
                 cta: {
                   label: "Pick your appointment time →",
                   kind: "external" as const,
-                  href: "https://therapyportal.com/p/lumentelepsych2025/?fbclid=IwY2xjawSOpAdleHRuA2FlbQIxMABicmlkETF0RVJsV3QzUmdyNkgwTHJqc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHtFufkUGjcMny3p62P0ZkE8lG6WX1dRVErp4RKfYDF7aPFkpQwAktIifZnLR_aem_TwcXuUhvVDdcwh3BE2E9eQ",
+                  href: "https://therapyportal.com/p/lumentelepsych2025/",
                 },
                 btnBg: "var(--color-lumen-teal, #14b8a6)",
               },
