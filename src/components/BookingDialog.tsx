@@ -30,7 +30,7 @@ const OPTIONS: Option[] = [
   },
   {
     label: "Washington Insurance",
-    subtitle: "Aetna · First Choice Health Network · Cigna",
+    subtitle: "In network with: Aetna · First Choice Health Network · Cigna",
     body: "If you live in Washington and have Aetna, First Choice Health Network, or Cigna, book directly through our patient portal — we bill your insurance for you.",
     href: THERAPYNOTES_URL,
     cardBg: "bg-lumen-pink/20 hover:bg-lumen-pink/30",
@@ -40,7 +40,7 @@ const OPTIONS: Option[] = [
   },
   {
     label: "Tennessee Insurance",
-    subtitle: "Ascension · Independence Blue Cross · Cigna · Horizon Blue Cross of NJ · Aetna · Carelon Behavioral Health",
+    subtitle: "In network with: Ascension · Independence Blue Cross · Cigna · Horizon Blue Cross of NJ · Aetna · Carelon Behavioral Health",
     body: "If you live in Tennessee and have one of these plans, you'll book through Headway, which handles benefits, billing, and copays.",
     href: HEADWAY_URL,
     cardBg: "bg-lumen-orange/25 hover:bg-lumen-orange/35",
