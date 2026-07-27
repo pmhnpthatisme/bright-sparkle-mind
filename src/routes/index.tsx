@@ -752,17 +752,12 @@ function Index() {
               <p className="text-sm text-slate-600">
                 We typically reply within <strong>1–2 business days</strong>.
               </p>
-              {sendError && (
-                <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
-                  {sendError}
-                </p>
-              )}
               <button
                 type="submit"
-                disabled={sending || !contact.consent || !contact.crisisAck}
+                disabled={!contact.consent || !contact.crisisAck}
                 className="w-full md:w-auto px-8 py-4 bg-lumen-royal text-white rounded-full font-extrabold text-sm uppercase tracking-wider shadow-lg hover:bg-lumen-purple hover:text-lumen-royal transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                {sending ? "Sending…" : "Send Message"}
+                Send Message
               </button>
               <p className="text-xs text-slate-500">
                 This form isn't monitored in real time. If you need to speak with someone right
