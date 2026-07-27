@@ -11,7 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiPublicIntakeSubmitRouteImport } from './routes/api/public/intake-submit'
-import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,39 +22,30 @@ const ApiPublicIntakeSubmitRoute = ApiPublicIntakeSubmitRouteImport.update({
   path: '/api/public/intake-submit',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
-  id: '/api/public/contact',
-  path: '/api/public/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/intake-submit': typeof ApiPublicIntakeSubmitRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/intake-submit': typeof ApiPublicIntakeSubmitRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/api/public/contact': typeof ApiPublicContactRoute
   '/api/public/intake-submit': typeof ApiPublicIntakeSubmitRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/public/contact' | '/api/public/intake-submit'
+  fullPaths: '/' | '/api/public/intake-submit'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/public/contact' | '/api/public/intake-submit'
-  id: '__root__' | '/' | '/api/public/contact' | '/api/public/intake-submit'
+  to: '/' | '/api/public/intake-submit'
+  id: '__root__' | '/' | '/api/public/intake-submit'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  ApiPublicContactRoute: typeof ApiPublicContactRoute
   ApiPublicIntakeSubmitRoute: typeof ApiPublicIntakeSubmitRoute
 }
 
@@ -75,21 +65,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicIntakeSubmitRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/public/contact': {
-      id: '/api/public/contact'
-      path: '/api/public/contact'
-      fullPath: '/api/public/contact'
-      preLoaderRoute: typeof ApiPublicContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  ApiPublicContactRoute: ApiPublicContactRoute,
   ApiPublicIntakeSubmitRoute: ApiPublicIntakeSubmitRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
