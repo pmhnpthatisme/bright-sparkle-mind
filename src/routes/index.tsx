@@ -116,41 +116,27 @@ function Index() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [sendError, setSendError] = useState<string | null>(null);
   const openBooking = () => setBookingOpen(true);
 
-  const handleContactSubmit = async (e: React.FormEvent) => {
+  const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!contact.consent || !contact.crisisAck) return;
-    setSending(true);
-    setSendError(null);
-    try {
-      const res = await fetch("/api/public/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: contact.name,
-          email: contact.email,
-          phone: contact.phone,
-          message: contact.message,
-          consent_reply: contact.consent,
-          consent_comms: contact.consent,
-          consent_crisis: contact.crisisAck,
-          consent_hipaa: contact.consent,
-        }),
-      });
-      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
-      if (!res.ok || !data.ok) {
-        setSendError(data.error || "Something went wrong. Please try again or text us directly.");
-      } else {
-        setSubmitted(true);
-      }
-    } catch {
-      setSendError("Network error. Please try again or text us directly.");
-    } finally {
-      setSending(false);
-    }
+    const body = [
+      `Name: ${contact.name}`,
+      `Email: ${contact.email}`,
+      `Phone: ${contact.phone}`,
+      "",
+      "Message:",
+      contact.message,
+      "",
+      "I consent to be contacted at the email/phone above and acknowledge this form is not monitored for emergencies.",
+    ].join("\n");
+    const href =
+      `mailto:lumentelepsych@gmail.com?subject=${encodeURIComponent(
+        `New inquiry — ${contact.name || "Website contact form"}`,
+      )}&body=${encodeURIComponent(body)}`;
+    window.location.href = href;
+    setSubmitted(true);
   };
 
   return (
