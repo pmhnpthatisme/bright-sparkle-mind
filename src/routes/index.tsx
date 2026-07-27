@@ -116,41 +116,27 @@ function Index() {
   });
   const [submitted, setSubmitted] = useState(false);
   const [bookingOpen, setBookingOpen] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [sendError, setSendError] = useState<string | null>(null);
   const openBooking = () => setBookingOpen(true);
 
-  const handleContactSubmit = async (e: React.FormEvent) => {
+  const handleContactSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!contact.consent || !contact.crisisAck) return;
-    setSending(true);
-    setSendError(null);
-    try {
-      const res = await fetch("/api/public/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: contact.name,
-          email: contact.email,
-          phone: contact.phone,
-          message: contact.message,
-          consent_reply: contact.consent,
-          consent_comms: contact.consent,
-          consent_crisis: contact.crisisAck,
-          consent_hipaa: contact.consent,
-        }),
-      });
-      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string };
-      if (!res.ok || !data.ok) {
-        setSendError(data.error || "Something went wrong. Please try again or text us directly.");
-      } else {
-        setSubmitted(true);
-      }
-    } catch {
-      setSendError("Network error. Please try again or text us directly.");
-    } finally {
-      setSending(false);
-    }
+    const body = [
+      `Name: ${contact.name}`,
+      `Email: ${contact.email}`,
+      `Phone: ${contact.phone}`,
+      "",
+      "Message:",
+      contact.message,
+      "",
+      "I consent to be contacted at the email/phone above and acknowledge this form is not monitored for emergencies.",
+    ].join("\n");
+    const href =
+      `mailto:lumentelepsych@gmail.com?subject=${encodeURIComponent(
+        `New inquiry — ${contact.name || "Website contact form"}`,
+      )}&body=${encodeURIComponent(body)}`;
+    window.location.href = href;
+    setSubmitted(true);
   };
 
   return (
@@ -766,17 +752,12 @@ function Index() {
               <p className="text-sm text-slate-600">
                 We typically reply within <strong>1–2 business days</strong>.
               </p>
-              {sendError && (
-                <p className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3">
-                  {sendError}
-                </p>
-              )}
               <button
                 type="submit"
-                disabled={sending || !contact.consent || !contact.crisisAck}
+                disabled={!contact.consent || !contact.crisisAck}
                 className="w-full md:w-auto px-8 py-4 bg-lumen-royal text-white rounded-full font-extrabold text-sm uppercase tracking-wider shadow-lg hover:bg-lumen-purple hover:text-lumen-royal transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
               >
-                {sending ? "Sending…" : "Send Message"}
+                Send Message
               </button>
               <p className="text-xs text-slate-500">
                 This form isn't monitored in real time. If you need to speak with someone right
